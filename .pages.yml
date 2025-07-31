@@ -15,9 +15,9 @@ content:
     type: collection
     filename: '{primary}.md'
     view:
-      fields: [ title, publishedAt ]
+      fields: [ title, pubDate ]
       primary: title
-      sort: [ title, publishedAt ]
+      sort: [ title, pubDate ]
       default:
         search: ''
         sort: title
@@ -37,7 +37,7 @@ content:
           collection: authors
           multiple: true
           search: "name"
-      - name: pubData
+      - name: pubDate
         label: Published date
         type: date
         options:
