@@ -98,3 +98,12 @@ content:
         - name: alt
           label: Alt text
           type: string
+      - name: contact
+        label: Contact options
+        type: object
+        list: true
+        fields:
+          - name: link
+            label: Link
+          - name: label
+            label: Label
