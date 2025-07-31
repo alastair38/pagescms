@@ -1,9 +1,11 @@
 ---
 title: First blog post
 description: This is the first blog post description
-isDraft: true
 authors:
   - src/data/authors/alastair-cox.md
+pubData: 31-07-2025
+updatedAt: 31-07-2025
+isDraft: true
 ---
 ## What does this say?
 
