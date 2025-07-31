@@ -1,5 +1,6 @@
 media:
 - name: images
+  label: Media
   input: src/media
   output: media
 - name: files
