@@ -7,3 +7,31 @@ media:
   input: src/files
   output: files
   categories: [ document ]
+
+content:
+  - name: blog
+    label: Blog
+    path: src/data/blog
+    type: collection
+    fields:
+      - name: title
+        label: Title
+        type: string
+      - name: description
+        label: Description
+        type: text
+      - name: isDraft
+        label: Draft
+        type: boolean
+      # ... fields defined here ...
+  - name: authors
+    label: Authors
+    path: src/data/authors.json
+    type: file
+    fields:
+      - name: name
+        label: Name
+        type: string
+      - name: bio
+        label: Biography
+        type: text
