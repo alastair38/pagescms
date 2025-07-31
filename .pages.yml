@@ -104,7 +104,7 @@ content:
         list:
           collapsible:
             collapsed: false # Default collapsed state
-            summary: "{contact.label} ({contact.link})" # Template string using field values and {index}
+            summary: "{contact} ({index})" # Template string using field values and {index}
         fields:
           - name: link
             label: Link
