@@ -101,7 +101,10 @@ content:
       - name: contact
         label: Contact options
         type: object
-        list: true
+        list:
+          collapsible:
+            collapsed: true # Default collapsed state
+            summary: "{title} ({index})" # Template string using field values and {index}
         fields:
           - name: link
             label: Link
