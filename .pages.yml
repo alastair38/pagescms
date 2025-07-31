@@ -26,7 +26,7 @@ content:
       # ... fields defined here ...
   - name: authors
     label: Authors
-    path: src/data/authors.json
+    path: src/data/authors
     type: collection
     fields:
       - name: name
