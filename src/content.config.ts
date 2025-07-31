@@ -23,7 +23,7 @@ const blog = defineCollection({
 });
 
 const authors = defineCollection({
-  loader: file('src/data/authors.json'),
+  loader: glob({ pattern: '**/*.md', base: './src/data/authors' }),
   schema: z.object({
     name: z.string(),
     bio: z.string(),
