@@ -1,6 +1,7 @@
 ---
 title: First blog post
 description: This is the first blog post description
+featuredImage: media/flush_roof_rails.jpg
 authors:
   - src/data/authors/alastair-cox.md
 pubDate: 30-07-2025
