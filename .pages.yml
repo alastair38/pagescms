@@ -54,13 +54,9 @@ content:
       - name: pubDate
         label: Published date
         type: date
-        options:
-          format: dd-MM-yyyy
       - name: updatedAt
         label: Updated at
         type: date
-        options:
-          format: dd-MM-yyyy
       - name: isDraft
         label: Draft
         type: boolean
