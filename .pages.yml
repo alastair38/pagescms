@@ -16,7 +16,7 @@ content:
     view:
       fields: [ title ]
       primary: title
-      sort: [ date, title ]
+      sort: [ title ]
       default:
         search: ''
         sort: title
