@@ -1,4 +1,5 @@
 ---
-title: 'First blog post'
-description: 'This is the first blog post description'
+title: First blog post
+description: This is the first blog post description
+isDraft: true
 ---
