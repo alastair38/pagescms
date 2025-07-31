@@ -13,6 +13,14 @@ content:
     label: Blog
     path: src/data/blog
     type: collection
+    view:
+      fields: [ title ]
+      primary: title
+      sort: [ date, title ]
+      default:
+        search: ''
+        sort: title
+        order: desc
     fields:
       - name: title
         label: Title
