@@ -31,8 +31,6 @@ content:
           collection: authors
           multiple: true
           search: "name"
-          value: "{id}"
-          label: "{name} - Author"
       - name: body
         label: Body
         type: rich-text
