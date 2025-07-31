@@ -104,7 +104,6 @@ content:
         list:
           collapsible:
             collapsed: false # Default collapsed state
-            summary: "Option {link} - {index}" # Template string using field values and {index}
         fields:
           - name: link
             label: Link
