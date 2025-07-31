@@ -2,6 +2,9 @@ media:
 - name: images
   input: src/media
   output: media
+- name: blogImages
+  input: src/media/blogImages
+  output: media/blogImages
 - name: files
   label: Files
   input: src/files
