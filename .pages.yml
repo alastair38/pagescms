@@ -28,9 +28,6 @@ content:
       - name: description
         label: Description
         type: text
-      - name: isDraft
-        label: Draft
-        type: boolean
       - name: authors
         label: Authors
         type: reference
@@ -39,6 +36,19 @@ content:
           collection: authors
           multiple: true
           search: "name"
+      - name: pubData
+        label: Published date
+        type: date
+        options:
+          format: dd-MM-yyyy
+      - name: updatedAt
+        label: Updated at
+        type: date
+        options:
+          format: dd-MM-yyyy
+      - name: isDraft
+        label: Draft
+        type: boolean
       - name: body
         label: Body
         type: rich-text
