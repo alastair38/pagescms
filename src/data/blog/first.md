@@ -2,8 +2,9 @@
 title: First blog post
 description: This is the first blog post description
 isDraft: true
+authors:
+  - src/data/authors/alastair-cox.md
 ---
-
 ## What does this say?
 
 One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin.
