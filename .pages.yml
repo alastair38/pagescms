@@ -32,7 +32,7 @@ content:
           multiple: true
           search: "name"
           value: "{id}"
-          label: "{name}"
+          label: "{primary}"
       - name: body
         label: Body
         type: rich-text
