@@ -33,7 +33,7 @@ content:
         label: Featured Image
         type: image
         options:
-          path: media/blog
+          path: images/blog
       - name: authors
         label: Authors
         type: reference
