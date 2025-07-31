@@ -29,6 +29,9 @@ content:
         options:
           collection: authors
           multiple: true
+      - name: body
+        label: Body
+        type: rich-text
       # ... fields defined here ...
   - name: authors
     label: Authors
