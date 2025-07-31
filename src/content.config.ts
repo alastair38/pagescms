@@ -8,7 +8,7 @@ const blog = defineCollection({
     description: z.string(),
     featuredImage: z
       .object({
-        src: z.string(),
+        image: z.string(),
         alt: z.string(),
       })
       .optional(),
@@ -27,9 +27,9 @@ const authors = defineCollection({
   schema: z.object({
     name: z.string(),
     bio: z.string(),
-    image: z
+    featuredImage: z
       .object({
-        src: z.string(),
+        image: z.string(),
         alt: z.string(),
       })
       .optional(),
