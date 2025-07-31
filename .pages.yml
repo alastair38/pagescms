@@ -1,0 +1,9 @@
+media:
+- name: images
+  input: src/media
+  output: media
+- name: files
+  label: Files
+  input: src/files
+  output: files
+  categories: [ document ]
