@@ -26,6 +26,7 @@ content:
       - name: authors
         label: Authors
         type: reference
+        required: false
         options:
           collection: authors
           multiple: true
