@@ -6,8 +6,8 @@ featuredImage:
   alt: Plain roof rack
 authors:
   - src/data/authors/alastair-cox.md
-pubDate: 30-07-2025
-updatedAt: 31-07-2025
+pubDate: 2025-07-30
+updatedAt: 2025-07-31
 isDraft: true
 ---
 ## What does this say?
