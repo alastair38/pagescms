@@ -79,8 +79,15 @@ content:
         label: Biography
         type: text
       - name: featuredImage
-        label: Image
-        type: image
-        options:
-          path: src/media/authors
-          extensions: [jpeg, jpg, png, webp, avif]
+        label: Featured Image
+        type: object
+        fields:
+        - name: image
+          label: Image
+          type: image
+          options:
+            path: src/media/authors
+            extensions: [jpeg, jpg, png, webp, avif]
+        - name: alt
+          label: Alt text
+          type: string
