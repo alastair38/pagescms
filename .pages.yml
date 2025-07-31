@@ -35,7 +35,7 @@ content:
         type: image
         options:
           path: src/media/blog
-          extensions: [jpg, png]
+          extensions: [jpeg, jpg, png, webp, avif]
       - name: authors
         label: Authors
         type: reference
@@ -78,3 +78,9 @@ content:
       - name: bio
         label: Biography
         type: text
+      - name: image
+        label: Image
+        type: image
+        options:
+          path: src/media/authors
+          extensions: [jpeg, jpg, png, webp, avif]
