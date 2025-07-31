@@ -23,6 +23,12 @@ content:
       - name: isDraft
         label: Draft
         type: boolean
+      - name: authors
+        label: Authors
+        type: reference
+        options:
+          collection: authors
+          multiple: true
       # ... fields defined here ...
   - name: authors
     label: Authors
