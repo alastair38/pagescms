@@ -13,6 +13,7 @@ content:
     label: Blog
     path: src/data/blog
     type: collection
+    filename: '{primary}.md'
     view:
       fields: [ title ]
       primary: title
