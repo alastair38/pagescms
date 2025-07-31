@@ -27,8 +27,11 @@ content:
   - name: authors
     label: Authors
     path: src/data/authors
-    filename: '{name}.md'
+    filename: '{primary}.md'
     type: collection
+    view:
+      fields: [name]
+      primary: name
     fields:
       - name: name
         label: Name
