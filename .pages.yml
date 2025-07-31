@@ -105,5 +105,7 @@ content:
         fields:
           - name: link
             label: Link
+            type: string
           - name: label
             label: Label
+            type: string
