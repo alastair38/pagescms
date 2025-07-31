@@ -30,6 +30,9 @@ content:
         options:
           collection: authors
           multiple: true
+          search: "name"
+          value: "{id}"
+          label: "{name}"
       - name: body
         label: Body
         type: rich-text
