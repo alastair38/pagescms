@@ -15,9 +15,9 @@ content:
     type: collection
     filename: '{primary}.md'
     view:
-      fields: [ title ]
+      fields: [ title, publishedAt ]
       primary: title
-      sort: [ title ]
+      sort: [ title, publishedAt ]
       default:
         search: ''
         sort: title
