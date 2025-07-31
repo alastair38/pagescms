@@ -27,7 +27,7 @@ content:
   - name: authors
     label: Authors
     path: src/data/authors.json
-    type: file
+    type: collection
     fields:
       - name: name
         label: Name
