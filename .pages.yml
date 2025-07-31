@@ -27,6 +27,7 @@ content:
   - name: authors
     label: Authors
     path: src/data/authors
+    filename: '{name}.md'
     type: collection
     fields:
       - name: name
