@@ -29,6 +29,11 @@ content:
       - name: description
         label: Description
         type: text
+      - name: featuredImage
+        label: Featured Image
+        type: image
+        options:
+          path: blog
       - name: authors
         label: Authors
         type: reference
