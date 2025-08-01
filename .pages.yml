@@ -14,7 +14,7 @@ content:
     label: Blog
     path: src/data/blog
     type: collection
-    filename: 'index.md'
+    filename: '{primary}/index.md"'
     view:
       fields: [ title, pubDate ]
       primary: title
