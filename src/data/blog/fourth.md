@@ -2,7 +2,7 @@
 title: FOURTH
 description: A description
 featuredImage:
-  image: ./media/blog/showcase-image.png
+  image: /src/media/blog/Prismic-logo.png
   alt: Some alt
 authors:
   - src/data/authors/alastair-cox.md
