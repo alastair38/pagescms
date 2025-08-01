@@ -9,7 +9,7 @@ const blog = defineCollection({
       description: z.string(),
       featuredImage: z
         .object({
-          image: z.string(),
+          image: image(),
           alt: z.string(),
         })
         .optional(),

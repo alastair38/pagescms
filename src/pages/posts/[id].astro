@@ -1,5 +1,6 @@
 ---
-import { Image } from 'astro:assets';
+import { Image, Picture } from 'astro:assets';
+import Layout from '../../layouts/Layout.astro';
 import { getCollection, render } from 'astro:content';
 // 1. Generate a new path for every collection entry
 export async function getStaticPaths() {
@@ -12,23 +13,50 @@ export async function getStaticPaths() {
 // 2. For your template, you can get the entry directly from the prop
 const { post } = Astro.props;
 const { Content } = await render(post);
+
+const imgSrc = post.data.featuredImage?.image;
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/media/blog/*.{jpeg,jpg,png,gif}'
+);
+
+if (!imgSrc)
+  throw new Error(
+    `"${imgSrc}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`
+  );
+
+console.log(images);
 ---
 
-<h1>{post.data.title}</h1>
+<Layout>
+  <main class="max-w-5xl mx-auto bg-purple-400 space-y-10 my-24">
+    <h1 class="font-black text-4xl mx-auto w-fit">{post.data.title}</h1>
 
-{
-  post.data.featuredImage && (
-    <Image
-      src={post.data.featuredImage.image.src}
-      quality={100}
-      format="webp"
-      loading="eager"
-      style="object-fit: cover;"
-      class="rounded-md w-full max-h-[300px]  md:max-h-[500px] my-8 object-cover"
-      alt={post.data.featuredImage.alt}
-    />
-  )
-}
-{post.data.description}
+    <!-- {
+      imgSrc && (
+        <Picture
+          class="rounded-md w-auto mx-auto object-cover overflow-clip my-8 bg-amber-50 p-5"
+          src={images[imgSrc]()}
+          alt={post.data.featuredImage?.alt || ''}
+          formats={['avif', 'webp']}
+        />
+      )
+    } -->
 
-<Content />
+    {
+      post.data.featuredImage && post.data.featuredImage.image && (
+        <Picture
+          src={post.data.featuredImage.image}
+          quality={100}
+          loading="eager"
+          formats={['avif', 'webp']}
+          class="rounded-md w-fit mx-auto max-h-[300px]  md:max-h-[500px] my-8 object-cover"
+          alt={post.data.featuredImage.alt}
+        />
+      )
+    }
+    {post.data.description && <p>{post.data.description}</p>}
+
+    <Content />
+  </main>
+</Layout>
