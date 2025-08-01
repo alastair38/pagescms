@@ -1,8 +1,8 @@
 media:
 - name: images
   label: Media
-  input: src/data/blog
-  output: /src/data/blog
+  input: src/media
+  output: media
 - name: files
   label: Files
   input: src/files
