@@ -2,7 +2,6 @@
 title: FOURTH
 description: A description
 featuredImage:
-  image: ./blog/logoipsum-374.png
   alt: Some alt
 authors:
   - src/data/authors/alastair-cox.md
