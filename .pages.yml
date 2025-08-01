@@ -37,10 +37,6 @@ content:
         - name: image
           label: Image
           type: image
-          options:
-            input: ./
-            output: ./
-            extensions: [jpeg, jpg, png, webp, avif]
         - name: alt
           label: Alt text
           type: string
