@@ -3,23 +3,24 @@ import { glob, file } from 'astro/loaders';
 
 const blog = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/data/blog' }),
-  schema: z.object({
-    title: z.string(),
-    description: z.string(),
-    featuredImage: z
-      .object({
-        image: z.string(),
-        alt: z.string(),
-      })
-      .optional(),
-    pubDate: z.coerce.date().optional(),
-    updatedDate: z.coerce.date().optional(),
-    isDraft: z.boolean().default(false),
-    // Reference a single author from the `authors` collection by `id`
-    author: z.array(reference('authors')).optional(),
-    // Reference an array of related posts from the `blog` collection by `slug`
-    relatedPosts: z.array(reference('blog')).optional(),
-  }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      description: z.string(),
+      featuredImage: z
+        .object({
+          image: image(),
+          alt: z.string(),
+        })
+        .optional(),
+      pubDate: z.coerce.date().optional(),
+      updatedDate: z.coerce.date().optional(),
+      isDraft: z.boolean().default(false),
+      // Reference a single author from the `authors` collection by `id`
+      author: z.array(reference('authors')).optional(),
+      // Reference an array of related posts from the `blog` collection by `slug`
+      relatedPosts: z.array(reference('blog')).optional(),
+    }),
 });
 
 const authors = defineCollection({
