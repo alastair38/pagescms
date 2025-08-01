@@ -59,7 +59,7 @@ content:
       - name: pubDate
         label: Published date
         type: date
-        default: '`r format(Sys.Date(), "%B %d, %Y")`'
+        default: 2025-04-26
       - name: updatedAt
         label: Updated at
         type: date
