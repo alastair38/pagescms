@@ -2,7 +2,7 @@ media:
 - name: images
   label: Media
   input: src/media
-  output: src/media
+  output: /src/media
 - name: files
   label: Files
   input: src/files
@@ -38,8 +38,7 @@ content:
           label: Image
           type: image
           options:
-            path: ./media/blog
-            extensions: [jpeg, jpg, png, webp, avif]
+            path: src/media/blog
         - name: alt
           label: Alt text
           type: string
