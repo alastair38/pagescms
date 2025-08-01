@@ -2,7 +2,7 @@
 title: First blog post
 description: This is the first blog post description
 featuredImage:
-  image: media/blog/plain_roof.jpg
+  image: media/image3.jpg
   alt: Plain roof rack
 authors:
   - src/data/authors/alastair-cox.md
@@ -10,7 +10,6 @@ pubDate: 2025-07-30
 updatedAt: 2025-07-31
 isDraft: true
 ---
-
 ## What does this say?
 
 One morning, when Gregor Samsa woke from troubled dreams, he found himself transformed in his bed into a horrible vermin.
