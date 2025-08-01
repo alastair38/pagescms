@@ -63,6 +63,7 @@ content:
             values: [ rounded, plain ]
         - name: layout
           label: Layout
+          description: Choose the layout; 'grid' places the image and caption horizontally
           type: select
           default: default
           options:
