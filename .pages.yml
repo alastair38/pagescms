@@ -43,6 +43,7 @@ content:
           type: image
           options:
             media: blogImages
+            extensions: [png, jpg, jpeg]
         - name: alt
           label: Alt text
           type: string
