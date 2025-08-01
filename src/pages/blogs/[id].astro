@@ -16,8 +16,13 @@ const { Content } = await render(post);
 const imgSrc = post.data.featuredImage?.image;
 
 const images = import.meta.glob<{ default: ImageMetadata }>(
-  '/src/media/*.{jpeg,jpg,png,gif}'
+  '/src/media/blog/*.{jpeg,jpg,png,gif}'
 );
+
+if (!imgSrc)
+  throw new Error(
+    `"${imgSrc}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`
+  );
 
 console.log(images);
 ---
