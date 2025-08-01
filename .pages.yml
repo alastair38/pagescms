@@ -50,6 +50,7 @@ content:
             extensions: [png, jpg, jpeg]
         - name: alt
           label: Alt text
+          description: This should be an accurate description of the image for assistive technologies
           type: string
         - name: caption
           label: Caption
