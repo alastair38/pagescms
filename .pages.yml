@@ -51,6 +51,18 @@ content:
         - name: caption
           label: Caption
           type: string
+        - name: variant
+          label: Variant
+          type: select
+          default: plain
+          options:
+            values: [ rounded, plain ]
+        - name: layout
+          label: Layout
+          type: select
+          default: default
+          options:
+            values: [ default, grid ]
       - name: authors
         label: Authors
         type: reference
