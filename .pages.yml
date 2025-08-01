@@ -48,6 +48,9 @@ content:
         - name: alt
           label: Alt text
           type: string
+        - name: caption
+          label: Caption
+          type: string
       - name: authors
         label: Authors
         type: reference
