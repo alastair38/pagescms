@@ -42,7 +42,7 @@ content:
           label: Image
           type: image
           options:
-            path: ./
+            media: blogImages
         - name: alt
           label: Alt text
           type: string
