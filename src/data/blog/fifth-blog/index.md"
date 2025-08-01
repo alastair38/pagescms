@@ -1,0 +1,7 @@
+---
+title: Fifth blog
+description: Another blog post
+authors:
+  - src/data/authors/alastair-cox.md
+isDraft: false
+---
