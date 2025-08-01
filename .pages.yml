@@ -38,8 +38,8 @@ content:
           label: Image
           type: image
           options:
-            input: src/media/blog
-            output: /src/media/blog
+            input: blog
+            output: /blog
         - name: alt
           label: Alt text
           type: string
