@@ -38,7 +38,7 @@ content:
           label: Image
           type: image
           options:
-            output: /{primary}
+            output: /
             extensions: [jpeg, jpg, png, webp, avif]
         - name: alt
           label: Alt text
