@@ -3,6 +3,11 @@ media:
   label: Media
   input: src/media
   output: /src/media
+- name: blogImages
+  label: Blog Images
+  input: src/media/blog
+  output: /src/media/blog
+  extensions: [jpg, png, jpeg]
 - name: files
   label: Files
   input: src/files
@@ -38,7 +43,8 @@ content:
           label: Image
           type: image
           options:
-            path: src/media/blog
+            media: blogImages
+            extensions: [png, jpg, jpeg]
         - name: alt
           label: Alt text
           type: string
