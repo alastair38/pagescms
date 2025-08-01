@@ -38,8 +38,7 @@ content:
           label: Image
           type: image
           options:
-            input: src/data/blog
-            output: /src/data/blog
+            output: /{primary}
             extensions: [jpeg, jpg, png, webp, avif]
         - name: alt
           label: Alt text
