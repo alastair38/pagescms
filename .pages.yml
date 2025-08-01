@@ -29,6 +29,9 @@ content:
         sort: title
         order: desc
     fields:
+      - name: isDraft
+        label: Draft
+        type: boolean
       - name: title
         label: Title
         type: string
@@ -78,9 +81,6 @@ content:
       - name: updatedAt
         label: Updated at
         type: date
-      - name: isDraft
-        label: Draft
-        type: boolean
       - name: body
         label: Body
         type: rich-text
