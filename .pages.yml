@@ -38,7 +38,7 @@ content:
           label: Image
           type: image
           options:
-            path: src/media/blog
+            path: ./
             extensions: [jpeg, jpg, png, webp, avif]
         - name: alt
           label: Alt text
