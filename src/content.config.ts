@@ -11,6 +11,9 @@ const blog = defineCollection({
         .object({
           image: image(),
           alt: z.string(),
+          caption: z.string().optional(),
+          variant: z.enum(['rounded', 'plain']).optional(),
+          layout: z.enum(['default', 'grid']).optional(),
         })
         .optional(),
       pubDate: z.coerce.date().optional(),

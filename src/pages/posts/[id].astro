@@ -2,6 +2,7 @@
 import { Image, Picture } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import { getCollection, render } from 'astro:content';
+import FeaturedImage from '../../components/FeaturedImage.astro';
 // 1. Generate a new path for every collection entry
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
@@ -14,22 +15,22 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content } = await render(post);
 
-const imgSrc = post.data.featuredImage?.image;
+// const imgSrc = post.data.featuredImage?.image;
 
-const images = import.meta.glob<{ default: ImageMetadata }>(
-  '/src/media/blog/*.{jpeg,jpg,png,gif}'
-);
+// const images = import.meta.glob<{ default: ImageMetadata }>(
+//   '/src/media/blog/*.{jpeg,jpg,png,gif}'
+// );
 
-if (!imgSrc)
-  throw new Error(
-    `"${imgSrc}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`
-  );
+// if (!imgSrc)
+//   throw new Error(
+//     `"${imgSrc}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`
+//   );
 
-console.log(images);
+// console.log(images);
 ---
 
 <Layout>
-  <main class="max-w-5xl mx-auto bg-purple-400 space-y-10 my-24">
+  <main class="max-w-5xl mx-auto space-y-6 my-24">
     <h1 class="font-black text-4xl mx-auto w-fit">{post.data.title}</h1>
 
     <!-- {
@@ -43,20 +44,34 @@ console.log(images);
       )
     } -->
 
-    {
+    <!-- {
       post.data.featuredImage && post.data.featuredImage.image && (
         <Picture
           src={post.data.featuredImage.image}
           quality={100}
           loading="eager"
           formats={['avif', 'webp']}
-          class="rounded-md w-fit mx-auto max-h-[300px]  md:max-h-[500px] my-8 object-cover"
+          class="rounded-md w-fit mx-auto shadow-2xl max-h-[300px] md:max-h-[500px] my-12 object-cover"
           alt={post.data.featuredImage.alt}
         />
       )
-    }
-    {post.data.description && <p>{post.data.description}</p>}
+    } -->
 
-    <Content />
+    {
+      post.data.featuredImage && post.data.featuredImage.image && (
+        <FeaturedImage
+          image={post.data.featuredImage.image}
+          altText={post.data.featuredImage.alt}
+          variant="rounded"
+          caption="This is the image caption"
+        />
+      )
+    }
+
+    <div class="prose mx-auto">
+      {post.data.description && <p>{post.data.description}</p>}
+
+      <Content />
+    </div>
   </main>
 </Layout>
