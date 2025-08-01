@@ -59,7 +59,7 @@ content:
       - name: pubDate
         label: Published date
         type: date
-        default: Date.now()
+        default: now
       - name: updatedAt
         label: Updated at
         type: date
