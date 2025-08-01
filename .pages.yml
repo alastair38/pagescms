@@ -1,7 +1,7 @@
 media:
 - name: images
   label: Media
-  input: assets
+  input: src/assets
   output: ../../assets
 - name: files
   label: Files
