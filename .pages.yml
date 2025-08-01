@@ -6,7 +6,7 @@ media:
 - name: blogImages
   label: Blog Images
   input: src/data/blog
-  output: .blog
+  output: ./blog
   extensions: [jpg, png, jpeg]
 - name: files
   label: Files
