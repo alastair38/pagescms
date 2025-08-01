@@ -54,6 +54,7 @@ content:
           type: string
         - name: caption
           label: Caption
+          description: Optional
           type: string
         - name: variant
           label: Variant
