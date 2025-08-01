@@ -38,8 +38,7 @@ content:
           label: Image
           type: image
           options:
-            input: blog
-            output: blog
+            path: blog
         - name: alt
           label: Alt text
           type: string
