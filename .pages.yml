@@ -59,7 +59,7 @@ content:
       - name: pubDate
         label: Published date
         type: date
-        default: "`r format(Sys.time(), '%Y-%B-%d')`"
+        default: Today
       - name: updatedAt
         label: Updated at
         type: date
