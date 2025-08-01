@@ -29,6 +29,9 @@ content:
         sort: title
         order: desc
     fields:
+      - name: isDraft
+        label: Draft
+        type: boolean
       - name: title
         label: Title
         type: string
@@ -47,7 +50,26 @@ content:
             extensions: [png, jpg, jpeg]
         - name: alt
           label: Alt text
+          description: Alt text should be an accurate description of the image for assistive technologies
           type: string
+        - name: caption
+          label: Caption
+          description: Optional
+          type: string
+        - name: variant
+          label: Variant
+          description: Choose the variant; 'rounded' adds a border radius and shadow
+          type: select
+          default: plain
+          options:
+            values: [ rounded, plain ]
+        - name: layout
+          label: Layout
+          description: Choose the layout; 'grid' places the image and caption horizontally
+          type: select
+          default: default
+          options:
+            values: [ default, grid ]
       - name: authors
         label: Authors
         type: reference
@@ -59,12 +81,10 @@ content:
       - name: pubDate
         label: Published date
         type: date
+        step: 3
       - name: updatedAt
         label: Updated at
         type: date
-      - name: isDraft
-        label: Draft
-        type: boolean
       - name: body
         label: Body
         type: rich-text
