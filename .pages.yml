@@ -39,7 +39,7 @@ content:
           type: image
           options:
             input: blog
-            output: /blog
+            output: blog
         - name: alt
           label: Alt text
           type: string
