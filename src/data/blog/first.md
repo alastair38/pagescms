@@ -2,7 +2,7 @@
 title: First blog post
 description: This is the first blog post description
 featuredImage:
-  image: media/image5.jpg
+  image: src/media/image4.jpg
   alt: Plain roof rack
 authors:
   - src/data/authors/alastair-cox.md
