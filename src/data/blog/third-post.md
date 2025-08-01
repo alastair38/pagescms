@@ -1,16 +1,15 @@
 ---
+isDraft: false
 title: Third post
 description: A description here.
 featuredImage:
   image: /src/media/blog/image7.jpg
   alt: Face
-  caption: This is a caption
   variant: plain
   layout: default
 authors:
   - src/data/authors/alastair-cox.md
 pubDate: 2025-08-01
 updatedAt: 2025-08-01
-isDraft: false
 ---
 Some text stuff here
