@@ -1,8 +1,8 @@
 media:
 - name: images
   label: Media
-  input: src/assets
-  output: ../../assets
+  input: src/data/blog
+  output: /data/blog
 - name: files
   label: Files
   input: src/files
@@ -38,6 +38,8 @@ content:
           label: Image
           type: image
           options:
+            input: src/data/blog
+            output: src/data/blog
             extensions: [jpeg, jpg, png, webp, avif]
         - name: alt
           label: Alt text
