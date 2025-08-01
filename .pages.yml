@@ -3,6 +3,10 @@ media:
   label: Media
   input: src/media
   output: /src/media
+- name: blogImages
+  label: Blog Images
+  input: src/media/blog
+  output: ./
 - name: files
   label: Files
   input: src/files
