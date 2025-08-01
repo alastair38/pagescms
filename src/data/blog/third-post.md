@@ -2,7 +2,7 @@
 title: Third post
 description: A description here.
 featuredImage:
-  image: src/assets/image2.jpg
+  image: /assets/image1.jpg
   alt: Face
 authors:
   - src/data/authors/alastair-cox.md
