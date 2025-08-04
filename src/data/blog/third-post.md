@@ -1,5 +1,5 @@
 ---
-isDraft: false
+isPublished: false
 title: Third post
 description: A description here.
 featuredImage:
