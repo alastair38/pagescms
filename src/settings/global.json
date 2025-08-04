@@ -16,10 +16,6 @@
       "type": "archiveRef",
       "label": "Archive",
       "link": "src/data/blog/fourth.md"
-    },
-    {
-      "type": "archiveRef",
-      "label": "Hello"
     }
   ]
 }
