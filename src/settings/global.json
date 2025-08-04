@@ -1,16 +1,4 @@
 {
   "siteName": "My website",
-  "siteDescription": "My website description",
-  "menuLinks": [
-    {
-      "type": "pageRef",
-      "label": "Work",
-      "link": "src/data/blog/fourth.md"
-    },
-    {
-      "type": "postRef",
-      "label": "Contact",
-      "link": "src/data/blog/third-post.md"
-    }
-  ]
+  "siteDescription": "My website description"
 }
