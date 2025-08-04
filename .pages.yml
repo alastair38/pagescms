@@ -147,13 +147,13 @@ content:
         blocks:
           # Each item defines a possible block structure the user can select.
           # These typically use 'component' or define 'fields' directly.
-          - name: pageLink
-            label: Page link
+          - name: postRef
+            label: Link to post
             fields:
               - name: label
                 label: Label
                 type: string
-              - name: postsLink
+              - name: link
                 label: Blog post link
                 type: reference
                 options:
