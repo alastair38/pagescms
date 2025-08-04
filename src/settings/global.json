@@ -1,10 +1,4 @@
 {
   "siteName": "My website",
-  "siteDescription": "My website description",
-  "menuLinks": [
-    {
-      "type": "archiveRef",
-      "label": "Work"
-    }
-  ]
+  "siteDescription": "My website description"
 }
