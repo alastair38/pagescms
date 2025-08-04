@@ -11,15 +11,6 @@
       "type": "postRef",
       "label": "Contact",
       "link": "src/data/blog/third-post.md"
-    },
-    {
-      "type": "urlLink",
-      "label": "Team",
-      "url": "https://bbc.co.uk"
-    },
-    {
-      "type": "archiveRef",
-      "label": "Hello"
     }
   ]
 }
