@@ -186,7 +186,6 @@ content:
                 options:
                   collection: blog
                   value: "{id}"
-                  label: "{title}"
                   search: "title"
           - name: urlLink
             label: Add URL link
@@ -194,6 +193,6 @@ content:
               - name: label
                 label: Label
                 type: string
-              - name: url
+              - name: link
                 label: URL to link
                 type: string
