@@ -161,6 +161,8 @@ content:
                 type: reference
                 options:
                   collection: blog
+                  value: "{id}"
+                  label: "{title}"
                   search: "title"
           - name: postRef
             label: Add post link
@@ -173,6 +175,8 @@ content:
                 type: reference
                 options:
                   collection: blog
+                  value: "{id}"
+                  label: "{title}"
                   search: "title"
           - name: archiveRef
             label: Add list page link
@@ -186,6 +190,7 @@ content:
                 options:
                   collection: blog
                   value: "{id}"
+                  label: "{title}"
                   search: "title"
           - name: urlLink
             label: Add URL link
