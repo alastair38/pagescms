@@ -139,4 +139,32 @@ content:
       - name: siteName
         label: Site name
         type: string
-      
+      - name: menuLinks
+        label: Menu Links
+        type: block
+        list: true # Often used with type: block to allow multiple sections
+        blockKey: type # Optional: customize the key used to store the block name, defaults to `_block`
+        blocks:
+          # Each item defines a possible block structure the user can select.
+          # These typically use 'component' or define 'fields' directly.
+          - name: pageLink
+            label: Page link
+            fields:
+              - name: label
+                label: Label
+                type: string
+              - name: postsLink
+                label: Blog post link
+                type: reference
+                options:
+                  collection: blog
+                  search: "title"
+          - name: urlLink
+            label: URL link
+            fields:
+              - name: label
+                label: Label
+                type: string
+              - name: url
+                label: URL
+                type: string
