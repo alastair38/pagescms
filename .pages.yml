@@ -159,6 +159,18 @@ content:
                 options:
                   collection: blog
                   search: "title"
+          - name: postRef
+            label: Add post link
+            fields:
+              - name: label
+                label: Label
+                type: string
+              - name: link
+                label: Post to link
+                type: reference
+                options:
+                  collection: blog
+                  search: "title"
           - name: archiveRef
             label: Add list page link
             fields:
