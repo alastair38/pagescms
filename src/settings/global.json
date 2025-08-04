@@ -8,11 +8,6 @@
       "link": "src/data/blog/fourth.md"
     },
     {
-      "type": "archiveRef",
-      "label": "Contact",
-      "link": "src/data/blog/third-post.md"
-    },
-    {
       "type": "postRef",
       "label": "Team",
       "link": "src/data/blog/fourth.md"
