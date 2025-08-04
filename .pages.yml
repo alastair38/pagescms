@@ -131,3 +131,12 @@ content:
           - name: label
             label: Label
             type: string
+  - name: globalSettings
+    label: Site settings
+    type: file
+    path: src/settings/global.json
+    fields:
+      - name: siteName
+        label: Site name
+        type: string
+      
