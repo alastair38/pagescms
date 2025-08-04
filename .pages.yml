@@ -75,12 +75,12 @@ content:
         type: reference
         required: false
         options:
+          collection: authors
           multiple: true
           search: "name"
       - name: pubDate
         label: Published date
         type: date
-        step: 3
       - name: updatedAt
         label: Updated at
         type: date
