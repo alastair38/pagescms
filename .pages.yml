@@ -185,6 +185,8 @@ content:
                 type: reference
                 options:
                   collection: blog
+                  value: "{id}"
+                  label: "{title}"
                   search: "title"
           - name: urlLink
             label: Add URL link
