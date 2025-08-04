@@ -144,8 +144,6 @@ content:
         type: block
         list: true # Often used with type: block to allow multiple sections
         blockKey: type # Optional: customize the key used to store the block name, defaults to `_block`
-        options:
-          label: Something
         blocks:
           # Each item defines a possible block structure the user can select.
           # These typically use 'component' or define 'fields' directly.
