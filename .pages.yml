@@ -75,7 +75,7 @@ content:
         type: reference
         required: false
         options:
-          collection: [authors, blog]
+          collection: authors | blog
           multiple: true
           search: "name"
       - name: pubDate
