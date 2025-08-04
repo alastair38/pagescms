@@ -124,8 +124,6 @@ content:
       - name: bio
         label: Biography
         type: text
-      - name: email
-        component: email
       - name: featuredImage
         label: Featured Image
         type: object
