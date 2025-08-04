@@ -29,8 +29,8 @@ content:
         sort: title
         order: desc
     fields:
-      - name: isDraft
-        label: Draft
+      - name: isPublished
+        label: Published
         type: boolean
       - name: title
         label: Title
