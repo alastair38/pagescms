@@ -161,7 +161,6 @@ content:
                 type: reference
                 options:
                   collection: blog
-                  value: "{id}"
                   label: "{title}"
                   search: "title"
           - name: postRef
@@ -175,7 +174,6 @@ content:
                 type: reference
                 options:
                   collection: blog
-                  value: "{id}"
                   label: "{title}"
                   search: "title"
           - name: archiveRef
@@ -189,7 +187,6 @@ content:
                 type: reference
                 options:
                   collection: blog
-                  value: "{id}"
                   label: "{title}"
                   search: "title"
           - name: urlLink
