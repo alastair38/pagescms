@@ -16,6 +16,10 @@
       "type": "urlLink",
       "label": "Team",
       "url": "https://bbc.co.uk"
+    },
+    {
+      "type": "archiveRef",
+      "label": "Hello"
     }
   ]
 }
