@@ -188,7 +188,6 @@ content:
                 options:
                   collection: blog
                   label: "{title}"
-                  value: "{slug}"
                   search: "title"
           - name: urlLink
             label: Add URL link
