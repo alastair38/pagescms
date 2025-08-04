@@ -139,6 +139,9 @@ content:
       - name: siteName
         label: Site name
         type: string
+      - name: siteDescription
+        label: Site description
+        type: text
       - name: menuLinks
         label: Menu Links
         type: block
