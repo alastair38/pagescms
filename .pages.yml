@@ -33,7 +33,7 @@ components:
       - name: updatedAt
         label: Updated at
         type: date
-        default: "`r format(Sys.time(), '%d %B, %Y')`"
+        default: "`r format(Sys.time(), '%Y-%B-%d')`"
       - name: title
         label: Title
         type: string
