@@ -33,7 +33,6 @@ components:
       - name: updatedAt
         label: Updated at
         type: date
-        default: $(Get-Date -Format yyyy-MM-dd)
       - name: title
         label: Title
         type: string
