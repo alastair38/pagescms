@@ -198,7 +198,7 @@ content:
         type: block
         list:
           collapsible:
-            collapsed: true # Default collapsed state
+            collapsed: false # Default collapsed state
             summary: "Link - {index}"
         blockKey: type # Optional: customize the key used to store the block name, defaults to `_block`
         blocks:
