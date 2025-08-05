@@ -183,12 +183,12 @@ content:
       #     multiple: true
       #     label: "{fields.name}"
       #     search: "name"
-      - name: pubDate
-        label: Published date
-        type: date
-      - name: updatedAt
-        label: Updated at
-        type: date
+      # - name: pubDate
+      #   label: Published date
+      #   type: date
+      # - name: updatedAt
+      #   label: Updated at
+      #   type: date
       - name: contentBlocks
         label: Content blocks
         type: block
