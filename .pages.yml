@@ -106,8 +106,13 @@ content:
       - name: description
         label: Description
         type: text
-      - name: postHero
-        component: hero
+      - name: contentBlocks
+        type: block
+        list: true
+        blockKey: type
+        blocks:
+          - name: postHero
+            component: hero
       - name: featuredImage
         label: Featured Image
         type: object
