@@ -11,7 +11,7 @@ meta:
     - src/data/authors/alastair-cox.md
 contentBlocks:
   - __typename: body
-    content: Something or _another_
+    content: "**Something** or _another_"
   - __typename: postHero
     title: This is fine
     links:
