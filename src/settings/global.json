@@ -1,23 +1,6 @@
 {
   "site": {
     "name": "My website",
-    "description": "Some website description",
-    "menuLinks": [
-      {
-        "type": "pageRef",
-        "label": "Work",
-        "link": "src/data/blog/third-post.md"
-      },
-      {
-        "type": "postRef",
-        "label": "Team",
-        "link": "src/data/blog/fourth.md"
-      },
-      {
-        "type": "urlLink",
-        "label": "External",
-        "link": "https://bbc.co.uk"
-      }
-    ]
+    "description": "Some website description"
   }
 }
