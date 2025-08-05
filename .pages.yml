@@ -194,7 +194,7 @@ content:
         type: object
         list:
           collapsible:
-            collapsed: false # Default collapsed state
+            collapsed: true # Default collapsed state
             summary: "{fields.label}"
         fields:
           - name: label
