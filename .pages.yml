@@ -33,7 +33,7 @@ components:
       - name: updatedAt
         label: Updated at
         type: date
-        default: "`r Sys.Date()`"
+        default: '{{ now().strftime("%Y%m%d") }}'
       - name: title
         label: Title
         type: string
