@@ -8,4 +8,5 @@ meta:
     alt: Alt
 authors:
   - src/data/authors/alastair-cox.md
+pubDate: 2025-08-05
 ---
