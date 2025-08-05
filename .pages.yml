@@ -47,7 +47,7 @@ components:
       default: default
       options:
         values: [ default, grid ]
-  richText:
+  bodyText:
     label: Rich text
     type: rich-text
     options:
@@ -170,7 +170,7 @@ content:
           - name: postHero
             component: hero
           - name: text
-            component: richText
+            component: bodyText
       - name: body
         label: Body
         type: rich-text
