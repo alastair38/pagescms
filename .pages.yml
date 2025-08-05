@@ -33,9 +33,7 @@ components:
       - name: updatedAt
         label: Updated at
         type: date
-        options:
-          min: $(Get-Date -Format yyyy.MM.dd_HHmmss)
-          max: $(Get-Date -Format yyyy.MM.dd_HHmmss)
+        default: $(Get-Date -Format yyyy-MM-dd)
       - name: title
         label: Title
         type: string
