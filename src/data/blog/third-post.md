@@ -2,6 +2,15 @@
 isPublished: false
 title: Third post
 description: A description here.
+contentBlocks:
+  - __typename: postHero
+    title: Hero title
+    description: Hero description
+    heroImage:
+      image: /src/media/blog/image7.avif
+      altText: Some alt
+    links:
+      - src/data/blog/fourth.md
 featuredImage:
   image: /src/media/blog/image7.avif
   alt: Face
