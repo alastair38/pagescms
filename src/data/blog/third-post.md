@@ -11,7 +11,10 @@ meta:
     - src/data/authors/alastair-cox.md
 contentBlocks:
   - __typename: body
-    content: "**Something** or _another_"
+    content: Lorem **ipsum dolor sit** amet consectetur, adipisicing elit. Omnis
+      voluptate vero error! Architecto perspiciatis quam fugit sed dicta ex
+      consequatur sequi _et,_ culpa totam tenetur quidem sunt consectetur minus
+      officia
   - __typename: postHero
     title: This is fine
     links:
