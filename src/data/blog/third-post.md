@@ -12,9 +12,9 @@ meta:
 contentBlocks:
   - __typename: body
     content: Lorem **ipsum dolor sit** amet consectetur, adipisicing elit. Omnis
-      voluptate vero error! Architecto perspiciatis quam fugit sed dicta ex
-      consequatur sequi _et,_ culpa totam tenetur quidem sunt consectetur minus
-      officia
+      voluptate vero error! Architecto perspiciatis quam [fugit sed
+      dicta](https://bbc.co.uk) ex consequatur sequi _et,_ culpa totam tenetur
+      quidem sunt consectetur minus officia
   - __typename: postHero
     title: This is fine
     links:
