@@ -128,7 +128,8 @@ content:
         options:
           collection: authors
           multiple: true
-          label: "FAFA {fields.name}"
+          label: "{fields.name}"
+          value: "{fields.name}"
           search: "name"
       - name: pubDate
         label: Published date
