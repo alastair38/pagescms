@@ -2,9 +2,6 @@
 isPublished: false
 title: Third post
 description: A description here.
-contentBlocks:
-  - type: postHero
-    title: FFA
 featuredImage:
   image: /src/media/blog/image7.avif
   alt: Face
