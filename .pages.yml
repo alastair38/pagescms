@@ -114,6 +114,12 @@ content:
         label: Content details
         type: object
         fields:
+          - name: pubDate
+            label: Published date
+            type: date
+          - name: updatedAt
+            label: Updated at
+            type: date
           - name: title
             label: Title
             type: string
