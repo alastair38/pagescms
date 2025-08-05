@@ -161,8 +161,8 @@ content:
       - name: meta
         label: Content etails
         component: meta
-      - name: blogAuthors
-        label: Blog Authors
+      - name: authors
+        label: Authors
         component: authors
       # - name: title
       #   label: Title
