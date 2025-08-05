@@ -7,8 +7,6 @@ featuredImage:
   alt: Face
   variant: plain
   layout: default
-authors:
-  - Alastair Cox
 pubDate: 2025-08-01
 updatedAt: 2025-08-01
 ---
