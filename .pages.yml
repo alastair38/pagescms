@@ -171,11 +171,7 @@ content:
             component: hero
           - name: text
             component: bodyText
-      - name: body
-        label: Body
-        type: rich-text
-        options:
-          path: src/media/blog
+
       # ... fields defined here ...
   - name: authors
     label: Authors
