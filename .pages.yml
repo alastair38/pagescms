@@ -108,7 +108,10 @@ content:
         type: text
       - name: contentBlocks
         type: block
-        list: true
+        list:
+          collapsible:
+            collapsed: true # Default collapsed state
+            summary: "{fields.name}"
         blockKey: type
         blocks:
           - name: postHero
