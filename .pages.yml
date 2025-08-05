@@ -47,6 +47,9 @@ components:
       default: default
       options:
         values: [ default, grid ]
+  richText:
+    label: Rich text
+    type: rich-text
   hero: # 'hero' is the component name/key
     label: Hero Section
     type: object
