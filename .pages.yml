@@ -119,7 +119,7 @@ content:
             type: date
             options:
               time: true
-              default: now
+              default: now()
           - name: updatedAt
             label: Updated at
             type: date
