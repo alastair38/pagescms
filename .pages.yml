@@ -117,6 +117,8 @@ content:
           - name: pubDate
             label: Published date
             type: date
+            options:
+              time: true
           - name: updatedAt
             label: Updated at
             type: date
