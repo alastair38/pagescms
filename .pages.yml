@@ -184,7 +184,7 @@ content:
             label: Label
             type: string
   - name: globalSettings
-    label: Configuration
+    label: Site Configuration
     type: file
     path: src/settings/global.json
     fields:
