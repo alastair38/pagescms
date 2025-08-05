@@ -75,6 +75,7 @@ components:
         options:
           collection: blog
           multiple: true
+          label: "{fields.title}"
           search: 'title'
   email: # 'email' is the component name/key
     label: Email Address
