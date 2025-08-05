@@ -50,6 +50,8 @@ components:
   richText:
     label: Rich text
     type: rich-text
+    options:
+      media: false
   hero: # 'hero' is the component name/key
     label: Hero Section
     type: object
