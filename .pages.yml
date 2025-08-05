@@ -111,7 +111,7 @@ content:
         list:
           collapsible:
             collapsed: true # Default collapsed state
-            summary: "{fields.label}"
+            summary: "{fields.title}"
         blockKey: type
         blocks:
           - name: postHero
