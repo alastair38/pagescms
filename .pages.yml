@@ -33,8 +33,7 @@ components:
       - name: updatedAt
         label: Updated at
         type: date
-        options:
-          default: now
+        default: Sys.time()
       - name: title
         label: Title
         type: string
