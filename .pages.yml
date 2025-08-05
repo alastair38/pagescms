@@ -86,6 +86,10 @@ content:
       - name: image2
         label: Image Test
         component: ftdImage
+        fields:
+          - name: image
+            options:
+              path: src/media 
       - name: title
         label: Title
         type: string
