@@ -1,7 +1,7 @@
 ---
 isPublished: false
 meta:
-  pubDate: 2025-08-05
+  pubDate: 2025-08-05T16:39
   title: Fourth blog
   description: Fourth blog meta description
   featuredImage:
