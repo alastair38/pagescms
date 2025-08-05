@@ -48,10 +48,11 @@ components:
       options:
         values: [ default, grid ]
   bodyText:
-    label: Rich text
+    label: Content block
     type: object
     fields:
       - name: content
+        label: Rich text
         type: rich-text
         options:
           media: false
