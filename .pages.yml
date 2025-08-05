@@ -99,12 +99,12 @@ content:
     type: collection
     filename: '{primary}.md'
     view:
-      fields: [ title, pubDate ]
-      primary: title
-      sort: [ title, pubDate ]
+      fields: [ meta.title, pubDate ]
+      primary: meta.title
+      sort: [ meta.title, pubDate ]
       default:
         search: ''
-        sort: title
+        sort: meta.title
         order: desc
     fields:
       - name: isPublished
