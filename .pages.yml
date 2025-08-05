@@ -34,8 +34,8 @@ components:
         label: Updated at
         type: date
         options:
-          min: now
-          max: now
+          min: current
+          max: current
       - name: title
         label: Title
         type: string
