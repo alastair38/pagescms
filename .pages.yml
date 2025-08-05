@@ -152,7 +152,7 @@ content:
         label: Published
         type: boolean
       - name: meta
-        label: Content details
+        label: Content etails
         component: meta
       # - name: title
       #   label: Title
