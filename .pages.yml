@@ -14,6 +14,7 @@ media:
   output: files
   categories: [ document ]
 
+# some comment here
 components:
   ftdImage:
     label: Featured Image
