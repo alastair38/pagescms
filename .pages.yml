@@ -198,7 +198,7 @@ content:
             label: Site description
             type: text
           - name: menuLinks
-            label: Menu Links
+            label: Primary navigation
             type: block
             list:
               collapsible:
