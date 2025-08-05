@@ -12,7 +12,7 @@
       {
         "type": "pageRef",
         "label": "Work",
-        "link": "null"
+        "link": "src/data/blog/fourth.md"
       },
       {
         "type": "postRef",
