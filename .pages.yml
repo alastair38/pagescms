@@ -34,7 +34,7 @@ components:
         label: Updated at
         type: date
         options:
-          min: now()
+          min: "{now}"
       - name: title
         label: Title
         type: string
