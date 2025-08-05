@@ -198,6 +198,14 @@ content:
           - name: description
             label: Site description
             type: text
+          - name: ogImage
+            label: Social Sharing Image
+            type: object
+            fields:
+              - name: image
+                type: image
+              - name: altText
+                type: string
       - name: navigation
         type: object
         label: Main menu
