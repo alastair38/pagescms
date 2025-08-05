@@ -106,17 +106,6 @@ content:
       - name: description
         label: Description
         type: text
-      - name: contentBlocks
-        label: Content blocks
-        type: block
-        list:
-          collapsible:
-            collapsed: true # Default collapsed state
-            summary: "Block - {index}"
-        blockKey: __typename
-        blocks:
-          - name: postHero
-            component: hero
       - name: featuredImage
         label: Featured Image
         type: object
@@ -164,6 +153,17 @@ content:
       - name: updatedAt
         label: Updated at
         type: date
+      - name: contentBlocks
+        label: Content blocks
+        type: block
+        list:
+          collapsible:
+            collapsed: true # Default collapsed state
+            summary: "Block - {index}"
+        blockKey: __typename
+        blocks:
+          - name: postHero
+            component: hero
       - name: body
         label: Body
         type: rich-text
