@@ -196,7 +196,10 @@ content:
       - name: menuLinks
         label: Menu Links
         type: block
-        list: true # Often used with type: block to allow multiple sections
+        list:
+          collapsible:
+            collapsed: true # Default collapsed state
+            summary: "{title} ({index})"
         blockKey: type # Optional: customize the key used to store the block name, defaults to `_block`
         blocks:
           # Each item defines a possible block structure the user can select.
