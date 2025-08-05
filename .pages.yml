@@ -33,7 +33,7 @@ components:
       - name: updatedAt
         label: Updated at
         type: date
-        default: datetime-local
+        default: date
       - name: title
         label: Title
         type: string
