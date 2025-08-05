@@ -33,7 +33,7 @@ components:
       - name: updatedAt
         label: Updated at
         type: date
-        default: {year}
+        default: 2025-08-07
       - name: title
         label: Title
         type: string
