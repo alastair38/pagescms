@@ -92,6 +92,7 @@ content:
       fields: [ title, pubDate ]
       primary: title
       sort: [ title, pubDate ]
+      layout: tree
       default:
         search: ''
         sort: title
