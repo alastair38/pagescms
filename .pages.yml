@@ -33,8 +33,6 @@ components:
       - name: updatedAt
         label: Updated at
         type: date
-        default: current
-        required: false
       - name: title
         label: Title
         type: string
