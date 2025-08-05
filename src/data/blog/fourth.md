@@ -7,8 +7,6 @@ meta:
   featuredImage:
     image: /src/media/blog/logoipsum-381.png
     alt: Alt
-  authors:
-    - src/data/authors/alastair-cox.md
 authors:
   - src/data/authors/alastair-cox.md
 ---
