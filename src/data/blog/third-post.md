@@ -6,11 +6,6 @@ meta:
   featuredImage:
     image: /src/media/blog/image7.jpg
     alt: Meta alt
-title: Third post
-description: A description here.
-featuredImage:
-  image: /src/media/blog/image7.avif
-  alt: Face
 authors:
   - src/data/authors/alastair-cox.md
 pubDate: 2025-08-01
