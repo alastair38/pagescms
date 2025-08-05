@@ -12,10 +12,10 @@ authors:
 pubDate: 2025-08-01
 updatedAt: 2025-08-01
 contentBlocks:
+  - __typename: body
+    content: Something or _another_
   - __typename: postHero
     title: This is fine
     links:
       - src/data/blog/fourth.md
-  - __typename: body
-    content: Something or _another_
 ---
