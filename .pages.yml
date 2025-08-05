@@ -111,6 +111,7 @@ content:
         label: Published
         type: boolean
       - name: meta
+        label: Content metadata
         type: object
         fields:
           - name: title
