@@ -128,7 +128,6 @@ content:
         options:
           collection: authors
           multiple: true
-          label: "{name}"
           search: "name"
       - name: pubDate
         label: Published date
