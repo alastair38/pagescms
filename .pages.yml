@@ -129,7 +129,7 @@ content:
           collection: authors
           multiple: true
           label: "{fields.name}"
-          value: "{fields.name}"
+          value: "{fields.id}"
           search: "name"
       - name: pubDate
         label: Published date
