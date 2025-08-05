@@ -34,7 +34,7 @@ components:
         label: Updated at
         type: date
         options:
-          min: 2025-08-22
+          min: now + 3
       - name: title
         label: Title
         type: string
