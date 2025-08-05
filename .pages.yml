@@ -99,9 +99,9 @@ content:
     type: collection
     filename: '{primary}.md'
     view:
-      fields: [ meta.title, pubDate ]
+      fields: [ meta.title, meta.pubDate ]
       primary: meta.title
-      sort: [ meta.title, pubDate ]
+      sort: [ meta.title, meta.pubDate ]
       default:
         search: ''
         sort: meta.title
