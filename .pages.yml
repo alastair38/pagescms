@@ -191,6 +191,25 @@ components:
       message: 'This must be a valid email address (e.g. hello@example.com).'
 
 content:
+  - name: archives
+    type: collection
+    path: src/data/archives
+    filename: '{primary}.md'
+    view:
+      fields: [ meta.title, meta.pubDate, isPublished ]
+      primary: meta.title
+      sort: [ meta.title, meta.pubDate ]
+      default:
+        search: ''
+        sort: meta.title
+        order: desc
+    fields:
+      - name: isPublished
+        label: Published
+        type: boolean
+      - name: meta
+        label: Content overview
+        component: meta
   - name: blog
     label: Blog
     path: src/data/blog
