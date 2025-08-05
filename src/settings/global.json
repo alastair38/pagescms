@@ -1,0 +1,11 @@
+{
+  "siteName": "My site",
+  "siteDescription": "Some content",
+  "menuLinks": [
+    {
+      "type": "pageRef",
+      "label": "Work",
+      "link": "src/data/blog/fourth.md"
+    }
+  ]
+}
