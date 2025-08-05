@@ -186,7 +186,7 @@ content:
   - name: globalSettings
     label: Site Configuration
     type: file
-    path: src/settings/global.md
+    path: src/settings/global.yml
     fields:
       - name: site
         type: object
