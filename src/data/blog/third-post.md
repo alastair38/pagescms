@@ -11,4 +11,9 @@ authors:
   - src/data/authors/alastair-cox.md
 pubDate: 2025-08-01
 updatedAt: 2025-08-01
+contentBlocks:
+  - __typename: postHero
+    title: This is fine
+    links:
+      - src/data/blog/fourth.md
 ---
