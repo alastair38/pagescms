@@ -55,19 +55,6 @@ components:
           label: Alt text
           description: Alt text should be an accurate description of the image for assistive technologies
           type: string
-  link:
-    type: object
-    fields:
-      - name: label
-        label: Label
-        type: string
-      - name: link
-        label: Page to link
-        type: reference
-        options:
-          collection: blog
-          label: "{name}"
-          search: "name"
     
   links:
     type: block
@@ -77,10 +64,7 @@ components:
         summary: "{fields.label}"
     blockKey: type # Optional: customize the key used to store the block name, defaults to `_block`
     blocks:
-      - name: testRef
-        label: Test ref
-        component: link
-      # Each item defines a possible block structure the user can select.
+    # Each item defines a possible block structure the user can select.
       # These typically use 'component' or define 'fields' directly.
       - name: pageRef
         label: Add page link
