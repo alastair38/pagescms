@@ -15,7 +15,7 @@ media:
   categories: [ document ]
 
 components:
-  featuredImage:
+  ftdImage:
     label: Featured Image
     type: object
     fields:
@@ -83,6 +83,9 @@ content:
       - name: isPublished
         label: Published
         type: boolean
+      - name: image2
+        label: Image Test
+        component: ftdImage
       - name: title
         label: Title
         type: string
