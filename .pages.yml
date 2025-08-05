@@ -115,6 +115,8 @@ content:
       - name: description
         label: Description
         type: text
+        options:
+          rows: 4
       - name: featuredImage
         label: Featured Image
         type: object
