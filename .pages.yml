@@ -110,6 +110,32 @@ content:
       - name: isPublished
         label: Published
         type: boolean
+      - name: meta
+        type: object
+        fields:
+          - name: title
+            label: Title
+            type: string
+          - name: description
+            label: Description
+            type: text
+            options:
+              rows: 2
+          - name: featuredImage
+            label: Featured Image
+            type: object
+            fields:
+            - name: image
+              label: Image
+              type: image
+              options:
+                media: blogImages
+                extensions: [png, jpg, jpeg]
+            - name: alt
+              label: Alt text
+              description: Alt text should be an accurate description of the image for assistive technologies
+              type: string
+         
       - name: title
         label: Title
         type: string
