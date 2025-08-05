@@ -169,7 +169,7 @@ content:
         blocks:
           - name: postHero
             component: hero
-          - name: text
+          - name: body
             component: bodyText
 
       # ... fields defined here ...
