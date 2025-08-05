@@ -34,7 +34,7 @@ components:
         label: Updated at
         type: date
         options:
-          generate: true
+          default: now
       - name: title
         label: Title
         type: string
