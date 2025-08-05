@@ -51,13 +51,31 @@ components:
     label: Hero Section
     type: object
     fields:
-      - name: headline
-        label: Headline
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: description
+        label: Description
         type: text
         required: true
-      - name: cover
+      - name: heroImage
         label: Cover Image
-        type: image
+        type: object
+        fields:
+          - name: image
+            type: image
+          - name: altText
+            label: Alt text
+            type: string
+      - name: links
+        label: Link(s)
+        type: reference
+        required: false
+        options:
+          collection: blog
+          multiple: true
+          search: 'title'
   email: # 'email' is the component name/key
     label: Email Address
     type: string
