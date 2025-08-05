@@ -190,7 +190,7 @@ content:
     fields:
       - name: site
         type: object
-        label: Content
+        label: Metadata
         fields:
           - name: name
             label: Site name
