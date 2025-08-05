@@ -6,8 +6,6 @@ meta:
   featuredImage:
     image: /src/media/blog/image7.jpg
     alt: Meta alt
-authors:
-  - src/data/authors/alastair-cox.md
 pubDate: 2025-08-01
 updatedAt: 2025-08-01
 contentBlocks:
