@@ -16,6 +16,14 @@ media:
 
 # some comment here
 components:
+  authors:
+    type: reference
+    required: false
+    options:
+      collection: authors
+      multiple: true
+      label: "{fields.name}"
+      search: "name"
   meta:
     type: object
     fields:
