@@ -197,11 +197,11 @@ content:
             collapsed: false # Default collapsed state
             summary: "{fields.label}"
         fields:
-          - name: link
-            label: Link
-            type: string
           - name: label
             label: Label
+            type: string
+          - name: link
+            label: Link
             type: string
   - name: globalSettings
     label: Site Configuration
