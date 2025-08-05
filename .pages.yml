@@ -76,7 +76,7 @@ components:
             type: reference
             options:
               collection: blog
-              label: "{name}"
+              label: "{blocks.fields.name}"
               search: "name"
       - name: postRef
         label: Add post link
@@ -89,7 +89,7 @@ components:
             type: reference
             options:
               collection: blog
-              label: "{blocks.name}"
+              label: "{name}"
               search: "name"
       - name: archiveRef
         label: Add list page link
