@@ -33,7 +33,7 @@ components:
       - name: updatedAt
         label: Updated at
         type: date
-        default: today
+        default: "`r Sys.Date()`"
       - name: title
         label: Title
         type: string
