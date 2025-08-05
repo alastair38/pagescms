@@ -11,10 +11,18 @@ meta:
     - src/data/authors/alastair-cox.md
 contentBlocks:
   - __typename: body
-    content: Lorem **ipsum dolor sit** amet consectetur, adipisicing elit. Omnis
+    content: >-
+      Lorem **ipsum dolor sit** amet consectetur, adipisicing elit. Omnis
       voluptate vero error! Architecto perspiciatis quam [fugit sed
       dicta](https://bbc.co.uk) ex consequatur sequi _et,_ culpa totam tenetur
-      quidem sunt consectetur minus officia
+      quidem sunt consectetur minus officia.
+
+
+      *   One
+          
+      *   Two
+          
+      *   Three
   - __typename: postHero
     title: This is fine
     links:
