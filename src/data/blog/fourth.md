@@ -9,7 +9,5 @@ meta:
     alt: Alt
   authors:
     - src/data/authors/alastair-cox.md
-blogAuthors:
-  - src/data/authors/alastair-cox.md
 ---
 Some content here with **rich text stuff**
