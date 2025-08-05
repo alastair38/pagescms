@@ -177,7 +177,7 @@ content:
         label: Biography
         type: text
       - name: featuredImage
-        label: Featured Image
+        label: Photograph
         type: object
         fields:
         - name: image
