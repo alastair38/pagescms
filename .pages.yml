@@ -107,12 +107,13 @@ content:
         label: Description
         type: text
       - name: contentBlocks
+        label: Content blocks
         type: block
         list:
           collapsible:
             collapsed: true # Default collapsed state
             summary: "Block - {index}"
-        blockKey: type
+        blockKey: __typename
         blocks:
           - name: postHero
             component: hero
