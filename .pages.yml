@@ -17,7 +17,6 @@ media:
 # some comment here
 components:
   meta:
-    label: Content details
     type: object
     fields:
       - name: pubDate
