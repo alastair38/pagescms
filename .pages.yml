@@ -150,8 +150,7 @@ content:
         label: Published
         type: boolean
       - name: meta
-        label: Metadata
-        description: The information entered here will be available as metadata to search engines
+        label: Content overview
         component: meta
       - name: authors
         label: Authors
