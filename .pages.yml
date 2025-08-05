@@ -89,7 +89,7 @@ components:
             type: reference
             options:
               collection: blog
-              label: "{name}"
+              label: "{blocks.name}"
               search: "name"
       - name: archiveRef
         label: Add list page link
@@ -103,7 +103,7 @@ components:
             options:
               collection: blog
               label: "{name}"
-              search: "title"
+              search: "name"
       - name: urlLink
         label: Add URL link
         fields:
