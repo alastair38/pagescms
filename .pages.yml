@@ -83,14 +83,6 @@ content:
       - name: isPublished
         label: Published
         type: boolean
-      - name: image2
-        label: Image Test
-        component: ftdImage
-        fields:
-          - name: image
-            type: image
-            options:
-              path: src/media 
       - name: title
         label: Title
         type: string
