@@ -185,16 +185,18 @@ content:
             type: string
   - name: globalSettings
     label: Site settings
-    type: collection
-    path: src/settings
-    filename: 'global.md'
+    type: file
+    path: src/settings/global.json
     fields:
-      - name: siteName
-        label: Site name
-        type: string
-      - name: siteDescription
-        label: Site description
-        type: text
+      - name: site
+        type: object
+        fields:
+          - name: name
+            label: Site name
+            type: string
+          - name: description
+            label: Site description
+            type: text
       - name: menuLinks
         label: Menu Links
         type: block
