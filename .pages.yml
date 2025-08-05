@@ -195,6 +195,7 @@ content:
         list:
           collapsible:
             collapsed: false # Default collapsed state
+            summary: "{fields.label}"
         fields:
           - name: link
             label: Link
