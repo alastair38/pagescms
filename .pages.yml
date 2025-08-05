@@ -186,7 +186,7 @@ content:
   - name: globalSettings
     label: Site settings
     type: file
-    path: src/settings/global.json
+    path: src/settings/global.yml
     fields:
       - name: siteName
         label: Site name
