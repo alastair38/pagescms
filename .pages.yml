@@ -54,11 +54,9 @@ components:
       - name: title
         label: Title
         type: string
-        required: true
       - name: description
         label: Description
         type: text
-        required: true
       - name: heroImage
         label: Cover Image
         type: object
