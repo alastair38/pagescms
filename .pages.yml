@@ -107,6 +107,8 @@ content:
       - name: description
         label: Description
         type: text
+      - name: postHero
+        component: hero
       - name: featuredImage
         label: Featured Image
         type: object
