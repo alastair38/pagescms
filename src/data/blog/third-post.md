@@ -1,8 +1,8 @@
 ---
 isPublished: false
 meta:
-  title: Meta title
-  description: Meta description
+  title: Third post
+  description: Third post meta description
   featuredImage:
     image: /src/media/blog/image7.jpg
     alt: Meta alt
