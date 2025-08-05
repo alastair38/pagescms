@@ -131,24 +131,6 @@ content:
           label: Alt text
           description: Alt text should be an accurate description of the image for assistive technologies
           type: string
-        - name: caption
-          label: Caption
-          description: Optional
-          type: string
-        - name: variant
-          label: Variant
-          description: Choose the variant; 'rounded' adds a border radius and shadow
-          type: select
-          default: plain
-          options:
-            values: [ rounded, plain ]
-        - name: layout
-          label: Layout
-          description: Choose the layout; 'grid' places the image and caption horizontally
-          type: select
-          default: default
-          options:
-            values: [ default, grid ]
       - name: authors
         label: Authors
         type: reference
