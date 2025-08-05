@@ -99,7 +99,7 @@ content:
     type: collection
     filename: '{primary}.md'
     view:
-      fields: [ meta.title, meta.pubDate ]
+      fields: [ meta.title, meta.pubDate, isPublished ]
       primary: meta.title
       sort: [ meta.title, meta.pubDate ]
       default:
