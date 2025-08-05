@@ -167,6 +167,8 @@ content:
         blocks:
           - name: postHero
             component: hero
+          - name: text
+            component: richText
       - name: body
         label: Body
         type: rich-text
