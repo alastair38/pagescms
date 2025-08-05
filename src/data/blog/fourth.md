@@ -1,5 +1,5 @@
 ---
-isPublished: false
+isPublished: true
 meta:
   pubDate: 2025-08-01
   title: Fourth blog
