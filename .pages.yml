@@ -77,7 +77,7 @@ components:
             options:
               collection: blog
               label: "{name}"
-              search: "components.blocks.title"
+              search: "components.blocks.fields.title"
       - name: postRef
         label: Add post link
         fields:
