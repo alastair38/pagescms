@@ -184,13 +184,13 @@ content:
             label: Label
             type: string
   - name: globalSettings
-    label: Site settings
+    label: Configuration
     type: file
     path: src/settings/global.json
     fields:
       - name: site
         type: object
-        label: Configuration
+        label: Content
         fields:
           - name: name
             label: Site name
