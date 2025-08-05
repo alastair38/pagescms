@@ -198,6 +198,10 @@ content:
           - name: description
             label: Site description
             type: text
+      - name: navigation
+        type: object
+        label: Main menu
+        fields:
           - name: menuLinks
             label: Primary navigation
             type: block
