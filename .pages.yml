@@ -49,9 +49,12 @@ components:
         values: [ default, grid ]
   bodyText:
     label: Rich text
-    type: rich-text
-    options:
-      media: false
+    type: object
+    fields:
+      - name: content
+        type: rich-text
+        options:
+          media: false
   hero: # 'hero' is the component name/key
     label: Hero Section
     type: object
