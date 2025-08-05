@@ -66,7 +66,7 @@ components:
         type: reference
         options:
           collection: blog
-          label: "{fields.title}"
+          label: "{name}"
           search: "name"
     
   links:
