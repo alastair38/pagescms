@@ -185,9 +185,9 @@ content:
             type: string
   - name: globalSettings
     label: Site settings
-    type: file
-    path: src/settings/global.json
-    format: json
+    type: collection
+    path: src/settings
+    filename: 'global.md'
     fields:
       - name: siteName
         label: Site name
