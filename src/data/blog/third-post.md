@@ -17,5 +17,5 @@ contentBlocks:
     links:
       - src/data/blog/fourth.md
   - __typename: body
-    content: Something or another
+    content: Something or _another_
 ---
