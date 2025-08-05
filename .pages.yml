@@ -154,9 +154,6 @@ content:
       - name: meta
         label: Content details
         component: meta
-        fields:
-          - name: test
-            type: string
       # - name: title
       #   label: Title
       #   type: string
