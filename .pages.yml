@@ -189,6 +189,8 @@ content:
       # - name: updatedAt
       #   label: Updated at
       #   type: date
+      - name: body
+        type: rich-text
       - name: contentBlocks
         label: Content blocks
         type: block
