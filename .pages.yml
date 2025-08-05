@@ -89,7 +89,7 @@ components:
             type: reference
             options:
               collection: blog
-              label: "{title}"
+              label: "{fields.fields.title}"
               search: "title"
       - name: archiveRef
         label: Add list page link
