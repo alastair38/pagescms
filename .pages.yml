@@ -207,7 +207,7 @@ content:
       - name: meta
         label: Content overview
         component: meta
-      - name: introduction
+      - name: body
         label: Introduction
         type: rich-text
         options:
