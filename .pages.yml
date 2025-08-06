@@ -208,7 +208,7 @@ content:
         label: Title
         type: string
       - name: meta
-        label: Archive page overview
+        label: Metadata
         component: meta
       - name: body
         label: Introduction
