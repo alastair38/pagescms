@@ -205,7 +205,7 @@ content:
         order: desc
     fields:
       - name: meta
-        label: Content overview
+        label: Archive page overview
         component: meta
       - name: body
         label: Introduction
