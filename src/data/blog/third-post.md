@@ -26,4 +26,14 @@ contentBlocks:
       *   Two
           
       *   Three
+  - __typename: postHero
+    title: Hero hey
+    description: Some text
+    heroLinks:
+      - type: pageRef
+        label: View details
+        link: src/data/blog/fourth.md
+      - type: postRef
+        label: View details
+        link: src/data/blog/third-post.md
 ---
