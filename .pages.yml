@@ -48,7 +48,7 @@ components:
             extensions: [png, jpg, jpeg]
         - name: alt
           label: Alt text
-          description: Alt text should be an accurate description of the image for assistive technologies
+          description: This should be an accurate description of the image for assistive technologies. It can be left blank for images that are purely decorative
           type: string
 
   contentDate:
