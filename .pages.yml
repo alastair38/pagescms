@@ -123,7 +123,7 @@ components:
             type: string
             pattern:
               regex: '^^https://\w+(\.\w+)+.*$'
-              message: 'Must be a valid URL eg: starts with https:// [without www]'
+              message: 'Must be a valid URL eg: starts with https:// [does not need to have www]'
   
   standardImage: # an object for adding an image with customisable field options
     label: Featured Image
