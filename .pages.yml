@@ -91,7 +91,7 @@ components:
             options:
               collection: blog
               label: "{meta.title}"
-              search: "meta.title"
+              search: "meta.title,name"
       - name: archiveRef
         label: List page link
         fields:
