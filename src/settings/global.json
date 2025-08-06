@@ -10,11 +10,6 @@
         "type": "postRef",
         "label": "Team",
         "link": "src/data/blog/third-post.md"
-      },
-      {
-        "type": "urlLink",
-        "label": "Externals",
-        "link": "https://bbc.co.uk"
       }
     ]
   }
