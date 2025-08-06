@@ -15,6 +15,11 @@
         "type": "urlLink",
         "label": "External",
         "link": "https://bbc.co.uk"
+      },
+      {
+        "type": "email",
+        "label": "Alastair Email",
+        "link": "admin@example.com"
       }
     ]
   }
