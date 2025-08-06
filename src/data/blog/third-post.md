@@ -15,17 +15,12 @@ title: Third post
 contentBlocks:
   - __typename: body
     content: >-
-      Lorem **ipsum dolor sit** amet consectetur, adipisicing elit. Omnis
+      *   Lorem **ipsum dolor sit** amet consectetur, adipisicing elit. Omnis
       voluptate vero error! Architecto perspiciatis quam [fugit sed
       dicta](https://bbc.co.uk) ex consequatur sequi _et,_ culpa totam tenetur
       quidem sunt consectetur minus officia.
-
-
-      *   One
           
-      *   Two
-          
-      *   Three
+      *   Some thing else
   - __typename: postHero
     title: Hero hey
     description: Some text
