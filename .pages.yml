@@ -230,9 +230,9 @@ content:
     type: collection
     filename: '{primary}.md'
     view:
-      fields: [ title, meta.pubDate, isPublished ]
+      fields: [ title, dates.pubDate, isPublished ]
       primary: title
-      sort: [ title, meta.pubDate ]
+      sort: [ title, dates.pubDate ]
       default:
         search: ''
         sort: title
