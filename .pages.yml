@@ -197,7 +197,7 @@ content:
     filename: '{primary}.md'
     view:
       fields: [ meta.title, meta.pubDate ]
-      primary: fields.meta.title
+      primary: meta.meta.title
       sort: [ meta.title, meta.pubDate ]
       default:
         search: ''
