@@ -14,9 +14,10 @@ media:
   output: files
   categories: [ document ]
 
-# some comment here
+# reusable groups of fields
 components:
-  authors:
+
+  authors: # a reference field for selecting an author from the authors content type
     type: reference
     required: false
     options:
@@ -24,7 +25,8 @@ components:
       multiple: true
       label: "{fields.name}"
       search: "name"
-  meta:
+  
+  meta: # an object for setting metadata on content
     type: object
     fields:
       - name: title
@@ -50,7 +52,7 @@ components:
           description: This should be an accurate description of the image for assistive technologies. It can be left blank for images that are purely decorative
           type: string
 
-  contentDate:
+  contentDate: # an object for setting publication and update dates on content
     type: object
     label: Publication Date
     fields:
@@ -61,7 +63,7 @@ components:
         label: Updated at
         type: date
   
-  links:
+  links: # a block for adding an array different types of links (eg: reference and URL)
     type: block
     list:
       collapsible:
@@ -119,7 +121,11 @@ components:
           - name: link
             label: Link
             type: string
-  ftdImage:
+            pattern:
+              regex: /^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)$/
+              message: 'Must be a valid URL eg: starts with https://'
+  
+  standardImage: # an object for adding an image with customisable field options
     label: Featured Image
     type: object
     fields:
@@ -151,7 +157,8 @@ components:
       default: default
       options:
         values: [ default, grid ]
-  bodyText:
+        
+  bodyText: # a object for adding a simple rich text field ( w/ media disabled)
     label: Content block
     type: object
     fields:
@@ -160,7 +167,8 @@ components:
         type: rich-text
         options:
           media: false
-  hero: # 'hero' is the component name/key
+          
+  hero: # an object for adding a Hero section to a page
     label: Hero Section
     type: object
     fields:
