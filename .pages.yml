@@ -17,7 +17,7 @@ media:
 # reusable groups of fields
 components:
 
-  authors: # a reference field for selecting an author from the authors content type
+  authors: # a reference field for selecting author(s) from the authors content type
     type: reference
     required: false
     options:
@@ -137,7 +137,22 @@ components:
               regex: '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
               message: 'This must be a valid email address'
   
-  standardImage: # an object for adding an image with customisable field options
+  standardImage: # an object for adding an image with alt text
+    label: Image
+    type: object
+    fields:
+    - name: image
+      label: Image
+      type: image
+      options:
+        media: blogImages
+        extensions: [png, jpg, jpeg]
+    - name: alt
+      label: Alt text
+      description: Alt text should be an accurate description of the image for assistive technologies
+      type: string
+
+  featuredImage: # an object for adding an image with customisable field options
     label: Featured Image
     type: object
     fields:
