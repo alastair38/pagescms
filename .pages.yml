@@ -196,7 +196,7 @@ content:
     path: src/data/archives
     filename: '{primary}.md'
     view:
-      fields: [ meta.title, meta.pubDate, isPublished ]
+      fields: [ meta.title, meta.pubDate ]
       primary: meta.title
       sort: [ meta.title, meta.pubDate ]
       default:
@@ -207,6 +207,11 @@ content:
       - name: meta
         label: Content overview
         component: meta
+      - name: introduction
+        label: Introduction
+        type: rich-text
+        options:
+          media: false
       - name: postsPerPage
         label: Posts per page
         type: number
