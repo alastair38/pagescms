@@ -1,5 +1,8 @@
 ---
 isPublished: true
+dates:
+  pubDate: 2025-08-06
+  updatedAt: 2025-08-06
 meta:
   title: Fourth blogs
   description: Fourth blog meta description
