@@ -78,7 +78,7 @@ components:
             options:
               collection: blog
               label: "{meta.title}"
-              search: "meta.title"
+              search: "meta.title,name"
       - name: postRef
         label: Post link
         fields:
@@ -104,7 +104,7 @@ components:
             options:
               collection: blog
               label: "{meta.title}"
-              search: "meta.title"
+              search: "meta.title,name"
       - name: urlLink
         label: URL link
         fields:
