@@ -73,7 +73,7 @@ components:
             label: Label
             type: string
           - name: link
-            label: Page to link
+            label: Link
             type: reference
             options:
               collection: blog
@@ -86,7 +86,7 @@ components:
             label: Label
             type: string
           - name: link
-            label: Post link
+            label: Link
             type: reference
             options:
               collection: blog
@@ -99,7 +99,7 @@ components:
             label: Label
             type: string
           - name: link
-            label: List page to link
+            label: Link
             type: reference
             options:
               collection: blog
@@ -112,7 +112,7 @@ components:
             label: Label
             type: string
           - name: link
-            label: URL to link
+            label: Link
             type: string
   ftdImage:
     label: Featured Image
