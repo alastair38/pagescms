@@ -122,7 +122,7 @@ components:
             label: Link
             type: string
             pattern:
-              regex: '^https://(www\.)?\w+(\.\w+)+/.*$'
+              regex: '^^https://\w+(\.\w+)+.*$'
               message: 'Must be a valid URL eg: starts with https:// [without www]'
   
   standardImage: # an object for adding an image with customisable field options
