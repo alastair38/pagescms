@@ -1,12 +1,4 @@
 {
-  "site": {
-    "name": "My website",
-    "description": "Site description",
-    "ogImage": {
-      "image": "/src/media/blog/Prismic-logo.png",
-      "altText": "Sharing"
-    }
-  },
   "navigation": {
     "menuLinks": [
       {
