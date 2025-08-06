@@ -124,6 +124,18 @@ components:
             pattern:
               regex: '^^https://\w+(\.\w+)+.*$'
               message: 'Must be a valid URL eg: starts with https:// [does not need to have www]'
+      - name: email
+        label: Email address
+        fields:
+          - name: label
+            label: Label
+            type: string
+          - name: link
+            label: Email
+            type: string
+            pattern:
+              regex: '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+              message: 'This must be a valid email address'
   
   standardImage: # an object for adding an image with customisable field options
     label: Featured Image
