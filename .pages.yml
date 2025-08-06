@@ -344,24 +344,8 @@ content:
     path: src/settings/global.json
     fields:
       - name: site
-        type: object
         label: Metadata
-        fields:
-          - name: name
-            label: Site name
-            type: string
-          - name: description
-            label: Site description
-            type: text
-          - name: ogImage
-            label: Social Sharing Image
-            type: object
-            fields:
-              - name: image
-                type: image
-              - name: altText
-                label: Alt text
-                type: string
+        component: meta
       - name: navigation
         type: object
         label: Main menu
