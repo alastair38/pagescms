@@ -1,4 +1,5 @@
 ---
+title: Blog Archive
 meta:
   pubDate: 2025-08-06
   title: Blog Archive
