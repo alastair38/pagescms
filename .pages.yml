@@ -37,6 +37,7 @@ components:
           rows: 2
       - name: featuredImage
         label: Meta Image
+        description: This image may be used by search engines when indexing this content and when people share this content on social media
         type: object
         fields:
         - name: image
