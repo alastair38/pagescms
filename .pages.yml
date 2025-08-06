@@ -249,6 +249,9 @@ content:
       - name: authors
         label: Authors
         component: authors
+      - name: title
+        label: Title
+        type: string
       # - name: title
       #   label: Title
       #   type: string
