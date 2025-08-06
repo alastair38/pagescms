@@ -13,8 +13,8 @@
       },
       {
         "type": "urlLink",
-        "label": "External",
-        "link": "http://bbc.co.uk"
+        "label": "Externals",
+        "link": "https://bbc.co.uk"
       }
     ]
   }
