@@ -197,13 +197,16 @@ content:
     filename: '{primary}.md'
     view:
       fields: [ meta.title, meta.pubDate ]
-      primary: component.fields.title
+      primary: title
       sort: [ meta.title, meta.pubDate ]
       default:
         search: ''
         sort: meta.title
         order: desc
     fields:
+      - name: title
+        label: Title
+        type: string
       - name: meta
         label: Archive page overview
         component: meta
