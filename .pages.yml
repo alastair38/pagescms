@@ -242,7 +242,7 @@ content:
         label: Published
         type: boolean
       - name: dates
-        component: contentDates
+        component: contentDate
       - name: meta
         label: Content overview
         component: meta
