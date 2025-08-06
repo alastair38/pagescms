@@ -216,12 +216,12 @@ content:
     path: src/data/archives
     filename: '{primary}.md'
     view:
-      fields: [ meta.title, meta.pubDate ]
+      fields: [ title ]
       primary: title
-      sort: [ meta.title, meta.pubDate ]
+      sort: [ title ]
       default:
         search: ''
-        sort: meta.title
+        sort: title
         order: desc
     fields:
       - name: title
@@ -235,9 +235,18 @@ content:
         type: rich-text
         options:
           media: false
-      - name: postsPerPage
-        label: Posts per page
-        type: number
+      - name: settings
+        label: Page settings
+        type: object
+        fields:
+          - name: postsPerPage
+            label: Posts per page
+            type: number
+          - name: layout
+            label: Page layout
+            type: select
+            options:
+              values: [ grid, column ]
         
   - name: blog
     label: Blog
@@ -267,43 +276,6 @@ content:
       - name: title
         label: Title
         type: string
-      # - name: title
-      #   label: Title
-      #   type: string
-      # - name: description
-      #   label: Description
-      #   type: text
-      #   options:
-      #     rows: 2
-      # - name: featuredImage
-      #   label: Featured Image
-      #   type: object
-      #   fields:
-      #   - name: image
-      #     label: Image
-      #     type: image
-      #     options:
-      #       media: blogImages
-      #       extensions: [png, jpg, jpeg]
-      #   - name: alt
-      #     label: Alt text
-      #     description: Alt text should be an accurate description of the image for assistive technologies
-      #     type: string
-      # - name: authors
-      #   label: Authors
-      #   type: reference
-      #   required: false
-      #   options:
-      #     collection: authors
-      #     multiple: true
-      #     label: "{fields.name}"
-      #     search: "name"
-      # - name: pubDate
-      #   label: Published date
-      #   type: date
-      # - name: updatedAt
-      #   label: Updated at
-      #   type: date
       - name: body
         type: rich-text
       - name: contentBlocks
