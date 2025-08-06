@@ -18,7 +18,7 @@
       },
       {
         "type": "email",
-        "label": "Alastair Email",
+        "label": "Email",
         "link": "admin@example.com"
       }
     ]
