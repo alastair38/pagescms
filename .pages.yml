@@ -363,10 +363,61 @@ content:
                 label: Alt text
                 type: string
       - name: navigation
-        type: object
-        label: Main menu
-        fields:
-          - name: menuLinks
-            label: Primary navigation
-            component: links
+        type: block
+        list:
+          collapsible:
+            collapsed: true # Default collapsed state
+            summary: '{fields.label}'
+        blockKey: type # Optional: customize the key used to store the block name, defaults to `_block`
+        blocks:
+          # Each item defines a possible block structure the user can select.
+          # These typically use 'component' or define 'fields' directly.
+          - name: pageRef
+            label: Add page link
+            fields:
+              - name: label
+                label: Label
+                type: string
+              - name: link
+                label: Page to link
+                type: reference
+                options:
+                  collection: blog
+                  label: '{name}'
+                  search: 'name'
+          - name: postRef
+            label: Add post link
+            fields:
+              - name: label
+                label: Label
+                type: string
+              - name: link
+                label: Post to link
+                type: reference
+                options:
+                  collection: blog
+                  label: '{name}'
+                  search: 'name'
+          - name: archiveRef
+            label: Add list page link
+            fields:
+              - name: label
+                label: Label
+                type: string
+              - name: link
+                label: List page to link
+                type: reference
+                options:
+                  collection: blog
+                  label: '{name}'
+                  search: 'name'
+          - name: urlLink
+            label: Add URL link
+            fields:
+              - name: label
+                label: Label
+                type: string
+              - name: link
+                label: URL to link
+                type: string
      
