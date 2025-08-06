@@ -48,7 +48,6 @@ components:
             extensions: [png, jpg, jpeg]
         - name: alt
           label: Alt text
-          placeholder: lslsl
           description: Alt text should be an accurate description of the image for assistive technologies
           type: string
 
