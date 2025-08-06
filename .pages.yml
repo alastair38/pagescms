@@ -214,15 +214,9 @@ components:
           - name: altText
             label: Alt text
             type: string
-      - name: links
+      - name: heroLinks
         label: Link(s)
-        type: reference
-        required: false
-        options:
-          collection: blog
-          multiple: true
-          label: "{fields.title}"
-          search: 'title'
+        component: links
 
 content:
   - name: archives
