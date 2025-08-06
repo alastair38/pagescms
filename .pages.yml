@@ -383,7 +383,7 @@ content:
                 type: reference
                 options:
                   collection: blog
-                  label: "{title}"
+                  label: "{meta.title}"
                   search: "title"
           - name: postRef
             label: Add post link
