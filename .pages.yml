@@ -80,7 +80,7 @@ components:
               label: "{meta.title}"
               search: "meta.title"
       - name: postRef
-        label: Add post link
+        label: Post link
         fields:
           - name: label
             label: Label
