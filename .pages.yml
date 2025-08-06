@@ -384,7 +384,7 @@ content:
                 options:
                   collection: blog
                   label: "{title}"
-                  search: 'name'
+                  search: "title"
           - name: postRef
             label: Add post link
             fields:
