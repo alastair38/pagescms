@@ -210,6 +210,9 @@ content:
       - name: meta
         label: Metadata
         component: meta
+        list:
+          collapsible:
+            collapsed: true # Default collapsed state
       - name: body
         label: Introduction
         type: rich-text
