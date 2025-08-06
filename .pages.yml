@@ -354,7 +354,7 @@ content:
     path: src/settings/global.json
     fields:
       - name: site
-        label: Metadata
+        label: Site Metadata
         component: meta
       - name: navigation
         type: object
