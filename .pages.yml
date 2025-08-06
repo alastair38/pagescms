@@ -27,22 +27,16 @@ components:
   meta:
     type: object
     fields:
-      - name: pubDate
-        label: Published date
-        type: date
-      - name: updatedAt
-        label: Updated at
-        type: date
       - name: title
-        label: Title
+        label: Meta Title
         type: string
       - name: description
-        label: Description
+        label: Meta Description
         type: text
         options:
           rows: 2
       - name: featuredImage
-        label: Featured Image
+        label: Meta Image
         type: object
         fields:
         - name: image
@@ -55,7 +49,18 @@ components:
           label: Alt text
           description: Alt text should be an accurate description of the image for assistive technologies
           type: string
-    
+
+  contentDate:
+    type: object
+    label: Publication Date
+    fields:
+      - name: pubDate
+        label: Published date
+        type: date
+      - name: updatedAt
+        label: Updated at
+        type: date
+  
   links:
     type: block
     list:
