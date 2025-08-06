@@ -26,8 +26,4 @@ contentBlocks:
       *   Two
           
       *   Three
-  - __typename: postHero
-    title: This is fine
-    links:
-      - src/data/blog/fourth.md
 ---
