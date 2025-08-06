@@ -241,6 +241,8 @@ content:
       - name: isPublished
         label: Published
         type: boolean
+      - name: dates
+        component: contentDates
       - name: meta
         label: Content overview
         component: meta
