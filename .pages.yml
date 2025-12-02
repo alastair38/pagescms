@@ -67,21 +67,6 @@ components:
     label: Info Section
     type: object
     fields:
-      - name: title
-        label: Title
-        type: string
-      - name: description
-        label: Description
-        type: text
-      - name: heroImage
-        label: Cover Image
-        type: object
-        fields:
-          - name: image
-            type: image
-          - name: altText
-            label: Alt text
-            type: string
       - name: heroLinks
         label: Link(s)
         component: links
