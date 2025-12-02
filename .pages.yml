@@ -67,9 +67,9 @@ components:
     label: Info Section
     type: object
     fields:
-      - name: heroLinks
-        label: Link(s)
-        component: links
+      - name: infoBlocks
+        label: Info blocks
+        component: infoBlock
 
 
   infoBlock:
@@ -81,9 +81,15 @@ components:
     blocks:
     # Each item defines a possible block structure the user can select.
       # These typically use 'component' or define 'fields' directly.
-      - name: section
+      - name: sectionTitle
         label: Info section
-        component: links
+        fields:
+        - name: title
+          type: string
+          label: Title
+        - name: sectionLinks
+          label: Link(s)
+          component: links
 
 
     
