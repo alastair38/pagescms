@@ -62,7 +62,42 @@ components:
       - name: updatedAt
         label: Updated at
         type: date
-  
+
+
+  infoBlock:
+    type: block
+    list:
+      collapsible:
+        collapsed: true # Default collapsed state
+        summary: "{fields.label}"
+    blockKey: type # Optional: customize the key used to store the block name, defaults to `_block`
+    blocks:
+    # Each item defines a possible block structure the user can select.
+      # These typically use 'component' or define 'fields' directly.
+      - name: section
+        label: Info section
+        fields:
+          - name: title
+            label: Title
+            type: string
+          - name: description
+            label: Description
+            type: text
+          - name: infoImage
+            label: Image
+            type: object
+            fields:
+              - name: image
+                type: image
+              - name: altText
+                label: Alt text
+                type: string
+          - name: infoLinks
+            label: Link(s)
+            component: links
+
+
+    
   links: # a block for adding an array different types of links (eg: reference and URL)
     type: block
     list:
@@ -218,31 +253,6 @@ components:
         label: Link(s)
         component: links
 
-  info: # an object for adding a Hero section to a page
-    label: Info blocks
-    type: block
-    list: true
-    blocks:
-      - name: info
-        fields:
-          - name: title
-            label: Title
-            type: string
-          - name: description
-            label: Description
-            type: text
-          - name: infoImage
-            label: Image
-            type: object
-            fields:
-              - name: image
-                type: image
-              - name: altText
-                label: Alt text
-                type: string
-          - name: infoLinks
-            label: Link(s)
-            component: links
 
 content:
   - name: archives
@@ -327,7 +337,7 @@ content:
           - name: body
             component: bodyText
           - name: infoBlock
-            component: info
+            component: infoBlock
 
       # ... fields defined here ...
   - name: authors
