@@ -220,27 +220,29 @@ components:
 
   info: # an object for adding a Hero section to a page
     label: Info blocks
-    type: object
+    type: block
     list: true
-    fields:
-      - name: title
-        label: Title
-        type: string
-      - name: description
-        label: Description
-        type: text
-      - name: infoImage
-        label: Image
-        type: object
+    blocks:
+      - name: info
         fields:
-          - name: image
-            type: image
-          - name: altText
-            label: Alt text
+          - name: title
+            label: Title
             type: string
-      - name: infoLinks
-        label: Link(s)
-        component: links
+          - name: description
+            label: Description
+            type: text
+          - name: infoImage
+            label: Image
+            type: object
+            fields:
+              - name: image
+                type: image
+              - name: altText
+                label: Alt text
+                type: string
+          - name: infoLinks
+            label: Link(s)
+            component: links
 
 content:
   - name: archives
