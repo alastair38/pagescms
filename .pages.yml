@@ -64,11 +64,11 @@ components:
         type: date
 
   infoSection: # an object for adding a Hero section to a page
-    label: Info Section
+    label: Info Sections
     type: object
     fields:
       - name: infoBlocks
-        label: Add blocks
+        label: Add another section
         component: infoBlockObject
 
 
@@ -83,10 +83,13 @@ components:
       # These typically use 'component' or define 'fields' directly.
       - name: title
         type: string
-        label: Title
+        label: Section Title
       - name: description
         type: string
-        label: Description
+        label: Section Description
+      - name: image
+        component: standardImage
+        label: Section Image
       - name: links
         label: Section Link
         component: links
