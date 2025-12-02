@@ -68,11 +68,11 @@ components:
     type: object
     fields:
       - name: infoBlocks
-        label: Info blocks
-        component: infoObject
+        label: Add blocks
+        component: infoBlockObject
 
 
-  infoObject:
+  infoBlockObject:
     type: object
     list:
       collapsible:
@@ -83,8 +83,11 @@ components:
       - name: title
         type: string
         label: Title
-      - name: sectionLinks
-        label: Link(s)
+      - name: description
+        type: string
+        label: Description
+      - name: links
+        label: Section Link
         component: links
 
 
