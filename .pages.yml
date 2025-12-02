@@ -7,7 +7,12 @@ media:
   label: Blog Images
   input: src/media/blog
   output: /src/media/blog
-  extensions: [jpg, png, jpeg]
+  extensions: [jpg, png, jpeg, webp, avif]
+- name: pageImages
+  label: Page Images
+  input: src/media/pages
+  output: /src/media/pages
+  extensions: [jpg, png, jpeg, webp, avif]
 - name: files
   label: Files
   input: src/files
@@ -199,7 +204,6 @@ components:
       type: image
       options:
         media: blogImages
-        extensions: [png, jpg, jpeg]
     - name: alt
       label: Alt text
       description: Alt text should be an accurate description of the image for assistive technologies
@@ -213,8 +217,7 @@ components:
       label: Image
       type: image
       options:
-        media: blogImages
-        extensions: [png, jpg, jpeg]
+        media: pageImages
     - name: alt
       label: Alt text
       description: Alt text should be an accurate description of the image for assistive technologies
