@@ -72,6 +72,22 @@ components:
         component: infoBlock
 
 
+  infoObject:
+    type: object
+    list:
+      collapsible:
+        collapsed: true # Default collapsed state
+    fields:
+    # Each item defines a possible block structure the user can select.
+      # These typically use 'component' or define 'fields' directly.
+      - name: title
+        type: string
+        label: Title
+      - name: sectionLinks
+        label: Link(s)
+        component: links
+
+
   infoBlock:
     type: block
     list:
