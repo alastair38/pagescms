@@ -341,7 +341,7 @@ content:
           - name: body
             component: bodyText
           - name: infoBlock
-            component: infoBlock
+            component: infoSection
 
       # ... fields defined here ...
   - name: authors
