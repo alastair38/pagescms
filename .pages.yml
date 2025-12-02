@@ -69,7 +69,7 @@ components:
     fields:
       - name: infoBlocks
         label: Info blocks
-        component: infoBlock
+        component: infoObject
 
 
   infoObject:
