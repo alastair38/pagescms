@@ -63,6 +63,29 @@ components:
         label: Updated at
         type: date
 
+  infoSection: # an object for adding a Hero section to a page
+    label: Info Section
+    type: object
+    fields:
+      - name: title
+        label: Title
+        type: string
+      - name: description
+        label: Description
+        type: text
+      - name: heroImage
+        label: Cover Image
+        type: object
+        fields:
+          - name: image
+            type: image
+          - name: altText
+            label: Alt text
+            type: string
+      - name: heroLinks
+        label: Link(s)
+        component: links
+
 
   infoBlock:
     type: block
@@ -75,25 +98,7 @@ components:
       # These typically use 'component' or define 'fields' directly.
       - name: section
         label: Info section
-        fields:
-          - name: title
-            label: Title
-            type: string
-          - name: description
-            label: Description
-            type: text
-          - name: infoImage
-            label: Image
-            type: object
-            fields:
-              - name: image
-                type: image
-              - name: altText
-                label: Alt text
-                type: string
-          - name: infoLinks
-            label: Link(s)
-            component: links
+        component: infoSection
 
 
     
