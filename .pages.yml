@@ -30,15 +30,15 @@ components:
     type: object
     fields:
       - name: title
-        label: Meta Title
+        label: Content Title
         type: string
       - name: description
-        label: Meta Description
+        label: Content Description
         type: text
         options:
           rows: 2
       - name: featuredImage
-        label: Meta Image
+        label: Featured Image
         type: object
         fields:
         - name: image
