@@ -77,6 +77,7 @@ components:
     list:
       collapsible:
         collapsed: true # Default collapsed state
+        summary: "{fields.title}"
     fields:
     # Each item defines a possible block structure the user can select.
       # These typically use 'component' or define 'fields' directly.
