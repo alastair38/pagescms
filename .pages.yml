@@ -72,7 +72,7 @@ components:
     label: Info Sections
     type: object
     fields:
-      - name: infoBlocks
+      - name: sections
         label: Add another section
         component: infoBlockObject
 
