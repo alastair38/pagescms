@@ -31,4 +31,22 @@ contentBlocks:
       - type: postRef
         label: View details
         link: src/data/blog/third-post.md
+  - __typename: infoBlock
+    infoBlocks:
+      - title: Testing one
+        description: Testing one description
+        image:
+          image: /src/media/blog/image7.jpg
+        links:
+          - type: postRef
+            label: View more
+            link: src/data/blog/third-post.md
+      - title: Testing two
+        description: Testing two description
+        image:
+          image: /src/media/blog/logoipsum-381.png
+        links:
+          - type: pageRef
+            label: View more
+            link: src/data/blog/third-post.md
 ---
