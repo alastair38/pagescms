@@ -98,7 +98,7 @@ components:
       # These typically use 'component' or define 'fields' directly.
       - name: section
         label: Info section
-        component: infoSection
+        component: links
 
 
     
