@@ -471,7 +471,7 @@ content:
         blocks:
           - name: postHero
             component: hero
-          - name: body
+          - name: richText
             component: bodyText
           - name: faqs
             component: faqs
