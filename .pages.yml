@@ -300,7 +300,6 @@ components:
 content:
   - name: archive
     label: Archive Pages
-    description: slsls
     type: collection
     format: json
     path: src/data/archives
