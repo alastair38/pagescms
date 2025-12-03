@@ -213,26 +213,12 @@ components:
         media: pageImages
     - name: alt
       label: Alt text
-      description: Alt text should be an accurate description of the image for assistive technologies
+      description: Alt text should be an accurate description of the image for assistive technologies. This is not shown visually
       type: string
     - name: caption
-      label: Caption
-      description: Optional
+      label: Caption (optional)
+      description: If a caption is set, this will be shown under the image
       type: string
-    - name: variant
-      label: Variant
-      description: Choose the variant; 'rounded' adds a border radius and shadow
-      type: select
-      default: plain
-      options:
-        values: [ rounded, plain ]
-    - name: layout
-      label: Layout
-      description: Choose the layout; 'grid' places the image and caption horizontally
-      type: select
-      default: default
-      options:
-        values: [ default, grid ]
         
   bodyText: # a utility component for adding a simple rich text field ( w/ media disabled)
     label: Content block
