@@ -407,6 +407,8 @@ content:
             component: bodyText
           - name: faqs
             component: faqs
+          - name: imageGallery
+            component: imageGallery
           - name: infoBlock
             component: infoSection
           - name: tabs
