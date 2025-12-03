@@ -526,11 +526,11 @@ content:
       - name: site
         label: Site Metadata
         component: meta
-      - name: navigation
-        type: object
-        label: Main menu
-        fields:
-          - name: menuLinks
-            label: Primary navigation
-            component: links
+      # - name: navigation
+      #   type: object
+      #   label: Main menu
+      #   fields:
+      #     - name: menuLinks
+      #       label: Primary navigation
+      #       component: links
      
