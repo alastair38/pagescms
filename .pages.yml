@@ -521,7 +521,7 @@ content:
   - name: globalSettings
     label: Site Configuration
     type: file
-    path: src/settings/global.json
+    path: src/data/settings/global.json
     format: json
     fields:
       - name: site
