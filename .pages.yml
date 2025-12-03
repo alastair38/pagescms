@@ -325,7 +325,7 @@ content:
         label: Content overview
         component: meta
       - name: body
-        label: Introduction
+        label: Page content
         type: rich-text
         options:
           media: false
@@ -377,7 +377,7 @@ content:
         blocks:
           - name: hero
             component: hero
-          - name: body
+          - name: richText
             component: bodyText
           - name: faqs
             component: faqs
@@ -423,7 +423,7 @@ content:
         blocks:
           - name: hero
             component: hero
-          - name: body
+          - name: richText
             component: bodyText
           - name: faqs
             component: faqs
