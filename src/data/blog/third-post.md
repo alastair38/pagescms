@@ -11,7 +11,6 @@ meta:
     alt: Meta alt
 authors:
   - src/data/authors/alastair-cox.md
-title: Third post
 contentBlocks:
   - __typename: body
     content: >-
