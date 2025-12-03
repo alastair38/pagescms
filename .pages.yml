@@ -98,7 +98,7 @@ components:
     blocks:
     # Each item defines a possible block structure the user can select.
       # These typically use 'component' or define 'fields' directly.
-      - name: pageRef
+      - name: page
         label: Page link
         fields:
           - name: label
@@ -111,7 +111,7 @@ components:
               collection: page
               label: "{meta.title}"
               search: "meta.title,name"
-      - name: postRef
+      - name: article
         label: Article link
         fields:
           - name: label
@@ -124,7 +124,7 @@ components:
               collection: article
               label: "{meta.title}"
               search: "meta.title,name"
-      - name: archiveRef
+      - name: archive
         label: Archive page link
         fields:
           - name: label
