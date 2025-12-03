@@ -52,8 +52,8 @@ components:
           label: Image
           type: image
           options:
-            media: pageImages
-            extensions: [png, jpg, jpeg]
+            media: images
+            extensions: [png, jpg, jpeg, webp, avif]
         - name: alt
           label: Alt text
           description: This should be an accurate description of the image for assistive technologies. It can be left blank for images that are purely decorative
