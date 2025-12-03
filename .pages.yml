@@ -415,7 +415,7 @@ content:
       - name: dates
         component: contentDate
       - name: meta
-        label: Content overview
+        label: Content overview 
         component: meta
       - name: authors
         label: Authors
@@ -438,8 +438,12 @@ content:
             component: hero
           - name: body
             component: bodyText
+          - name: faqs
+            component: faqs
           - name: infoBlock
             component: infoSection
+          - name: tabs
+            component: tabs
 
       # ... fields defined here ...
   - name: authors
