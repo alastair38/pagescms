@@ -74,10 +74,10 @@ components:
     fields:
       - name: sections
         label: Add another section
-        component: infoBlockObject
+        component: repeaterBlockObject
 
 
-  infoBlockObject:
+  repeaterBlockObject:
     type: object
     list:
       collapsible:
