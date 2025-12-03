@@ -173,11 +173,11 @@ components:
       # These typically use 'component' or define 'fields' directly.
       - name: page
         label: Page link
-        description: Any links selected here will be shown in the page sidebar
         fields:
           - name: link
             label: Link
             type: reference
+            description: Any links selected here will be shown in the page sidebar
             options:
               collection: page
               label: "{meta.title}"
