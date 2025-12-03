@@ -68,19 +68,6 @@ components:
         label: Updated at
         type: date
 
-  infoSection: # an object for adding an info component with repeating sections to a page
-    label: Info Sections
-    type: object
-    fields:
-      - name: title
-        type: string
-      - name: description
-        type: text
-        options:
-          rows: 5
-      - name: sections
-        label: Add another section
-        component: repeaterBlockObject
 
 
   repeaterBlockObject:
@@ -282,6 +269,19 @@ components:
         label: Link(s)
         component: links
 
+  infoSection: # an object for adding an info component with repeating sections to a page
+    label: Info Sections
+    type: object
+    fields:
+      - name: title
+        type: string
+      - name: description
+        type: text
+        options:
+          rows: 5
+      - name: sections
+        label: Add another section
+        component: repeaterBlockObject
 
 content:
   - name: archives
