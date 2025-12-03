@@ -389,7 +389,7 @@ content:
             component: tabs
 
   - name: articles
-    label: Pages
+    label: Articles
     path: src/data/articles
     type: collection
     filename: '{primary}.json'
