@@ -115,8 +115,6 @@ components:
           label: Link(s)
           component: links
 
-
-    
   links: # a utility component for adding an array different types of links (eg: reference and URL)
     type: block
     list:
