@@ -431,52 +431,52 @@ content:
           - name: tabs
             component: tabs
             
-  - name: blog
-    label: Blog
-    path: src/data/blog
-    type: collection
-    format: json
-    filename: '{primary}.json'
-    view:
-      fields: [ meta.title, dates.pubDate, isPublished ]
-      primary: meta.title
-      sort: [ meta.title, dates.pubDate ]
-      default:
-        search: ''
-        sort: title
-        order: desc
-    fields:
-      - name: isPublished
-        label: Published
-        description: Use this to control whether a content item is published to the front-end of the website
-        type: boolean
-      - name: dates
-        component: contentDate
-      - name: meta
-        label: Content overview 
-        component: meta
-      - name: authors
-        label: Authors
-        component: authors
-      - name: contentBlocks
-        label: Content blocks
-        type: block
-        list:
-          collapsible:
-            collapsed: true # Default collapsed state
-            summary: "Block - {index}"
-        blockKey: __typename
-        blocks:
-          - name: postHero
-            component: hero
-          - name: richText
-            component: bodyText
-          - name: faqs
-            component: faqs
-          - name: infoBlock
-            component: infoSection
-          - name: tabs
-            component: tabs
+  # - name: blog
+  #   label: Blog
+  #   path: src/data/blog
+  #   type: collection
+  #   format: json
+  #   filename: '{primary}.json'
+  #   view:
+  #     fields: [ meta.title, dates.pubDate, isPublished ]
+  #     primary: meta.title
+  #     sort: [ meta.title, dates.pubDate ]
+  #     default:
+  #       search: ''
+  #       sort: title
+  #       order: desc
+  #   fields:
+  #     - name: isPublished
+  #       label: Published
+  #       description: Use this to control whether a content item is published to the front-end of the website
+  #       type: boolean
+  #     - name: dates
+  #       component: contentDate
+  #     - name: meta
+  #       label: Content overview 
+  #       component: meta
+  #     - name: authors
+  #       label: Authors
+  #       component: authors
+  #     - name: contentBlocks
+  #       label: Content blocks
+  #       type: block
+  #       list:
+  #         collapsible:
+  #           collapsed: true # Default collapsed state
+  #           summary: "Block - {index}"
+  #       blockKey: __typename
+  #       blocks:
+  #         - name: postHero
+  #           component: hero
+  #         - name: richText
+  #           component: bodyText
+  #         - name: faqs
+  #           component: faqs
+  #         - name: infoBlock
+  #           component: infoSection
+  #         - name: tabs
+  #           component: tabs
       # ... fields defined here ...
   - name: person
     label: People
