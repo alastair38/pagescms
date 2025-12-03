@@ -106,9 +106,6 @@ components:
       - name: image
         component: featuredImage
         label: Image
-      - name: caption
-        type: string
-        label: Image caption (optional)
 
   infoBlock:
     type: block
