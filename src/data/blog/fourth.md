@@ -11,6 +11,5 @@ meta:
     alt: Alt
 authors:
   - src/data/authors/alastair-cox.md
-title: The fourth blog post
 ---
 Some content here with **rich text stuff**
