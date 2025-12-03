@@ -43,7 +43,7 @@ components:
         type: text
         options:
           rows: 2
-      - name: featuredImage
+      - name: standardImage
         label: Featured Image
         description: This image will be used by search engines and on social media platforms when sharing this content. The image may also be used on some archive pages.
         type: object
@@ -275,17 +275,10 @@ components:
         type: text
         options:
           rows: 5
-      - name: heroImage
-        label: Cover Image
-        type: object
-        fields:
-          - name: image
-            label: Image
-            type: image
-          - name: altText
-            label: Alt text
-            type: string
-      - name: heroLinks
+      - name: image
+        label: Image
+        component: standardImage
+      - name: links
         label: Link(s)
         component: links
 
