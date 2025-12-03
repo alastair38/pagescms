@@ -52,7 +52,7 @@ components:
           label: Image
           type: image
           options:
-            media: blogImages
+            media: pageImages
             extensions: [png, jpg, jpeg]
         - name: alt
           label: Alt text
