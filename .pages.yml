@@ -392,6 +392,7 @@ content:
     label: Articles
     path: src/data/articles
     type: collection
+    format: json-frontmatter
     filename: '{primary}.json'
     view:
       fields: [ meta.title, isPublished ]
