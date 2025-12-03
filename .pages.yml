@@ -68,7 +68,7 @@ components:
         label: Updated at
         type: date
 
-  repeaterBlockObject:
+  repeaterBlockObject: # utility layout component used to add repeating sections to block compontents
     type: object
     list:
       collapsible:
