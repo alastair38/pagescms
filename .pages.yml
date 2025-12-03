@@ -518,7 +518,7 @@ content:
             label: Link
             type: string
             
-  - name: settings
+  - name: siteSettings
     label: Site Configuration
     type: file
     path: src/data/settings/global.json
