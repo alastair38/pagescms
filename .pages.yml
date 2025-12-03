@@ -310,6 +310,7 @@ content:
   - name: archive
     label: Archive pages
     type: collection
+    format: json
     path: src/data/archives
     filename: '{primary}.json'
     view:
@@ -440,6 +441,7 @@ content:
     label: Blog
     path: src/data/blog
     type: collection
+    format: json
     filename: '{primary}.json'
     view:
       fields: [ meta.title, dates.pubDate, isPublished ]
@@ -485,6 +487,7 @@ content:
   - name: author
     label: Authors
     path: src/data/authors
+    format: json
     filename: '{primary}.json'
     type: collection
     view:
@@ -519,6 +522,7 @@ content:
     label: Site Configuration
     type: file
     path: src/settings/global.json
+    format: json
     fields:
       - name: site
         label: Site Metadata
