@@ -256,17 +256,10 @@ components:
         type: text
         options:
           rows: 5
-      - name: heroImage
-        label: Cover Image
-        type: object
-        fields:
-          - name: image
-            label: Image
-            type: image
-          - name: altText
-            label: Alt text
-            type: string
-      - name: heroLinks
+      - name: image
+        label: Image
+        component: standardImage
+      - name: links
         label: Link(s)
         component: links
         
