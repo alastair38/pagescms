@@ -382,9 +382,6 @@ content:
       - name: meta
         label: Content overview
         component: meta
-      - name: authors
-        label: Authors
-        component: authors
       - name: relatedContent
         label: Related content
         description: Any links selected here will be shown in the page sidebar
