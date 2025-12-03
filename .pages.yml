@@ -17,7 +17,7 @@ components:
     type: reference
     required: false
     options:
-      collection: [person, article]
+      collection: person
       multiple: true
       label: "{fields.name}"
       value: "{fields.name}"
