@@ -385,7 +385,7 @@ content:
         list:
           collapsible:
             collapsed: true # Default collapsed state
-            summary: "Block - {faqs.title}"
+            summary: "Block - {field.title}"
         blockKey: __typename
         blocks:
           - name: hero
