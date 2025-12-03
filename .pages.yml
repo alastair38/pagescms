@@ -383,7 +383,7 @@ content:
         label: Content overview
         component: meta
       - name: relatedContent
-        label: Related content
+        label: Related Links
         description: Any links selected here will be shown in the page sidebar
         component: links
       - name: contentBlocks
