@@ -39,7 +39,7 @@ components:
         type: string
       - name: description
         label: Description
-        description: This should be no more than 170 characters and will be used by search engines to identify the content of a page. This description may also be used on some archive pages.
+        description: This should be no more than 170 characters and will be used by search engines to identify the content of a page. For individual content items, this description may also be used on some archive pages, while the description in the Site Configuration will be used as a backup for any content where this has not been set.
         type: text
         options:
           rows: 2
