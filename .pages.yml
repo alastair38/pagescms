@@ -319,9 +319,6 @@ content:
         sort: meta.title
         order: desc
     fields:
-      - name: title
-        label: Title
-        type: string
       - name: meta
         label: Content data
         component: meta
