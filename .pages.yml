@@ -387,6 +387,52 @@ content:
             component: infoSection
           - name: tabs
             component: tabs
+
+  - name: articles
+    label: Pages
+    path: src/data/articles
+    type: collection
+    filename: '{primary}.json'
+    view:
+      fields: [ meta.title, isPublished ]
+      primary: meta.title
+      sort: [ meta.title ]
+      default:
+        search: ''
+        sort: title
+        order: desc
+    fields:
+      - name: isPublished
+        label: Published
+        type: boolean
+      - name: meta
+        label: Content overview
+        component: meta
+      - name: relatedContent
+        label: Related Links
+        description: Any links selected here will be shown in the page sidebar
+        component: links
+      - name: contentBlocks
+        label: Content blocks
+        type: block
+        list:
+          collapsible:
+            collapsed: true # Default collapsed state
+            summary: "Block - {index}"
+        blockKey: __typename
+        blocks:
+          - name: hero
+            component: hero
+          - name: body
+            component: bodyText
+          - name: faqs
+            component: faqs
+          - name: imageGallery
+            component: imageGallery
+          - name: infoBlock
+            component: infoSection
+          - name: tabs
+            component: tabs
             
   - name: blog
     label: Blog
