@@ -160,6 +160,47 @@ components:
             pattern:
               regex: '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
               message: 'This must be a valid email address'
+
+  referenceLinks: # a utility component for adding an array different types of links (eg: reference and URL)
+    type: block
+    list:
+      collapsible:
+        collapsed: true # Default collapsed state
+        summary: "{fields.link}"
+    blockKey: type # Optional: customize the key used to store the block name, defaults to `_block`
+    blocks:
+    # Each item defines a possible block structure the user can select.
+      # These typically use 'component' or define 'fields' directly.
+      - name: page
+        label: Page link
+        fields:
+          - name: link
+            label: Link
+            type: reference
+            options:
+              collection: page
+              label: "{meta.title}"
+              search: "meta.title,name"
+      - name: article
+        label: Article link
+        fields:
+          - name: link
+            label: Link
+            type: reference
+            options:
+              collection: article
+              label: "{meta.title}"
+              search: "meta.title,name"
+      - name: archive
+        label: Archive page link
+        fields:
+          - name: link
+            label: Link
+            type: reference
+            options:
+              collection: archive
+              label: "{meta.title}"
+              search: "meta.title,name"
   
   standardImage: # an object for adding an image with alt text
     label: Image
@@ -358,7 +399,7 @@ content:
       - name: relatedContent
         label: Related Links
         description: Any links selected here will be shown in the page sidebar
-        component: links
+        component: referenceLinks
       - name: contentBlocks
         label: Content blocks
         type: block
@@ -408,7 +449,7 @@ content:
       - name: relatedContent
         label: Related Links
         description: Any links selected here will be shown in the page sidebar
-        component: links
+        component: referenceLinks
       - name: contentBlocks
         label: Content blocks
         type: block
