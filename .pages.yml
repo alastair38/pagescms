@@ -94,6 +94,21 @@ components:
         label: Section Link
         component: links
 
+  repeaterImageObject: # utility layout component used to add repeating sections to block compontents
+    type: object
+    list:
+      collapsible:
+        collapsed: true # Default collapsed state
+        summary: "{fields.title}"
+    fields:
+    # Each item defines a possible block structure the user can select.
+      # These typically use 'component' or define 'fields' directly.
+      - name: image
+        component: featuredImage
+        label: Image
+      - name: caption
+        type: string
+        label: Image caption (optional)
 
   infoBlock:
     type: block
