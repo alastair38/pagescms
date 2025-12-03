@@ -299,7 +299,7 @@ components:
 
 content:
   - name: archive
-    label: Archive pages
+    label: Archive Pages
     type: collection
     format: json
     path: src/data/archives
