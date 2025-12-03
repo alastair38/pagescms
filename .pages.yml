@@ -269,8 +269,36 @@ components:
         label: Link(s)
         component: links
 
+  faqs: # an object for adding a FAQs component with repeating sections to a page
+    label: FAQs
+    type: object
+    fields:
+      - name: title
+        type: string
+      - name: description
+        type: text
+        options:
+          rows: 5
+      - name: sections
+        label: Add another section
+        component: repeaterBlockObject
+
   infoSection: # an object for adding an info component with repeating sections to a page
     label: Info Sections
+    type: object
+    fields:
+      - name: title
+        type: string
+      - name: description
+        type: text
+        options:
+          rows: 5
+      - name: sections
+        label: Add another section
+        component: repeaterBlockObject
+
+  tabs: # an object for adding a tabs component with repeating sections to a page
+    label: Tabs
     type: object
     fields:
       - name: title
