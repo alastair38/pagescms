@@ -20,6 +20,7 @@ components:
       collection: person
       multiple: true
       label: "{fields.name}"
+      value: "{id}"
       search: "name"
   
   meta: # utility for setting metadata on content
