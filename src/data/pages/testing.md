@@ -15,4 +15,9 @@ contentBlocks:
         description: Number 1 description
       - title: Number 2
         description: Number 2 description
+  - __typename: imageGallery
+    image:
+      - image:
+          image: /src/media/blog/showcase-image.avif
+          alt: whack whack oops
 ---
