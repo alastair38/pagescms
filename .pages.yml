@@ -68,10 +68,16 @@ components:
         label: Updated at
         type: date
 
-  infoSection: # an object for adding a Hero section to a page
+  infoSection: # an object for adding an info component with repeating sections to a page
     label: Info Sections
     type: object
     fields:
+      - name: title
+        type: string
+      - name: description
+        type: text
+        options:
+          rows: 5
       - name: sections
         label: Add another section
         component: repeaterBlockObject
@@ -90,8 +96,10 @@ components:
         type: string
         label: Section Title
       - name: description
-        type: string
+        type: text
         label: Section Description
+        options:
+          rows: 5
       - name: image
         component: standardImage
         label: Section Image
