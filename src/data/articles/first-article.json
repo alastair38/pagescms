@@ -11,6 +11,13 @@
   "authors": [
     "Alastair Cox"
   ],
+  "relatedContent": [
+    {
+      "type": "postRef",
+      "label": "A link",
+      "link": "src/data/articles/first-article.json"
+    }
+  ],
   "contentBlocks": [
     {
       "__typename": "richText",
