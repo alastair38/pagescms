@@ -5,6 +5,8 @@ meta:
 authors:
   - src/data/authors/alastair-cox.md
 contentBlocks:
+  - __typename: body
+    content: This is some text for the rich text block
   - __typename: faqs
     title: FAQs
     description: This is the faqs
@@ -13,6 +15,4 @@ contentBlocks:
         description: Number 1 description
       - title: Number 2
         description: Number 2 description
-  - __typename: body
-    content: This is some text for the rich text block
 ---
