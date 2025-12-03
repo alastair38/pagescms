@@ -261,6 +261,7 @@ components:
         type: object
         fields:
           - name: image
+            label: Image
             type: image
           - name: altText
             label: Alt text
@@ -274,13 +275,15 @@ components:
     type: object
     fields:
       - name: title
+        label: Title
         type: string
       - name: description
+        label: Description
         type: text
         options:
           rows: 5
       - name: sections
-        label: Add another section
+        label: Add section
         component: repeaterBlockObject
 
   infoSection: # an object for adding an info component with repeating sections to a page
@@ -288,13 +291,15 @@ components:
     type: object
     fields:
       - name: title
+        label: Title
         type: string
       - name: description
+        label: Description
         type: text
         options:
           rows: 5
       - name: sections
-        label: Add another section
+        label: Add section
         component: repeaterBlockObject
 
   tabs: # an object for adding a tabs component with repeating sections to a page
@@ -302,13 +307,15 @@ components:
     type: object
     fields:
       - name: title
+        label: Title
         type: string
       - name: description
+        label: Description
         type: text
         options:
           rows: 5
       - name: sections
-        label: Add another section
+        label: Add section
         component: repeaterBlockObject
 
 content:
