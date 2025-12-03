@@ -45,6 +45,7 @@ components:
           rows: 2
       - name: featuredImage
         label: Featured Image
+        description: This image will be used by search engines and on social media platforms when sharing this content. The image may also be used on some archive pages.
         type: object
         fields:
         - name: image
