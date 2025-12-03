@@ -114,7 +114,7 @@ components:
 
 
     
-  links: # a block for adding an array different types of links (eg: reference and URL)
+  links: # a utility component for adding an array different types of links (eg: reference and URL)
     type: block
     list:
       collapsible:
@@ -234,7 +234,7 @@ components:
       options:
         values: [ default, grid ]
         
-  bodyText: # a object for adding a simple rich text field ( w/ media disabled)
+  bodyText: # a utility component for adding a simple rich text field ( w/ media disabled)
     label: Content block
     type: object
     fields:
@@ -254,6 +254,8 @@ components:
       - name: description
         label: Description
         type: text
+        options:
+          rows: 5
       - name: heroImage
         label: Cover Image
         type: object
