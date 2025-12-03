@@ -346,7 +346,7 @@ content:
     type: collection
     filename: '{primary}.md'
     view:
-      fields: [ meta.title ]
+      fields: [ meta.title, isPublished ]
       primary: meta.title
       sort: [ meta.title ]
       default:
@@ -393,9 +393,9 @@ content:
     type: collection
     filename: '{primary}.md'
     view:
-      fields: [ title, dates.pubDate, isPublished ]
-      primary: title
-      sort: [ title, dates.pubDate ]
+      fields: [ meta.title, dates.pubDate, isPublished ]
+      primary: meta.title
+      sort: [ meta.title, dates.pubDate ]
       default:
         search: ''
         sort: title
