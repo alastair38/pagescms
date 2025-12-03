@@ -210,7 +210,7 @@ components:
       label: Image
       type: image
       options:
-        media: blogImages
+        media: images
     - name: alt
       label: Alt text
       description: Alt text should be an accurate description of the image for assistive technologies
@@ -243,7 +243,33 @@ components:
         type: rich-text
         options:
           media: false
-          
+
+  cta: # an object for adding a Hero section to a page
+    label: CTA
+    type: object
+    fields:
+      - name: title
+        label: Title
+        type: string
+      - name: description
+        label: Description
+        type: text
+        options:
+          rows: 5
+      - name: heroImage
+        label: Cover Image
+        type: object
+        fields:
+          - name: image
+            label: Image
+            type: image
+          - name: altText
+            label: Alt text
+            type: string
+      - name: heroLinks
+        label: Link(s)
+        component: links
+        
   hero: # an object for adding a Hero section to a page
     label: Hero Section
     type: object
