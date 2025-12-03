@@ -346,7 +346,8 @@ content:
     label: Pages
     path: src/data/pages
     type: collection
-    filename: '{primary}.md'
+    format: json
+    filename: '{primary}.json'
     view:
       fields: [ meta.title, isPublished ]
       primary: meta.title
