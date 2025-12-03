@@ -377,8 +377,6 @@ content:
         label: Related content
         description: Any links selected here will be shown in the page sidebar
         component: links
-      - name: body
-        type: rich-text
       - name: contentBlocks
         label: Content blocks
         type: block
