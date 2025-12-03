@@ -184,7 +184,7 @@ components:
       description: Alt text should be an accurate description of the image for assistive technologies
       type: string
 
-  featuredImage: # an object for adding an image with customisable field options
+  featuredImage: # an object for adding an image with alt text and caption fields
     label: Featured Image
     type: object
     fields:
@@ -266,7 +266,7 @@ components:
         label: Add section
         component: repeaterBlockObject
 
-  imageGallery: # an object for adding a FAQs component with repeating sections to a page
+  imageGallery: # an object for adding an image gallery component to a page
     label: Image(s)
     type: object
     fields:
