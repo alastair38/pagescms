@@ -107,11 +107,11 @@ components:
             label: Link
             type: reference
             options:
-              collection: blog
+              collection: page
               label: "{meta.title}"
               search: "meta.title,name"
       - name: postRef
-        label: Post link
+        label: Article link
         fields:
           - name: label
             label: Label
@@ -120,11 +120,11 @@ components:
             label: Link
             type: reference
             options:
-              collection: blog
+              collection: article
               label: "{meta.title}"
               search: "meta.title,name"
       - name: archiveRef
-        label: List page link
+        label: Archive page link
         fields:
           - name: label
             label: Label
@@ -133,7 +133,7 @@ components:
             label: Link
             type: reference
             options:
-              collection: blog
+              collection: archive
               label: "{meta.title}"
               search: "meta.title,name"
       - name: urlLink
