@@ -522,7 +522,6 @@ content:
     label: Site Configuration
     type: file
     path: src/data/settings/global.json
-    format: json
     fields:
       - name: site
         label: Site Metadata
