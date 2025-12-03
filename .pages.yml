@@ -307,11 +307,11 @@ components:
         component: repeaterBlockObject
 
 content:
-  - name: archives
+  - name: archive
     label: Archive pages
     type: collection
     path: src/data/archives
-    filename: '{primary}.md'
+    filename: '{primary}.json'
     view:
       fields: [ meta.title ]
       primary: meta.title
@@ -388,7 +388,7 @@ content:
           - name: tabs
             component: tabs
 
-  - name: articles
+  - name: article
     label: Articles
     path: src/data/articles
     type: collection
@@ -438,7 +438,7 @@ content:
     label: Blog
     path: src/data/blog
     type: collection
-    filename: '{primary}.md'
+    filename: '{primary}.json'
     view:
       fields: [ meta.title, dates.pubDate, isPublished ]
       primary: meta.title
@@ -480,10 +480,10 @@ content:
           - name: tabs
             component: tabs
       # ... fields defined here ...
-  - name: authors
+  - name: author
     label: Authors
     path: src/data/authors
-    filename: '{primary}.md'
+    filename: '{primary}.json'
     type: collection
     view:
       fields: [name]
