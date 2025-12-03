@@ -15,6 +15,10 @@
     {
       "type": "page",
       "link": "src/data/pages/about.json"
+    },
+    {
+      "type": "article",
+      "link": "src/data/articles/first-article.json"
     }
   ],
   "contentBlocks": [
