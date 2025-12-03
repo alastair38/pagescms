@@ -405,6 +405,7 @@ content:
     fields:
       - name: isPublished
         label: Published
+        description: Use this to control whether a content item is published to the front-end of the website
         type: boolean
       - name: dates
         component: contentDate
