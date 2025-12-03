@@ -320,7 +320,7 @@ content:
         order: desc
     fields:
       - name: meta
-        label: Content data
+        label: Content overview
         component: meta
       - name: body
         label: Introduction
@@ -412,11 +412,6 @@ content:
       - name: authors
         label: Authors
         component: authors
-      - name: title
-        label: Title
-        type: string
-      - name: body
-        type: rich-text
       - name: contentBlocks
         label: Content blocks
         type: block
