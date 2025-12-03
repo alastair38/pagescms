@@ -12,4 +12,3 @@ meta:
 authors:
   - src/data/authors/alastair-cox.md
 ---
-Some content here with **rich text stuff**
