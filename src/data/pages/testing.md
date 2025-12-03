@@ -3,7 +3,7 @@ isPublished: false
 meta:
   title: Testing
 authors:
-  - src/data/authors/alastair-cox.md
+  - Alastair Cox
 contentBlocks:
   - __typename: body
     content: This is some text for the rich text block
