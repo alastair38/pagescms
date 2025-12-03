@@ -20,7 +20,7 @@ components:
       collection: person
       multiple: true
       label: "{fields.name}"
-      value: "{fields.name.toLowerCase()}"
+      value: "{fields.name}"
       search: "name"
   
   meta: # utility for setting metadata on content
