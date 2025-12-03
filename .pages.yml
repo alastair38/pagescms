@@ -311,12 +311,12 @@ content:
     path: src/data/archives
     filename: '{primary}.md'
     view:
-      fields: [ title ]
-      primary: title
-      sort: [ title ]
+      fields: [ meta.title ]
+      primary: meta.title
+      sort: [ meta.title ]
       default:
         search: ''
-        sort: title
+        sort: meta.title
         order: desc
     fields:
       - name: title
@@ -335,7 +335,7 @@ content:
         type: object
         fields:
           - name: postsPerPage
-            label: Posts per page
+            label: Content items per page
             type: number
           - name: layout
             label: Page layout
