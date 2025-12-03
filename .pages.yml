@@ -163,6 +163,7 @@ components:
 
   referenceLinks: # a utility component for adding different types of reference links
     type: block
+    description: Any links selected here will be shown in the page sidebar
     list:
       collapsible:
         collapsed: true # Default collapsed state
