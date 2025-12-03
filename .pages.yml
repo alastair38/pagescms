@@ -68,8 +68,6 @@ components:
         label: Updated at
         type: date
 
-
-
   repeaterBlockObject:
     type: object
     list:
