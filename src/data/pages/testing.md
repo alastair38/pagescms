@@ -13,4 +13,9 @@ contentBlocks:
         description: Number 1 description
       - title: Number 2
         description: Number 2 description
+  - __typename: body
+    content: |-
+      ## Hello
+
+      This is some text for the rich text block
 ---
