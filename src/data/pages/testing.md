@@ -2,6 +2,9 @@
 isPublished: false
 meta:
   title: Testing
+  featuredImage:
+    image: /src/media/logoipsum-374.png
+    alt: A logo
 contentBlocks:
   - __typename: body
     content: This is some text for the rich text block
