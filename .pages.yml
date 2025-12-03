@@ -177,7 +177,7 @@ components:
           - name: link
             label: Link
             type: reference
-            description: Any links selected here will be shown in the page sidebar
+            description: Any link selected here will be shown in the page sidebar
             options:
               collection: page
               label: "{meta.title}"
@@ -188,6 +188,7 @@ components:
           - name: link
             label: Link
             type: reference
+            description: Any link selected here will be shown in the page sidebar
             options:
               collection: article
               label: "{meta.title}"
@@ -198,6 +199,7 @@ components:
           - name: link
             label: Link
             type: reference
+            description: Any link selected here will be shown in the page sidebar
             options:
               collection: archive
               label: "{meta.title}"
