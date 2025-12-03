@@ -166,7 +166,7 @@ components:
     list:
       collapsible:
         collapsed: true # Default collapsed state
-        summary: "{fields.link}"
+        summary: "{fields.link.meta.title}"
     blockKey: type # Optional: customize the key used to store the block name, defaults to `_block`
     blocks:
     # Each item defines a possible block structure the user can select.
