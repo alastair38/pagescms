@@ -17,7 +17,7 @@ components:
     type: reference
     required: false
     options:
-      collection: authors
+      collection: person
       multiple: true
       label: "{fields.name}"
       search: "name"
@@ -475,9 +475,9 @@ content:
           - name: tabs
             component: tabs
       # ... fields defined here ...
-  - name: author
-    label: Authors
-    path: src/data/authors
+  - name: person
+    label: People
+    path: src/data/people
     format: json
     filename: '{primary}.json'
     type: collection
@@ -490,7 +490,7 @@ content:
         type: string
       - name: bio
         label: Biography
-        type: text
+        type: rich-text
       - name: featuredImage
         label: Photograph
         component: standardImage
