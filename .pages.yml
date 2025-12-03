@@ -388,12 +388,16 @@ content:
             summary: "Block - {index}"
         blockKey: __typename
         blocks:
-          - name: postHero
+          - name: hero
             component: hero
           - name: body
             component: bodyText
+          - name: faqs
+            component: faqs
           - name: infoBlock
             component: infoSection
+          - name: tabs
+            component: tabs
             
   - name: blog
     label: Blog
