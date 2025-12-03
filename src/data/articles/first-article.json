@@ -8,6 +8,9 @@
       "alt": "First article image"
     }
   },
+  "authors": [
+    "src/data/people/alastair-cox.json"
+  ],
   "contentBlocks": [
     {
       "__typename": "richText",
