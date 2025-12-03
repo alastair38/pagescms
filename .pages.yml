@@ -3,15 +3,6 @@ media:
   label: Media
   input: src/media
   output: /src/media
-- name: blogImages
-  label: Blog Images
-  input: src/media/blog
-  output: /src/media/blog
-  extensions: [jpg, png, jpeg, webp, avif]
-- name: pageImages
-  label: Page Images
-  input: src/media/pages
-  output: /src/media/pages
   extensions: [jpg, png, jpeg, webp, avif]
 - name: files
   label: Files
