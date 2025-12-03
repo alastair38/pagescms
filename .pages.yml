@@ -289,6 +289,14 @@ components:
         label: Add section
         component: repeaterBlockObject
 
+  imageGallery: # an object for adding a FAQs component with repeating sections to a page
+    label: Image(s)
+    type: object
+    fields:
+      - name: image
+        label: Add image
+        component: repeaterImageObject
+        
   infoSection: # an object for adding an info component with repeating sections to a page
     label: Info Sections
     type: object
