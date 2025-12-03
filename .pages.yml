@@ -43,21 +43,10 @@ components:
         type: text
         options:
           rows: 2
-      - name: standardImage
+      - name: featuredImage
         label: Featured Image
         description: This image will be used by search engines and on social media platforms when sharing this content. The image may also be used on some archive pages.
-        type: object
-        fields:
-        - name: image
-          label: Image
-          type: image
-          options:
-            media: images
-            extensions: [png, jpg, jpeg, webp, avif]
-        - name: alt
-          label: Alt text
-          description: This should be an accurate description of the image for assistive technologies. It can be left blank for images that are purely decorative
-          type: string
+        component: standardImage
 
   contentDate: # utility component for setting publication and update dates on content
     type: object
