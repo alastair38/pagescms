@@ -11,6 +11,12 @@
   "authors": [
     "src/data/people/alastair-cox.json"
   ],
+  "relatedContent": [
+    {
+      "type": "page",
+      "link": "src/data/pages/about.json"
+    }
+  ],
   "contentBlocks": [
     {
       "__typename": "richText",
