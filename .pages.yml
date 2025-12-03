@@ -433,7 +433,6 @@ content:
             component: infoSection
           - name: tabs
             component: tabs
-
       # ... fields defined here ...
   - name: authors
     label: Authors
@@ -452,17 +451,7 @@ content:
         type: text
       - name: featuredImage
         label: Photograph
-        type: object
-        fields:
-        - name: image
-          label: Image
-          type: image
-          options:
-            path: src/media/authors
-            extensions: [jpeg, jpg, png, webp, avif]
-        - name: alt
-          label: Alt text
-          type: string
+        component: standardImage
       - name: contact
         label: Contact options
         type: object
@@ -477,6 +466,7 @@ content:
           - name: link
             label: Link
             type: string
+            
   - name: globalSettings
     label: Site Configuration
     type: file
