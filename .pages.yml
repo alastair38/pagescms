@@ -31,7 +31,7 @@ components:
       label: "{fields.name}"
       search: "name"
   
-  meta: # an object for setting metadata on content
+  meta: # utility for setting metadata on content
     type: object
     fields:
       - name: title
@@ -57,7 +57,7 @@ components:
           description: This should be an accurate description of the image for assistive technologies. It can be left blank for images that are purely decorative
           type: string
 
-  contentDate: # an object for setting publication and update dates on content
+  contentDate: # utility component for setting publication and update dates on content
     type: object
     label: Publication Date
     fields:
