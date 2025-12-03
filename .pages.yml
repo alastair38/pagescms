@@ -35,10 +35,11 @@ components:
     type: object
     fields:
       - name: title
-        label: Content Title
+        label: Title
         type: string
       - name: description
-        label: Content Description
+        label: Description
+        description: This should be no more than 170 characters and will be used by search engines to identify the content of a page. This description may also be used on some archive pages.
         type: text
         options:
           rows: 2
