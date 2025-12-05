@@ -382,8 +382,7 @@ content:
     label: Pages
     path: src/data/pages
     type: collection
-    format: json
-    filename: '{primary}.json'
+    filename: '{primary}.md'
     view:
       fields: [ meta.title, isPublished ]
       primary: meta.title
