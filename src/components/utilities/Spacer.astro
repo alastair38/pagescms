@@ -1,0 +1,18 @@
+---
+interface Props {
+  border: 'top' | 'bottom' | 'both' | 'none';
+}
+
+const { border = 'top' } = Astro.props;
+---
+
+<div
+  aria-hidden={true}
+  class:list={[
+    'px-4 py-1 min-h-8 md:min-h-12',
+    border === 'top' && 'border-t-narrow',
+    border === 'bottom' && 'border-b-narrow',
+    border === 'both' && 'border-t-narrow border-b-narrow',
+  ]}
+>
+</div>

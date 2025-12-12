@@ -1,0 +1,371 @@
+media:
+  - name: images
+    label: Media
+    input: src/media
+    output: /src/media
+  - name: blogImages
+    label: Blog Images
+    input: src/media/blog
+    output: /src/media/blog
+    extensions: [jpg, png, jpeg]
+  - name: files
+    label: Files
+    input: src/files
+    output: files
+    categories: [document]
+
+# some comment here
+components:
+  authors:
+    type: reference
+    required: false
+    options:
+      collection: authors
+      multiple: true
+      label: '{fields.name}'
+      search: 'name'
+  meta:
+    type: object
+    fields:
+      - name: pubDate
+        label: Published date
+        type: date
+      - name: updatedAt
+        label: Updated at
+        type: date
+      - name: title
+        label: Title
+        type: string
+      - name: description
+        label: Description
+        type: text
+        options:
+          rows: 2
+      - name: featuredImage
+        label: Featured Image
+        type: object
+        fields:
+          - name: image
+            label: Image
+            type: image
+            options:
+              media: blogImages
+              extensions: [png, jpg, jpeg]
+          - name: alt
+            label: Alt text
+            description: Alt text should be an accurate description of the image for assistive technologies
+            type: string
+
+  links:
+    type: block
+    list:
+      collapsible:
+        collapsed: true # Default collapsed state
+        summary: '{fields.label}'
+    blockKey: type # Optional: customize the key used to store the block name, defaults to `_block`
+    blocks:
+      # Each item defines a possible block structure the user can select.
+      # These typically use 'component' or define 'fields' directly.
+      - name: pageRef
+        label: Add page link
+        fields:
+          - name: label
+            label: Label
+            type: string
+          - name: link
+            label: Page to link
+            type: reference
+            options:
+              collection: blog
+              label: '{name}'
+              search: 'name'
+      - name: postRef
+        label: Add post link
+        fields:
+          - name: label
+            label: Label
+            type: string
+          - name: link
+            label: Post to link
+            type: reference
+            options:
+              collection: blog
+              label: '{name}'
+              search: 'name'
+      - name: archiveRef
+        label: Add list page link
+        fields:
+          - name: label
+            label: Label
+            type: string
+          - name: link
+            label: List page to link
+            type: reference
+            options:
+              collection: blog
+              label: '{name}'
+              search: 'name'
+      - name: urlLink
+        label: Add URL link
+        fields:
+          - name: label
+            label: Label
+            type: string
+          - name: link
+            label: URL to link
+            type: string
+  ftdImage:
+    label: Featured Image
+    type: object
+    fields:
+      - name: image
+        label: Image
+        type: image
+        options:
+          media: blogImages
+          extensions: [png, jpg, jpeg]
+      - name: alt
+        label: Alt text
+        description: Alt text should be an accurate description of the image for assistive technologies
+        type: string
+      - name: caption
+        label: Caption
+        description: Optional
+        type: string
+      - name: variant
+        label: Variant
+        description: Choose the variant; 'rounded' adds a border radius and shadow
+        type: select
+        default: plain
+        options:
+          values: [rounded, plain]
+      - name: layout
+        label: Layout
+        description: Choose the layout; 'grid' places the image and caption horizontally
+        type: select
+        default: default
+        options:
+          values: [default, grid]
+  bodyText:
+    label: Content block
+    type: object
+    fields:
+      - name: content
+        label: Rich text
+        type: rich-text
+        options:
+          media: false
+  hero: # 'hero' is the component name/key
+    label: Hero Section
+    type: object
+    fields:
+      - name: title
+        label: Title
+        type: string
+      - name: description
+        label: Description
+        type: text
+      - name: heroImage
+        label: Cover Image
+        type: object
+        fields:
+          - name: image
+            type: image
+          - name: altText
+            label: Alt text
+            type: string
+      - name: links
+        label: Link(s)
+        type: reference
+        required: false
+        options:
+          collection: blog
+          multiple: true
+          label: '{fields.title}'
+          search: 'title'
+  email: # 'email' is the component name/key
+    label: Email Address
+    type: string
+    pattern:
+      regex: '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+      message: 'This must be a valid email address (e.g. hello@example.com).'
+
+content:
+  - name: archives
+    type: collection
+    path: src/data/archives
+    filename: '{primary}.md'
+    view:
+      fields: [meta.title, meta.pubDate]
+      primary: title
+      sort: [meta.title, meta.pubDate]
+      default:
+        search: ''
+        sort: meta.title
+        order: desc
+    fields:
+      - name: title
+        label: Title
+        type: string
+      - name: meta
+        label: Metadata
+        component: meta
+      - name: body
+        label: Introduction
+        type: rich-text
+        options:
+          media: false
+      - name: postsPerPage
+        label: Posts per page
+        type: number
+
+  - name: blog
+    label: Blog
+    path: src/data/blog
+    type: collection
+    filename: '{primary}.md'
+    view:
+      fields: [meta.title, meta.pubDate, isPublished]
+      primary: meta.title
+      sort: [meta.title, meta.pubDate]
+      default:
+        search: ''
+        sort: meta.title
+        order: desc
+    fields:
+      - name: isPublished
+        label: Published
+        type: boolean
+      - name: meta
+        label: Content overview
+        component: meta
+      - name: authors
+        label: Authors
+        component: authors
+      # - name: title
+      #   label: Title
+      #   type: string
+      # - name: description
+      #   label: Description
+      #   type: text
+      #   options:
+      #     rows: 2
+      # - name: featuredImage
+      #   label: Featured Image
+      #   type: object
+      #   fields:
+      #   - name: image
+      #     label: Image
+      #     type: image
+      #     options:
+      #       media: blogImages
+      #       extensions: [png, jpg, jpeg]
+      #   - name: alt
+      #     label: Alt text
+      #     description: Alt text should be an accurate description of the image for assistive technologies
+      #     type: string
+      # - name: authors
+      #   label: Authors
+      #   type: reference
+      #   required: false
+      #   options:
+      #     collection: authors
+      #     multiple: true
+      #     label: "{fields.name}"
+      #     search: "name"
+      # - name: pubDate
+      #   label: Published date
+      #   type: date
+      # - name: updatedAt
+      #   label: Updated at
+      #   type: date
+      - name: body
+        type: rich-text
+      - name: contentBlocks
+        label: Content blocks
+        type: block
+        list:
+          collapsible:
+            collapsed: true # Default collapsed state
+            summary: 'Block - {index}'
+        blockKey: __typename
+        blocks:
+          - name: postHero
+            component: hero
+          - name: body
+            component: bodyText
+
+      # ... fields defined here ...
+  - name: authors
+    label: Authors
+    path: src/data/authors
+    filename: '{primary}.md'
+    type: collection
+    view:
+      fields: [name]
+      primary: name
+    fields:
+      - name: name
+        label: Name
+        type: string
+      - name: bio
+        label: Biography
+        type: text
+      - name: featuredImage
+        label: Photograph
+        type: object
+        fields:
+          - name: image
+            label: Image
+            type: image
+            options:
+              path: src/media/authors
+              extensions: [jpeg, jpg, png, webp, avif]
+          - name: alt
+            label: Alt text
+            type: string
+      - name: contact
+        label: Contact options
+        type: object
+        list:
+          collapsible:
+            collapsed: true # Default collapsed state
+            summary: '{fields.label}'
+        fields:
+          - name: label
+            label: Label
+            type: string
+          - name: link
+            label: Link
+            type: string
+  - name: globalSettings
+    label: Site Configuration
+    type: file
+    path: src/settings/global.json
+    fields:
+      - name: site
+        type: object
+        label: Metadata
+        fields:
+          - name: name
+            label: Site name
+            type: string
+          - name: description
+            label: Site description
+            type: text
+          - name: ogImage
+            label: Social Sharing Image
+            type: object
+            fields:
+              - name: image
+                type: image
+              - name: altText
+                label: Alt text
+                type: string
+      - name: navigation
+        type: object
+        label: Main menu
+        fields:
+          - name: menuLinks
+            label: Primary navigation
+            component: links

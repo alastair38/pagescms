@@ -1,0 +1,152 @@
+---
+import type { Tabs } from '@customTypes/blocks';
+import Heading2 from '@components/headings/Heading2.astro';
+import Description from '@components/layouts/Description.astro';
+import BlockWrapper from '@components/layouts/BlockWrapper.astro';
+
+const { __typename, title, description, sections } = Astro.props as Tabs;
+---
+
+<BlockWrapper data-block={__typename}>
+  <div
+    class="max-w-content mx-auto text-write-300 prose-headings:text-write-300 px-3 py-8 md:py-12"
+  >
+    {
+      title && (
+        <Heading2 size="default" weight="bold" class="text-center mb-4">
+          {title}
+        </Heading2>
+      )
+    }
+    {
+      description && (
+        <Description class="text-center text-pretty">{description}</Description>
+      )
+    }
+    <div
+      class="mx-auto max-w-content mt-8 overflow-clip rounded-md border border-base-400"
+    >
+      <ul
+        class="p-3 md:p-6 flex items-center flex-wrap gap-2 md:gap-3 justify-between md:justify-start"
+        aria-labelledby="tabs-title"
+        role="tablist"
+      >
+        {
+          sections &&
+            sections.map((tab, i) => (
+              <li class="list-none  border py-1 rounded-md text-base-400">
+                <a
+                  id={`tab-${i}`}
+                  class="px-3 py-1 rounded-md text-write-300 text-sm md:text-base outline-2 outline-transparent duration-200 transition-colors  aria-selected:outline-highlight-300/70"
+                  role="tab"
+                  tabindex={i === 0 ? null : -1}
+                  aria-selected={i === 0 ? true : false}
+                  href={`#target-${i}`}
+                >
+                  {tab.title}
+                </a>
+              </li>
+            ))
+        }
+      </ul>
+      <hr class="border-base-400" />
+      <div class="grid grid-cols-1 grid-rows-1">
+        {
+          sections &&
+            sections.map((tab, i) => (
+              <div
+                id={`target-${i}`}
+                class="col-start-1 row-start-1 text-sm md:text-base p-3 md:p-6"
+                aria-labelledby={`tab-${i}`}
+                data-active={i === 0 ? 'true' : 'false'}
+                role="tabpanel"
+              >
+                {tab.description}
+              </div>
+            ))
+        }
+      </div>
+    </div>
+  </div>
+</BlockWrapper>
+<style>
+  [data-active='false'] {
+    display: none;
+  }
+</style>
+
+<script is:inline>
+  let activeTabValue = 0;
+
+  const tabs = document.querySelectorAll('a[role="tab"]');
+  const tabsLength = tabs.length;
+  const panels = document.querySelectorAll('[role="tabpanel"]');
+
+  function setTabIndex(tabNo, e) {
+    tabs.forEach(tab => {
+      if (tab.id === `tab-${tabNo}`) {
+        tabs[tabNo].setAttribute('tabindex', null);
+        tabs[tabNo].setAttribute('aria-selected', true);
+        panels[tabNo].dataset.active = 'true';
+      } else {
+        e.target.setAttribute('tabindex', -1);
+        e.target.setAttribute('aria-selected', false);
+        panels.forEach(panel => {
+          if (panel.getAttribute('aria-labelledby') === e.target.id) {
+            panel.dataset.active = 'false';
+          }
+        });
+      }
+      tabs[tabNo].focus();
+    });
+  }
+
+  function keyboardNav(e) {
+    const tabId = e.target.id.split('-');
+    let tabNo = Number(tabId[1]);
+
+    switch (e.keyCode) {
+      case 37:
+        if (tabNo === 0) {
+          tabNo = tabsLength - 1;
+        } else {
+          tabNo = tabNo - 1;
+        }
+
+        setTabIndex(tabNo, e);
+
+        break;
+      case 39:
+        if (tabNo + 1 === tabsLength) {
+          tabNo = 0;
+        } else {
+          tabNo = tabNo + 1;
+        }
+
+        setTabIndex(tabNo, e);
+
+        break;
+    }
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener('keydown', e => {
+      keyboardNav(e);
+    });
+    tab.addEventListener('click', e => {
+      tabs.forEach(tab => {
+        e.preventDefault();
+        tab.ariaSelected = false;
+      });
+      e.target.ariaSelected = true;
+      panels.forEach(panel => {
+        const labelledBy = panel.getAttribute('aria-labelledby');
+        if (labelledBy === tab.id) {
+          panel.dataset.active = true;
+        } else {
+          panel.dataset.active = false;
+        }
+      });
+    });
+  });
+</script>

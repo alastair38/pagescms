@@ -1,0 +1,46 @@
+---
+import type { ImageGallery } from '@customTypes/blocks';
+import { Picture } from 'astro:assets';
+import BlockWrapper from '@components/layouts/BlockWrapper.astro';
+
+const {
+  __typename,
+  images,
+  orientation = 'auto',
+  spanLast = false,
+} = Astro.props as ImageGallery;
+---
+
+<BlockWrapper
+  data-block={__typename}
+  class="group grid grid-auto-fit-sm md:grid-auto-fill-md gap-4 w-full max-w-content mx-auto my-8"
+>
+  {
+    images.length !== 0 &&
+      images.map((item, i) => (
+        <figure
+          class:list={[
+            'rounded-xs p-1 relative border-base-300 border w-full overflow-clip',
+            spanLast && i === images.length - 1 && 'col-span-full',
+          ]}
+        >
+          <Picture
+            src={item.image.src}
+            alt={item.image.alt || ''}
+            class:list={[
+              'h-full rounded-xs object-cover',
+              orientation === 'landscape' && 'aspect-video',
+              orientation === 'auto' && 'aspect-auto',
+              orientation === 'square' && 'aspect-square',
+            ]}
+          />
+
+          {item.image.caption && (
+            <figcaption class="p-2 font-mono text-sm bg-base-500/80 absolute bottom-2 right-2 left-2">
+              {item.image.caption}
+            </figcaption>
+          )}
+        </figure>
+      ))
+  }
+</BlockWrapper>

@@ -1,0 +1,23 @@
+---
+import Heading2 from '@components/headings/Heading2.astro';
+
+interface Props {
+  heading?: string;
+}
+
+const { heading } = Astro.props;
+---
+
+<div class="grid grid-auto-fill-md block-outline">
+  {
+    heading && (
+      <div class="px-6 pt-6 pb-4 striped-background text-base-400 col-span-full border-b-narrow bloc-outline">
+        <Heading2 size="large" class="tracking-wide writing-mode-vertical">
+          {heading}
+        </Heading2>
+      </div>
+    )
+  }
+
+  <slot />
+</div>

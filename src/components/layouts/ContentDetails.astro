@@ -1,0 +1,46 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props extends HTMLAttributes<'div'> {
+  details: CollectionEntry<'work' | 'template'>['data']['details'];
+
+  title: string;
+}
+
+const { details, title, ...attr } = Astro.props;
+---
+
+<div
+  class:list={['flex gap-2 text-base-400 items-center font-mono', attr.class]}
+  {...attr}
+>
+  <span class="sr-only">{title}</span>
+
+  <ul class="flex items-center gap-2">
+    {
+      details && details.framework && (
+        <li class="px-2 py rounded-full bg-highlight-300">
+          {details.framework}
+        </li>
+      )
+    }
+
+    {
+      details && details.cms && (
+        <li class="px-2 py rounded-full bg-highlight-300">{details.cms}</li>
+      )
+    }
+  </ul>
+
+  {
+    details && details.versions && (
+      <div class="flex items-center justify-center text-write-300">
+        <span class="flex items-center justify-center w-6 h-6 p-1 rounded-full bg-base-300">
+          {details.versions}
+        </span>
+        <span class="sr-only">versions</span>
+      </div>
+    )
+  }
+</div>

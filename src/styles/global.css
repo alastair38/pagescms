@@ -1,2 +1,276 @@
 @import 'tailwindcss';
 @plugin "@tailwindcss/typography";
+
+@theme inline {
+  --font-sans: var(--font-inter);
+}
+
+/* Themes */
+
+/* @theme {
+  --color-base-50: var(--color-gray-50);
+  --color-base-100: var(--color-gray-100);
+  --color-base-200: var(--color-gray-200);
+  --color-base-300: var(--color-gray-300);
+  --color-base-400: var(--color-gray-400);
+  --color-base-500: var(--color-gray-500);
+  --color-base-600: var(--color-gray-600);
+  --color-base-700: var(--color-gray-700);
+  --color-base-800: var(--color-gray-800);
+  --color-base-900: var(--color-gray-900);
+  --color-base-950: var(--color-gray-950);
+} */
+
+/* @theme {
+  --color-write-100: var(--color-zinc-100);
+  --color-write-200: var(--color-zinc-200);
+  --color-write-300: var(--color-zinc-300);
+  --color-write-400: var(--color-zinc-400);
+  --color-write-500: var(--color-zinc-500);
+
+  --color-base-100: var(--color-zinc-600);
+  --color-base-200: var(--color-zinc-700);
+  --color-base-300: var(--color-zinc-800);
+  --color-base-400: var(--color-zinc-900);
+  --color-base-500: var(--color-zinc-950);
+} */
+
+@theme {
+  --color-write-100: var(--color-slate-100);
+  --color-write-200: var(--color-slate-200);
+  --color-write-300: var(--color-slate-300);
+  --color-write-400: var(--color-slate-400);
+  --color-write-500: var(--color-slate-500);
+
+  --color-base-100: var(--color-slate-600);
+  --color-base-200: var(--color-slate-700);
+  --color-base-300: var(--color-slate-800);
+  --color-base-400: var(--color-slate-900);
+  --color-base-500: var(--color-slate-950);
+
+  --color-highlight-100: var(--color-emerald-100);
+  --color-highlight-200: var(--color-emerald-200);
+  --color-highlight-300: var(--color-emerald-300);
+  --color-highlight-400: var(--color-emerald-400);
+  --color-highlight-500: var(--color-emerald-500);
+}
+
+/* 
+@theme {
+  --color-write-100: var(--color-slate-600);
+  --color-write-200: var(--color-slate-700);
+  --color-write-300: var(--color-slate-800);
+  --color-write-400: var(--color-slate-900);
+  --color-write-500: var(--color-slate-950);
+
+  --color-base-100: var(--color-slate-500);
+  --color-base-200: var(--color-slate-400);
+  --color-base-300: var(--color-slate-300);
+  --color-base-400: var(--color-slate-200);
+  --color-base-500: var(--color-slate-100);
+} */
+
+/* @theme {
+  --color-base-50: var(--color-zinc-50);
+  --color-base-100: var(--color-zinc-100);
+  --color-base-200: var(--color-zinc-200);
+  --color-base-300: var(--color-zinc-300);
+  --color-base-400: var(--color-zinc-400);
+  --color-base-500: var(--color-zinc-500);
+  --color-base-600: var(--color-zinc-600);
+  --color-base-700: var(--color-zinc-700);
+  --color-base-800: var(--color-zinc-800);
+  --color-base-900: var(--color-zinc-900);
+  --color-base-950: var(--color-zinc-950);
+} */
+
+html:has(button[data-type='nav-btn'][aria-expanded='true']) {
+  scrollbar-gutter: stable;
+}
+
+/* Main nav */
+
+button[data-type='nav-btn'][aria-expanded='true'] + [data-type='main-nav'] {
+  @apply bg-base-500 flex opacity-100 items-center flex-col justify-center text-xl fixed inset-0;
+}
+
+/* [data-type='main-nav'] a[aria-current='page'] {
+  @apply bg-base-300 hover:bg-base-100;
+} */
+
+button[aria-expanded='false'] + [data-type='main-nav'] {
+  @apply opacity-0 lg:opacity-100;
+}
+
+body:has(button[data-type='nav-btn'][aria-expanded='true']) {
+  overflow-y: hidden;
+}
+
+/* Current Page */
+
+a[aria-current='page'] {
+  @apply decoration-highlight-400;
+}
+
+/* Width Utilities */
+
+@utility max-w-content {
+  max-width: 75ch;
+}
+
+@utility w-content {
+  width: 75ch;
+}
+
+/* Grid utilities */
+
+@utility grid-auto-fit-sm {
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+@utility grid-auto-fit-md {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+@utility grid-auto-fill-md {
+  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+}
+
+@utility grid-auto-fit-lg {
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+}
+
+/* Outline utility */
+
+.block-outline {
+  outline: 0.05em solid var(--color-base-400);
+}
+
+@utility border-t-narrow {
+  border-top-width: 0.05em;
+}
+
+@utility border-b-narrow {
+  border-bottom-width: 0.05em;
+}
+
+@utility border-l-narrow {
+  border-left-width: 0.05em;
+}
+
+@utility border-r-narrow {
+  border-right-width: 0.05em;
+}
+
+@utility border-narrow {
+  border-width: 0.05em;
+}
+
+@utility border-y-narrow {
+  border-top-width: 0.05em;
+  border-bottom-width: 0.05em;
+}
+
+@utility border-x-narrow {
+  border-left-width: 0.05em;
+  border-right-width: 0.05em;
+}
+
+[data-page='home'] [data-block]:not(:last-of-type) {
+  border-bottom: 0.05em solid var(--color-base-400) !important;
+}
+
+/* Backgrounds and Masks Utilities */
+
+@utility grid-background {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3) 0.1em, transparent 0.1em),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.3) 0.1em, transparent 0.1em);
+  background-size: 2em 2em;
+
+  /* position: absolute;
+  background-repeat: repeat;
+  z-index: -1;
+  background-position: center;
+  opacity: 0.15; */
+}
+
+@utility mask-sm {
+  mask-image: radial-gradient(ellipse at 60% 30%, black 10%, transparent 40%);
+}
+
+@utility mask-md {
+  mask-image: radial-gradient(ellipse at 60% 40%, black 10%, transparent 60%);
+}
+
+@utility mask-lg {
+  mask-image: radial-gradient(ellipse at 60% 40%, black 10%, transparent 80%);
+}
+
+@utility mask-linear {
+  mask-image: linear-gradient(to top, transparent 25%, black 75%);
+}
+
+@utility striped-background {
+  background-image: repeating-linear-gradient(
+    45deg,
+    currentColor 0,
+    currentColor 1%,
+    transparent 0,
+    transparent 50%
+  );
+  background-size: 15.57px 15.57px;
+}
+
+@utility hatched-background {
+  background-image: repeating-linear-gradient(
+      45deg,
+      currentColor 0,
+      currentColor 5%,
+      transparent 0,
+      transparent 50%
+    ),
+    repeating-linear-gradient(
+      135deg,
+      currentColor 0,
+      currentColor 5%,
+      transparent 0,
+      transparent 50%
+    );
+  background-size: 0.5rem 0.5rem;
+}
+
+@utility dotted-background {
+  background-image: radial-gradient(circle, currentColor 10%, transparent 11%);
+  background-size: 1em 1em;
+}
+
+@utility mask-radial {
+  -webkit-mask-image: radial-gradient(
+    ellipse at 40% 40%,
+    black 0%,
+    transparent 70%
+  );
+  mask-image: radial-gradient(ellipse at 40% 40%, black 0%, transparent 70%);
+}
+
+/* TYPOGRAPHY */
+
+@utility writing-mode-vertical {
+  writing-mode: vertical-lr;
+}
+
+/* ICONS */
+
+.iconoir--open-new-window::after {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  vertical-align: -0.125em;
+  content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='%23000' stroke-linecap='round' stroke-width='1.5'%3E%3Cpath stroke-linejoin='round' d='M21 3h-6m6 0l-9 9m9-9v6'/%3E%3Cpath d='M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* DIALOG */
+
+body:has(dialog:open) {
+  overflow: clip;
+}

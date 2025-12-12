@@ -1,0 +1,24 @@
+---
+import { datetimeFormat, dateFormat } from '@utils/formatters';
+import type { HTMLAttributes } from 'astro/types';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props extends HTMLAttributes<'aside'> {
+  authors?: CollectionEntry<'authors'>[];
+  pubDate?: string | Date;
+}
+
+const { authors, pubDate, ...attr } = Astro.props;
+---
+
+<aside
+  class="font-mono text-write-400 flex flex-col md:items-end text-sm gap-2 max-h-fit w-full md:sticky top-6"
+  {...attr}
+>
+  {
+    pubDate && (
+      <time datetime={datetimeFormat(pubDate)}>{dateFormat(pubDate)}</time>
+    )
+  }
+  <slot />
+</aside>

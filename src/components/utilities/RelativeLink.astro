@@ -1,0 +1,42 @@
+---
+// RelativeLink.astro for links based on content ID and collection type as returned by getEntries / getCollection
+import { urlBuilderFromId } from '@utils/formatters';
+import { Icon } from 'astro-icon/components';
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props extends HTMLAttributes<'a'> {
+  id: string;
+  type: string;
+  icon?: boolean;
+  label?: string;
+  variant?: 'default' | 'button' | 'outline';
+  size?: 'small' | 'default';
+}
+
+const {
+  id,
+  type,
+  icon,
+  label,
+  variant = 'default',
+  size = 'default',
+  ...attrs
+} = Astro.props;
+---
+
+<a
+  class:list={[
+    'font-mono rounded-xs group border-[0.05em] transition-transform hover:scale-98 duration-200 px-2 py-1 gap-1 items-center   flex w-fit group',
+    variant === 'default' &&
+      'border-highlight-300 hover:bg-highlight-300/90 bg-highlight-300  text-base-500 ',
+    variant === 'outline' &&
+      'border-base-400 text-write-300 hover:text-write-400',
+    size === 'small' && 'text-sm',
+    attrs.class,
+  ]}
+  href={urlBuilderFromId(id, type, 'http://localhost:4321')}
+  {...attrs}
+>
+  {label ? label : 'Find out more'}
+  {icon && <Icon class="translate-x-0.5" name="arrows/right-point" />}
+</a>

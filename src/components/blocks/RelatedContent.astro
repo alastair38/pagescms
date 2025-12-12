@@ -1,0 +1,55 @@
+---
+import type { RelatedContent } from '@customTypes/blocks';
+import { urlBuilderFromId } from '@utils/formatters';
+import { Icon } from 'astro-icon/components';
+import { getEntries, type ReferenceDataEntry } from 'astro:content';
+import Path from 'path';
+import BlockWrapper from '@components/layouts/BlockWrapper.astro';
+
+const {
+  __typename,
+  title = 'You might also be interested in ...',
+  links,
+} = Astro.props as RelatedContent;
+
+const result =
+  links &&
+  links.length > 0 &&
+  links!.map(person => ({
+    id: Path.parse(person.link).name,
+    collection: person.type as 'work' | 'page',
+  }));
+
+const related = await getEntries(
+  result as ReferenceDataEntry<'work' | 'page', string>[]
+);
+---
+
+{
+  related && related.length > 0 && (
+    <BlockWrapper
+      tag="aside"
+      data-block={__typename}
+      class="p-4 md:p-6 space-y-2 bg-base-400/80"
+    >
+      <h2 class="col-span-full mb-4 border-b border-b-base-300 font-black text-lg md:text-xl">
+        {title}
+      </h2>
+
+      {related.map(item => (
+        <a
+          class="font-mono flex w-fit group"
+          href={urlBuilderFromId(item.id, item.collection)}
+        >
+          <h3 class="font-black flex items-center group-hover:text-write-400 duration-200 transition-colors gap-2">
+            {item.data.title && item.data.title}
+            <Icon
+              class="bg-highlight-300 text-base-500 transition-transform duration-200 group-hover:translate-x-0.5 rounded-full text-xl p-0.5"
+              name="arrows/right-point"
+            />
+          </h3>
+        </a>
+      ))}
+    </BlockWrapper>
+  )
+}

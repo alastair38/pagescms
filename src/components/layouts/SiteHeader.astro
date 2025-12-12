@@ -1,0 +1,87 @@
+---
+import { currentPage, urlBuilder } from '@utils/formatters';
+import { Icon } from 'astro-icon/components';
+import type { HTMLAttributes } from 'astro/types';
+import type { CollectionEntry } from 'astro:content';
+import { getEntry } from 'astro:content';
+
+interface Props extends HTMLAttributes<'header'> {
+  settings: CollectionEntry<'settings'>;
+}
+
+//const settings = await getEntry('settings', 'index');
+
+const { settings, ...attr } = Astro.props as Props;
+
+const siteUrl = settings?.data.site?.url!;
+---
+
+<header class="p-4 flex items-center" {...attr}>
+  <nav
+    class="max-w-7xl flex items-center justify-between lg:px-4 mx-auto w-full text-write-300"
+  >
+    <a class="font-black lowercase text-2xl" href="/"
+      >{
+        settings.data.site.displayName
+          ? settings.data.site.displayName
+          : settings.data.site.name
+      }</a
+    >
+
+    <button
+      class="h-8 w-8 z-50 group lg:hidden items-center cursor-pointer aria-[expanded=true]:rotate-90 transition-transform duration-200 rounded-full bg-brand-400 text-white"
+      data-type="nav-btn"
+      aria-expanded="false"
+      aria-controls="main-nav"
+    >
+      <span class="group-aria-expanded:hidden">
+        <Icon name="actions/menu" class="mx-auto" />
+        <span class="sr-only">Menu</span>
+      </span>
+      <span class="hidden group-aria-[expanded=true]:block">
+        <Icon name="actions/close" class="mx-auto" />
+        <span class="sr-only">Close</span>
+      </span>
+    </button>
+
+    <div
+      id="main-nav"
+      data-type="main-nav"
+      class="md:flex items-center gap-4 md:gap-10 hidden font-mono absolute z-40 lg:relative transition-all transition-discrete duration-300"
+    >
+      {
+        settings &&
+          settings.data.navigation?.menuLinks.map(item => (
+            <a
+              class="underline flex items-center w-fit gap-1 underline-offset-2 focus-visible:underline-offset-4 hover:underline-offset-4 transition-all duration-200"
+              aria-current={currentPage(Astro.url.pathname, item.link)}
+              href={urlBuilder(item.link, item.type, siteUrl)}
+              target={item.type === 'url' ? '_blank' : '_self'}
+            >
+              {item.label}
+              {item.type === 'url' && <Icon name="actions/new-window" />}
+            </a>
+          ))
+      }
+    </div>
+  </nav>
+</header>
+
+<script is:inline>
+  const navBtn = document.querySelector('[data-type="nav-btn"]');
+  const mainNav = document.querySelector('[data-type="main-nav"]');
+
+  const initialExpanded = false;
+
+  navBtn?.addEventListener('click', e => {
+    const isExpanded = navBtn.getAttribute('aria-expanded');
+
+    if (isExpanded === 'false') {
+      navBtn.setAttribute('aria-expanded', true);
+      mainNav.classList.remove('hidden');
+    } else {
+      navBtn.setAttribute('aria-expanded', false);
+      mainNav.classList.add('hidden');
+    }
+  });
+</script>

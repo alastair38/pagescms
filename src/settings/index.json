@@ -1,0 +1,26 @@
+{
+  "site": {
+    "name": "My website",
+    "description": "Some website description",
+    "url": "http://localhost:4321/"
+  },
+  "navigation": {
+    "menuLinks": [
+      {
+        "type": "archive",
+        "label": "Work",
+        "link": "/work"
+      },
+      {
+        "type": "work",
+        "label": "Work 1",
+        "link": "src/data/work/northwalk-1.md"
+      },
+      {
+        "type": "url",
+        "label": "External",
+        "link": "https://bbc.co.uk"
+      }
+    ]
+  }
+}

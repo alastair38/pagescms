@@ -1,0 +1,158 @@
+---
+import type { FAQs } from '@customTypes/blocks';
+import Heading2 from '@components/headings/Heading2.astro';
+import Description from '@components/layouts/Description.astro';
+
+// interface Props {
+//   __typename: string;
+//   id: string;
+//   description: string;
+
+//   faqContent: {
+//     title: string;
+//     content: {
+//       html: string;
+//     };
+//   }[];
+// }
+
+const { __typename, title, description, sections } = Astro.props as FAQs;
+---
+
+<div data-block={__typename}>
+  <div
+    class="max-w-content mx-auto text-write-300 prose-headings:text-write-300 px-3 py-8 md:py-12"
+  >
+    {
+      title && (
+        <Heading2 size="default" weight="bold" class="text-center mb-4">
+          {title}
+        </Heading2>
+      )
+    }
+
+    {
+      description && (
+        <Description class="text-center text-pretty">{description}</Description>
+      )
+    }
+
+    <div class="overflow-clip max-w-content prose mt-8 text-write-300">
+      {
+        sections &&
+          sections.map((faq, i) => (
+            <details
+              id={`detail-${i}`}
+              class="mt-3 rounded-md border border-base-400 overflow-hidden group"
+              open={i === 0 ? true : false}
+              data-visible={i === 0 ? true : false}
+            >
+              <summary
+                data-id={`detail-${i}`}
+                class="flex ml-3 my-3 marker:hidden leading-normal cursor-pointer font-bold items-center gap-2 group"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="-mr-1 h-5 w-5 fill-current opacity-75 transition-transform duration-300 group-open:fill-highlight-300 group-open:rotate-90"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M12.95 10.707l.707-.707L8 4.343 6.586 5.757 10.828 10l-4.242 4.243L8 15.657l4.95-4.95z" />
+                </svg>
+                {faq.title}
+              </summary>
+
+              <Description class="px-3">{faq.description} </Description>
+            </details>
+          ))
+      }
+    </div>
+  </div>
+</div>
+<style>
+  :root {
+    interpolate-size: allow-keywords;
+  }
+
+  details::details-content {
+    block-size: 0;
+    transition:
+      block-size 150ms,
+      content-visibility 150ms;
+
+    transition-behavior: allow-discrete;
+  }
+
+  details[open]::details-content {
+    block-size: auto;
+  }
+</style>
+
+<script is:inline>
+  let activedetailValue = 0;
+
+  const details = document.querySelectorAll('details');
+  const detailsLength = details.length;
+  // const panels = document.querySelectorAll('[role="detailpanel"]');
+
+  function setDetailsState(detailNo, e) {
+    details.forEach(detail => {
+      if (detail.id === e.target.id) {
+        details[detailNo].setAttribute('open', false);
+      } else {
+        e.target.setAttribute('open', true);
+      }
+      details[detailNo].focus();
+    });
+  }
+
+  function keyboardNav(e) {
+    const detailId = e.target.id.split('-');
+    let detailNo = Number(detailId[1]);
+
+    switch (e.keyCode) {
+      case 37:
+        if (detailNo === 0) {
+          detailNo = detailsLength - 1;
+        } else {
+          detailNo = detailNo - 1;
+        }
+
+        setDetailsState(detailNo, e);
+
+        break;
+      case 39:
+        if (detailNo + 1 === detailsLength) {
+          detailNo = 0;
+        } else {
+          detailNo = detailNo + 1;
+        }
+
+        setDetailsState(detailNo, e);
+
+        break;
+    }
+  }
+
+  details.forEach(detail => {
+    detail.addEventListener('keydown', e => {
+      keyboardNav(e);
+    });
+    detail.addEventListener('click', e => {
+      details.forEach(detail => {
+        if (detail.id !== e.target.getAttribute('data-id')) {
+          detail.open = false;
+        }
+      });
+
+      // panels.forEach(panel => {
+      //   const labelledBy = panel.getAttribute('aria-labelledby');
+      //   if (labelledBy === detail.id) {
+      //     panel.dataset.active = true;
+      //   } else {
+      //     panel.dataset.active = false;
+      //   }
+      // });
+    });
+  });
+</script>

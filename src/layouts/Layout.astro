@@ -1,16 +1,35 @@
 ---
+import { getEntry } from 'astro:content';
 import '../styles/global.css';
+
+import Head from '@components/layouts/Head.astro';
+import SiteHeader from '@components/layouts/SiteHeader.astro';
+import type { HTMLAttributes } from 'astro/types';
+import type { SeoType } from '@customTypes/utilities';
+
+interface Props extends HTMLAttributes<'html'> {
+  seo: SeoType;
+}
+
+const { seo, ...attr } = Astro.props as Props;
+
+// fetch site settings for SEO and SiteHeader data
+const settings = await getEntry('settings', 'index')!;
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro Basics</title>
-  </head>
-  <body class="bg-zinc-300">
-    <slot />
+<html lang="en" {...attr}>
+  <Head seo={seo} settings={settings} />
+
+  <body class="bg-base-500 text-write-300">
+    <SiteHeader settings={settings} />
+    <main class="striped-background border-y-narrow text-base-400">
+      <slot />
+    </main>
+    <footer
+      class="font-mono text-sm gap-2 p-4 flex flex-col items-center justify-center"
+    >
+      <span>2025</span>
+      <span>a northwalk website</span>
+    </footer>
   </body>
 </html>

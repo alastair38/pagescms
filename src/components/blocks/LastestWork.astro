@@ -1,0 +1,36 @@
+---
+import type { LatestContent } from '@customTypes/blocks';
+import GridWrapper from '@components/layouts/GridWrapper.astro';
+import GridItem from '@components/layouts/GridItem.astro';
+import { getCollection } from 'astro:content';
+import IconSpacer from '@components/utilities/IconSpacer.astro';
+import BlockWrapper from '@components/layouts/BlockWrapper.astro';
+
+const {
+  __typename,
+  title,
+  description,
+  itemsToShow = 3,
+} = Astro.props as LatestContent;
+
+const items = await getCollection('work');
+---
+
+<BlockWrapper data-block={__typename} class="text-base-400">
+  <IconSpacer />
+
+  <GridWrapper>
+    <div
+      class="bg-base-500 col-span-full font-mono text-lg px-6 pt-12 pb-2 text-write-300 items-center"
+    >
+      <h2>{title}</h2>
+
+      {description && <p class="text-sm mt-2 max-w-content">{description}</p>}
+    </div>
+    {
+      items && items.length > 0
+        ? items.map(item => <GridItem item={item} />)
+        : '<p>No content yet</p>'
+    }
+  </GridWrapper>
+</BlockWrapper>

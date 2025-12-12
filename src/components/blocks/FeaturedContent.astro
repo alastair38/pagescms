@@ -1,0 +1,88 @@
+---
+import type { FeaturedContent } from '@customTypes/blocks';
+import { Picture } from 'astro:assets';
+import Link from '@components/utilities/Link.astro';
+import Heading2 from '@components/headings/Heading2.astro';
+import Heading3 from '@components/headings/Heading3.astro';
+import Description from '@components/layouts/Description.astro';
+import BlockWrapper from '@components/layouts/BlockWrapper.astro';
+
+const { __typename, title, description, sections } =
+  Astro.props as FeaturedContent;
+---
+
+<BlockWrapper
+  data-block={__typename}
+  class="text-base-400 bordert[0.05em] borderb-[0.05em]gap-[0.05em] grid mx-auto"
+>
+  <div class="bg-base-500 border-b-narrow col-span-full px-6 pt-12">
+    {
+      title && (
+        <Heading2 style="mono" size="small" class="mb-2">
+          {title}
+        </Heading2>
+      )
+    }
+
+    {
+      description && (
+        <p class="font-mono mb-4 text-sm text-write-300 max-w-content">
+          {description}
+        </p>
+      )
+    }
+  </div>
+  {
+    sections && sections.length > 0 && (
+      <div class="divide-base-400 divide-y-[0.05em]">
+        {sections.map((section, i) => (
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 p-6">
+            {section.image && (
+              <Picture
+                src={section.image.src}
+                quality={100}
+                format="webp"
+                loading="eager"
+                style="object-fit: cover;"
+                class:list={[
+                  'aspect-square w-full rounded-xs max-h[300px] md:max-h[500px] object-cover',
+                  i % 2 === 0 ? 'order-first' : 'order-last',
+                ]}
+                alt={section.image.alt || ''}
+              />
+            )}
+
+            <div
+              class:list={[
+                'flex flex-col md:px-8 text-write-300 gap-4 justify-center',
+                i % 2 === 0 ? 'md:order-last' : 'md:order-first',
+              ]}
+            >
+              {title ? (
+                <Heading3 size="large" weight="bold">
+                  {section.title}
+                </Heading3>
+              ) : (
+                <Heading2 size="large" weight="bold">
+                  {section.title}
+                </Heading2>
+              )}
+
+              {section.description && (
+                <Description>{section.description}</Description>
+              )}
+
+              {section.links && section.links.length > 0 && (
+                <div class="flex gap-3 mt-3">
+                  {section.links.map(link => (
+                    <Link link={link} icon={true} label="View details" />
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    )
+  }
+</BlockWrapper>

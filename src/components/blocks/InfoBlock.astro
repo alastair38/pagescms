@@ -1,0 +1,58 @@
+---
+import type { InfoBlock } from '@customTypes/blocks';
+import Link from '@components/utilities/Link.astro';
+import Heading2 from '@components/headings/Heading2.astro';
+import Heading3 from '@components/headings/Heading3.astro';
+import Description from '@components/layouts/Description.astro';
+import BlockWrapper from '@components/layouts/BlockWrapper.astro';
+
+const { __typename, title, description, sections } = Astro.props as InfoBlock;
+---
+
+<BlockWrapper
+  data-block={__typename}
+  class="bg-base-500 text-base-400 grid mx-auto"
+>
+  <div class="col-span-full border-b-narrow px-6 pt-12">
+    <Heading2 style="mono" size="small" class="mb-2">
+      {title}
+    </Heading2>
+
+    {
+      description && (
+        <p class="font-mono mb-4 text-sm text-write-300 max-w-content">
+          {description}
+        </p>
+      )
+    }
+  </div>
+
+  {
+    sections && sections.length > 0 && (
+      <div class="grid grid-auto-fill-md grid-flow-row divide-y-[0.05em] divide-x-[0.05em] divide-base-400">
+        {sections.map(section => (
+          <div class=" flex flex-col gap-4 p-6 text-write-300">
+            <Heading3 weight="bold">{section.title}</Heading3>
+
+            {section.description && (
+              <Description class="mb-2">{section.description}</Description>
+            )}
+
+            {section.links && section.links.length > 0 && (
+              <div class="flex gap-3 mt-auto">
+                {section.links.map(link => (
+                  <Link
+                    link={link}
+                    icon={true}
+                    variant="outline"
+                    label="Find out more"
+                  />
+                ))}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    )
+  }
+</BlockWrapper>

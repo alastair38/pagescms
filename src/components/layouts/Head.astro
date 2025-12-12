@@ -1,0 +1,77 @@
+---
+import type { SeoType } from '@customTypes/utilities';
+import type { HTMLAttributes } from 'astro/types';
+import { getImage } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import { Font } from 'astro:assets';
+
+interface Props extends HTMLAttributes<'head'> {
+  seo: SeoType;
+  settings: CollectionEntry<'settings'>;
+}
+
+const { seo, settings, ...attr } = Astro.props as Props;
+
+// get metaImage metadata depending on whether a featured image has been set for the page or we fallback to the site default
+
+const metaImage = seo?.featuredImage?.image
+  ? seo?.featuredImage?.image
+  : settings.data.site.featuredImage?.image;
+
+// generate optimised image for og:image sharing
+
+const image = await getImage({
+  src: metaImage,
+  width: 1600,
+  height: 900,
+  format: 'webp',
+});
+
+// construct metaData object based on available page data and site setting fallbacks
+
+const metaData = {
+  siteTitle: seo.siteTitle || settings.data.site.name || '',
+  title: seo.title || '',
+  description: seo.description || settings?.data.site?.description || '',
+  image: image.src,
+  imageAlt: seo?.featuredImage?.alt
+    ? seo?.featuredImage?.alt
+    : settings.data.site.featuredImage?.alt || '',
+  ogType: 'website',
+  url: Astro.url,
+};
+---
+
+<head {...attr}>
+  <Font cssVariable="--font-inter" preload />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <title>
+    {metaData.title} - {metaData.siteTitle}
+  </title>
+  <meta name="description" content={metaData.description} />
+  <link rel="canonical" href={metaData.url} />
+
+  <!-- Open Graph -->
+  <meta property="og:site_name" content={metaData.siteTitle} />
+  <meta property="og:title" content={metaData.title} />
+  <meta property="og:description" content={metaData.description} } />
+  <meta property="og:type" content={metaData.ogType} />
+  <meta property="og:url" content={metaData.url} />
+  <meta property="og:image" content={metaData.image} />
+  <meta property="og:image:url" content={metaData.image} />
+  <meta property="og:image:secure_url" content={metaData.image} />
+  <meta property="og:image:type" content="image/webp" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="600" />
+  <meta property="og:image:alt" content={metaData.imageAlt} />
+
+  <!-- Twitter -->
+  <meta name="twitter:title" content={metaData.title} />
+  <meta name="twitter:description" content={metaData.description} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content={metaData.image} />
+  <meta name="twitter:image:alt" content={metaData.imageAlt} />
+  <meta name="twitter:domain" content={Astro.url.origin} />
+</head>

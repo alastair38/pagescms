@@ -1,18 +1,18 @@
 media:
-- name: images
-  label: Media
-  input: src/media
-  output: /src/media
-- name: blogImages
-  label: Blog Images
-  input: src/media/blog
-  output: /src/media/blog
-  extensions: [jpg, png, jpeg]
-- name: files
-  label: Files
-  input: src/files
-  output: files
-  categories: [ document ]
+  - name: images
+    label: Media
+    input: src/media
+    output: /src/media
+  - name: blogImages
+    label: Blog Images
+    input: src/media/blog
+    output: /src/media/blog
+    extensions: [jpg, png, jpeg]
+  - name: files
+    label: Files
+    input: src/files
+    output: files
+    categories: [document]
 
 content:
   - name: blog
@@ -21,9 +21,9 @@ content:
     type: collection
     filename: '{primary}.md'
     view:
-      fields: [ title, pubDate ]
+      fields: [title, pubDate]
       primary: title
-      sort: [ title, pubDate ]
+      sort: [title, pubDate]
       default:
         search: ''
         sort: title
@@ -42,34 +42,34 @@ content:
         label: Featured Image
         type: object
         fields:
-        - name: image
-          label: Image
-          type: image
-          options:
-            media: blogImages
-            extensions: [png, jpg, jpeg]
-        - name: alt
-          label: Alt text
-          description: Alt text should be an accurate description of the image for assistive technologies
-          type: string
-        - name: caption
-          label: Caption
-          description: Optional
-          type: string
-        - name: variant
-          label: Variant
-          description: Choose the variant; 'rounded' adds a border radius and shadow
-          type: select
-          default: plain
-          options:
-            values: [ rounded, plain ]
-        - name: layout
-          label: Layout
-          description: Choose the layout; 'grid' places the image and caption horizontally
-          type: select
-          default: default
-          options:
-            values: [ default, grid ]
+          - name: image
+            label: Image
+            type: image
+            options:
+              media: blogImages
+              extensions: [png, jpg, jpeg]
+          - name: alt
+            label: Alt text
+            description: Alt text should be an accurate description of the image for assistive technologies
+            type: string
+          - name: caption
+            label: Caption
+            description: Optional
+            type: string
+          - name: variant
+            label: Variant
+            description: Choose the variant; 'rounded' adds a border radius and shadow
+            type: select
+            default: plain
+            options:
+              values: [rounded, plain]
+          - name: layout
+            label: Layout
+            description: Choose the layout; 'grid' places the image and caption horizontally
+            type: select
+            default: default
+            options:
+              values: [default, grid]
       - name: authors
         label: Authors
         type: reference
@@ -77,7 +77,7 @@ content:
         options:
           collection: authors
           multiple: true
-          search: "name"
+          search: 'name'
       - name: pubDate
         label: Published date
         type: date
@@ -110,15 +110,15 @@ content:
         label: Featured Image
         type: object
         fields:
-        - name: image
-          label: Image
-          type: image
-          options:
-            path: src/media/authors
-            extensions: [jpeg, jpg, png, webp, avif]
-        - name: alt
-          label: Alt text
-          type: string
+          - name: image
+            label: Image
+            type: image
+            options:
+              path: src/media/authors
+              extensions: [jpeg, jpg, png, webp, avif]
+          - name: alt
+            label: Alt text
+            type: string
       - name: contact
         label: Contact options
         type: object

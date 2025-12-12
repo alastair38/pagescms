@@ -1,0 +1,13 @@
+---
+import type { HTMLAttributes, HTMLTag } from 'astro/types';
+
+interface Props extends HTMLAttributes<'div' | 'article'> {
+  tag?: HTMLTag;
+}
+
+const { tag: Element = 'div', ...attr } = Astro.props as Props;
+---
+
+<Element class="max-w-7xl z-10 bg-base-500 border-x-narrow mx-auto" {...attr}>
+  <slot />
+</Element>

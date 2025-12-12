@@ -1,0 +1,38 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props extends HTMLAttributes<'p'> {
+  size?: 'small' | 'default' | 'large';
+  weight?: 'light' | 'default' | 'bold';
+  color?: 'lighter' | 'default' | 'darker';
+  style?: 'normal' | 'mono';
+}
+
+const {
+  size = 'default',
+  weight = 'default',
+  color = 'default',
+  style = 'normal',
+  ...attrs
+} = Astro.props as Props;
+---
+
+<p
+  class:list={[
+    'text-pretty prose max-w-content',
+    size === 'default' && 'text-sm md:text-base',
+    size === 'small' && 'text-xs sm:text-sm',
+    size === 'large' && 'text-lg',
+    weight === 'default' && 'font-regular',
+    weight === 'light' && 'font-light',
+    weight === 'bold' && 'font-black',
+    color === 'default' && 'text-write-300',
+    color === 'lighter' && 'text-write-100',
+    color === 'darker' && 'text-write-500',
+    style === 'mono' && 'font-mono',
+    attrs.class,
+  ]}
+  {...attrs}
+>
+  <slot />
+</p>

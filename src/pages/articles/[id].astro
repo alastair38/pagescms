@@ -1,0 +1,129 @@
+---
+import FeaturedImage from '@components/FeaturedImage.astro';
+import ArticleAside from '@components/layouts/ArticleAside.astro';
+import ArticleWrapper from '@components/layouts/ArticleWrapper.astro';
+import ContentWrapper from '@components/layouts/ContentWrapper.astro';
+import PageHeader from '@components/layouts/PageHeader.astro';
+import Layout from '@layouts/Layout.astro';
+import Slider from '@components/Slider.astro';
+import { Picture, Image } from 'astro:assets';
+import Path from 'path';
+import {
+  getCollection,
+  getEntries,
+  getEntry,
+  render,
+  type CollectionEntry,
+  type ReferenceContentEntry,
+  type ReferenceDataEntry,
+} from 'astro:content';
+import { Icon } from 'astro-icon/components';
+import { string } from 'astro:schema';
+import BlockRenderer from '@components/BlockRenderer.astro';
+// 1. Generate a new path for every collection entry
+export async function getStaticPaths() {
+  const posts = await getCollection('article');
+  return posts.map(post => ({
+    params: { id: post.id },
+    props: { post },
+  }));
+}
+// 2. For your template, you can get the entry directly from the prop
+const { post } = Astro.props;
+
+const test = [
+  {
+    type: 'work',
+    label: 'A link',
+    link: 'src/data/work/northwalk-1.md',
+  },
+  {
+    type: 'page',
+    label: 'A link',
+    link: 'src/data/pages/about.md',
+  },
+];
+
+const result: ReferenceDataEntry<'work' | 'page' | 'article', string>[] =
+  test.map(person => ({
+    id: Path.parse(person.link).name,
+    collection: person.type as 'work' | 'page' | 'article',
+  }));
+
+// const morePages =
+//   post.data.relatedPages && (await getEntries(post.data.relatedPages));
+
+const authors = await getEntries(post?.data?.authors!);
+
+function createRefObj(values: any[]) {
+  values.map(
+    (value: any) => {
+      return {
+        id: Path.parse(value.link).name,
+        collection: value.type,
+      };
+    }
+    //value.link.split('/').pop()?.split('.')
+  );
+
+  // console.log(refObj);
+
+  //return refObj;
+  //const afterLastSlash = value.split('/').pop()?.split('.')!;
+}
+
+//const what = createRefObj(test);
+
+// const authorsArr: ReferenceDataEntry<'authors'>[] | undefined =
+//   post.data.meta.authors?.map(author => {
+//     return {
+//       collection: 'authors',
+//       id: author.id.substring(author.id.lastIndexOf('/') + 1).split('.')[0],
+//     };
+//   });
+
+// const authors = (await getEntries(authorsArr!)) as CollectionEntry<'authors'>[];
+const { Content } = await render(post);
+const seo = {
+  title: post?.data.title,
+  description: post?.data.description,
+  image: post?.data.featuredImage?.image,
+};
+---
+
+<Layout {seo}>
+  <ArticleWrapper tag="article">
+    <PageHeader
+      title={post.data.title}
+      byline={post.data.subHeading ? post.data.subHeading : post.collection}
+      authors={authors}
+    />
+
+    <ContentWrapper>
+      {
+        post.data.contentBlocks && post.data.contentBlocks.length > 0 ? (
+          <BlockRenderer slot="content" data={post.data.contentBlocks} />
+        ) : (
+          <p class="w-[75ch]" slot="content">
+            Remember to add content to the page.
+          </p>
+        )
+      }
+
+      <ArticleAside class="space-y-6" slot="aside" pubDate={post.data.pubDate}>
+        {
+          post.data.featuredImage && (
+            <FeaturedImage
+              image={post.data.featuredImage.image}
+              altText={post.data.featuredImage?.alt || ''}
+              width={post.data.featuredImage.image.width}
+              height={post.data.featuredImage.image.height}
+              caption={post.data.featuredImage.caption}
+              border={true}
+            />
+          )
+        }
+      </ArticleAside>
+    </ContentWrapper>
+  </ArticleWrapper>
+</Layout>

@@ -1,0 +1,80 @@
+---
+import RelativeLink from '@components/utilities/RelativeLink.astro';
+import { Icon } from 'astro-icon/components';
+import { Picture } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import Description from './Description.astro';
+import Heading2 from '@components/headings/Heading2.astro';
+import Heading3 from '@components/headings/Heading3.astro';
+import ContentDetails from './ContentDetails.astro';
+
+interface Props {
+  item:
+    | CollectionEntry<'work'>
+    | CollectionEntry<'template'>
+    | CollectionEntry<'article'>;
+  heading?: boolean;
+}
+
+const { item, heading } = Astro.props;
+---
+
+<div class="bg-base-500 flex flex-col p-6 text-write-300 block-outline">
+  {
+    item.data.featuredImage && (
+      <Picture
+        src={item.data.featuredImage.image}
+        quality={100}
+        format="webp"
+        loading="eager"
+        style="object-fit: cover;"
+        class="aspect-square w-full rounded-xs max-h-[300px] md:max-h-[500px] object-cover"
+        alt={item.data.featuredImage.alt || ''}
+      />
+    )
+  }
+
+  {
+    heading ? (
+      <Heading3 weight="bold" size="large" class="mt-4">
+        {item.data.title}
+      </Heading3>
+    ) : (
+      <Heading2 weight="bold" class="mt-4">
+        {item.data.title}
+      </Heading2>
+    )
+  }
+
+  {
+    item.data.description && (
+      <Description size="small" class="mt-2 mb-4">
+        {item.data.description}
+      </Description>
+    )
+  }
+
+  {
+    item.collection !== 'article' && item.data.details && (
+      <ContentDetails
+        class="mb-4"
+        details={item.data.details}
+        title="Tech stack and versions"
+      />
+    )
+  }
+
+  <div class="flex font-mono gap-3 mt-2">
+    <RelativeLink
+      id={item.id}
+      type={item.collection}
+      label="Find out more"
+      variant="outline"
+      icon={true}
+      size="small"
+    />
+
+    <div aria-hidden="true" class="striped-background flex-1 text-base-400">
+    </div>
+  </div>
+</div>

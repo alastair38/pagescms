@@ -1,0 +1,93 @@
+---
+import FeaturedImage from '@components/FeaturedImage.astro';
+import PageTitle from '@components/headings/PageTitle.astro';
+import Spacer from '@components/utilities/Spacer.astro';
+import type { HTMLAttributes } from 'astro/types';
+import type { CollectionEntry } from 'astro:content';
+import Description from './Description.astro';
+import ContentDetails from './ContentDetails.astro';
+import { Picture } from 'astro:assets';
+import { urlBuilderFromId } from '@utils/formatters';
+
+interface Props extends HTMLAttributes<'header'> {
+  title: string;
+  archive?: boolean;
+  byline?: string;
+  description?: string;
+  authors?: CollectionEntry<'person'>[];
+  details?: {
+    framework?: string;
+    cms?: string;
+    versions?: number;
+  };
+}
+
+const {
+  title,
+  archive = false,
+  byline,
+  description,
+  authors = [],
+  details,
+  ...attrs
+} = Astro.props;
+---
+
+<header {...attrs}>
+  <div
+    class="px-4 py-1 flex items-end min-h-16 md:min-h-20 text-base-900 border-b-narrow"
+  >
+    {
+      byline && (
+        <p class="font-mono capitalize text-sm md:text-base text-write-400">
+          {byline}
+        </p>
+      )
+    }
+  </div>
+  <PageTitle title={title} />
+
+  {
+    description && (
+      <Description size="small" class="px-4 py-2">
+        {description}
+      </Description>
+    )
+  }
+
+  {
+    details && (
+      <ContentDetails
+        class="p-4 border-t-narrow"
+        details={details}
+        title="Tech stack and versions"
+      />
+    )
+  }
+
+  {!archive && !details && <Spacer border="top" />}
+
+  {
+    authors && (
+      <div class="flex gap-2 p-4 items-center border-t-narrow">
+        {authors.map(author => (
+          <a
+            href={urlBuilderFromId(author.id, 'person')}
+            class="flex group text-sm items-center text-write-400 font-mono gap-2"
+          >
+            {author.data.featuredImage && (
+              <Picture
+                src={author.data.featuredImage?.image!}
+                alt={author.data.featuredImage?.alt || author.data.name}
+                width="45"
+                height="45"
+                class="w-7 outline-2 outline-transparent group-hover:grayscale-100 group-hover:outline-base-400 outline-offset-2 h-7 rounded-full object-top object-cover"
+              />
+            )}
+            <span>{author.data.name}</span>
+          </a>
+        ))}
+      </div>
+    )
+  }
+</header>

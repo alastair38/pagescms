@@ -1,0 +1,103 @@
+---
+import FeaturedImage from '@components/FeaturedImage.astro';
+import ArticleAside from '@components/layouts/ArticleAside.astro';
+import ArticleWrapper from '@components/layouts/ArticleWrapper.astro';
+import ContentWrapper from '@components/layouts/ContentWrapper.astro';
+import PageHeader from '@components/layouts/PageHeader.astro';
+import Layout from '@layouts/Layout.astro';
+import Slider from '@components/Slider.astro';
+import { Picture } from 'astro:assets';
+import {
+  getCollection,
+  getEntries,
+  render,
+  type CollectionEntry,
+  type ReferenceDataEntry,
+} from 'astro:content';
+// 1. Generate a new path for every collection entry
+export async function getStaticPaths() {
+  const posts = await getCollection('work');
+  return posts.map(post => ({
+    params: { id: post.id },
+    props: { post },
+  }));
+}
+// 2. For your template, you can get the entry directly from the prop
+const { post } = Astro.props;
+
+// const authorsArr: ReferenceDataEntry<'authors'>[] | undefined =
+//   post.data.meta.authors?.map(author => {
+//     return {
+//       collection: 'authors',
+//       id: author.id.substring(author.id.lastIndexOf('/') + 1).split('.')[0],
+//     };
+//   });
+
+// const authors = (await getEntries(authorsArr!)) as CollectionEntry<'authors'>[];
+const { Content } = await render(post);
+
+const seo = {
+  title: post?.data.title,
+  description: post?.data.description,
+  image: post?.data.featuredImage?.image,
+};
+---
+
+<Layout seo={seo}>
+  <ArticleWrapper>
+    <PageHeader
+      title={post.data.title}
+      byline={post.collection}
+      details={post.data.details}
+    />
+
+    <ContentWrapper>
+      <!-- {
+        post.data.meta.featuredImage && (
+          <Picture
+            slot="content"
+            src={post.data.meta.featuredImage.image}
+            quality={100}
+            format="webp"
+            loading="eager"
+            style="object-fit: cover;"
+            class="rounded-md w-full max-h-[300px] mb-6  md:max-h-[500px] object-cover"
+            alt={post.data.meta.featuredImage.alt || ''}
+          />
+        )
+      } -->
+
+      <Content slot="content" />
+
+      <aside slot="aside">
+        {
+          post.data.featuredImage && (
+            <FeaturedImage
+              slot="content"
+              image={post.data.featuredImage.image}
+              altText={post.data.featuredImage?.alt || ''}
+              width={post.data.featuredImage.image.width}
+              height={post.data.featuredImage.image.height}
+              caption={post.data.featuredImage.caption}
+            />
+          )
+        }
+
+        <!-- {
+          post.data.slider &&
+            post.data.slider.map(slide => (
+              <FeaturedImage
+                slot="content"
+                image={slide.image}
+                altText={slide.alt || ''}
+                width={slide.image.width}
+                height={slide.image.height}
+                caption={slide.caption}
+              />
+            ))
+        } -->
+        <Slider images={post.data.slider} />
+      </aside>
+    </ContentWrapper>
+  </ArticleWrapper>
+</Layout>

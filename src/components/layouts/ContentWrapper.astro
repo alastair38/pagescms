@@ -1,0 +1,17 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props extends HTMLAttributes<'div'> {}
+
+const { ...attr } = Astro.props as Props;
+---
+
+<div
+  class="text-base-400 flex flex-col-reverse md:flex-row gap-8 md:gap-16 px-4 py-6 border-t-narrow"
+  {...attr}
+>
+  <div class="text-write-300 max-w-content space-y-6">
+    <slot name="content" />
+  </div>
+  <slot name="aside" />
+</div>

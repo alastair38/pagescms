@@ -1,0 +1,41 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props extends HTMLAttributes<'h2'> {
+  size?: 'small' | 'default' | 'large' | 'xl';
+  weight?: 'light' | 'default' | 'bold';
+  color?: 'lighter' | 'default' | 'darker';
+  style?: 'normal' | 'mono';
+}
+
+// This component accepts all standard HTML attributes for an <h2> element. For example, adding class="text-center" will apply that class to the <h2>.
+
+const {
+  size = 'default',
+  weight = 'default',
+  color = 'default',
+  style = 'normal',
+  ...attrs
+} = Astro.props as Props;
+---
+
+<h2
+  class:list={[
+    'text-pretty',
+    size === 'default' && 'text-2xl md:text-3xl',
+    size === 'small' && 'text-base md:text-xl',
+    size === 'large' && 'text-4xl',
+    size === 'xl' && 'text-4xl md:text-6xl',
+    weight === 'default' && 'font-regular',
+    weight === 'light' && 'font-light',
+    weight === 'bold' && 'font-black',
+    color === 'default' && 'text-write-300',
+    color === 'lighter' && 'text-write-100',
+    color === 'darker' && 'text-write-500',
+    style === 'mono' && 'font-mono',
+    attrs.class,
+  ]}
+  {...attrs}
+>
+  <slot />
+</h2>

@@ -1,0 +1,42 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Props {
+  accent?: boolean;
+  border?: 'top' | 'bottom' | 'both' | 'none';
+}
+
+const { accent = false, border = 'none' } = Astro.props as Props;
+---
+
+<div
+  aria-hidden={true}
+  class:list={[
+    'text-base-400 px-4 py-4 md:py-6 flex justify-between md:justify-start gap-6',
+    border === 'top' && 'border-t-narrow',
+    border === 'bottom' && 'border-b-narrow',
+    border === 'both' && 'border-t-narrow border-b-narrow',
+  ]}
+>
+  <Icon
+    class:list={[
+      'rotate-45 rounded-full h-12 w-12 md:h-24 md:w-24 p-2 text-base-500',
+      accent ? 'bg-highlight-400/60' : 'bg-base-400/60',
+    ]}
+    name="arrows/right-point"
+  />
+  <Icon
+    class:list={[
+      'rotate-45 rounded-full h-12 w-12 md:h-24 md:w-24 p-2 text-base-500',
+      accent ? 'bg-highlight-400/80' : 'bg-base-400/80',
+    ]}
+    name="arrows/right-point"
+  />
+  <Icon
+    class:list={[
+      'rotate-45 rounded-full h-12 w-12 md:h-24 md:w-24 p-2 text-base-500',
+      accent ? 'bg-highlight-400' : 'bg-base-400',
+    ]}
+    name="arrows/right-point"
+  />
+</div>

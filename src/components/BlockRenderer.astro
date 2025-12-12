@@ -1,0 +1,11 @@
+---
+import { getBlockByName } from '@utils/helpers';
+const { data } = Astro.props;
+---
+
+{
+  data.map((block: any) => {
+    const Component = getBlockByName(block.__typename);
+    return <Component {...block} />;
+  })
+}

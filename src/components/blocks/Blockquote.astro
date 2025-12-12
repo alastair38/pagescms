@@ -1,0 +1,21 @@
+---
+// this will let us render markdown from richText blocks (which is stored as a string)
+import { Markdown } from 'astro-remote';
+import BlockWrapper from '@components/layouts/BlockWrapper.astro';
+interface Props {
+  quote: string;
+  author?: string;
+  __typename: string;
+}
+
+const { quote, __typename, author } = Astro.props;
+---
+
+<BlockWrapper
+  tag="div"
+  data-block={__typename}
+  class="prose prose-a:text-current max-w-content prose-a:decoration-highlight-300 prose-strong:text-current mx-auto text-current"
+>
+  <Markdown content={quote} />
+  {author && <p>{author}</p>}
+</BlockWrapper>

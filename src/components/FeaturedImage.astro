@@ -1,44 +1,57 @@
 ---
 import type { ImageMetadata } from 'astro';
+import type { HTMLAttributes } from 'astro/types';
 import { Picture } from 'astro:assets';
 
-interface Props {
+interface Props extends HTMLAttributes<'figure'> {
   image: ImageMetadata;
   altText: string;
   caption?: string;
-  variant?: 'rounded' | 'plain';
+  height?: string | number;
+  width?: string | number;
+  variant?: 'rounded' | 'plain' | 'avatar';
   layout?: 'default' | 'grid';
+  border?: boolean;
 }
 
 const {
   image,
   altText,
   caption,
+  height,
+  width,
   variant = 'plain',
   layout = 'default',
+  border = false,
+  ...attrs
 } = Astro.props;
 ---
 
 <figure
   class:list={[
-    'w-fit overflow-clip mx-auto max-h-[300px] md:max-h-[500px] my-12 object-cover',
-    { 'rounded-md shadow-2xl': variant === 'rounded' },
-    { 'grid grid-cols-2': layout === 'grid' },
+    'w-fit overflow-clip rounded-xs mx-auto max-h-[300px] md:max-h-[500px] object-cover',
+    variant === 'rounded' && 'rounded-md shadow-2xl',
+    layout === 'grid' && 'grid grid-cols-2',
+    variant === 'avatar' && 'w-8 h-8 aspect-square rounded-full',
+    border && 'border border-base-400 p-1',
   ]}
+  {...attrs}
 >
   <Picture
     src={image}
     quality={100}
     loading="eager"
+    height={Number(height)}
+    width={Number(width)}
     formats={['avif', 'webp']}
-    class="object-cover w-full h-full"
+    class="object-cover w-full h-auto rounded-xs"
     alt={altText}
   />
   {
-    caption && (
+    caption && variant !== 'avatar' && (
       <figcaption
         class:list={[
-          'leading-none flex items-center py-3',
+          'leading-none flex font-mono text-sm items-center py-3',
           {
             'px-3 w-full text-center bg-white mx-auto justify-center':
               variant === 'rounded',

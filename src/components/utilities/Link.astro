@@ -1,0 +1,31 @@
+---
+import type { Link } from '@customTypes/utilities';
+import { urlBuilder } from '@utils/formatters';
+import { Icon } from 'astro-icon/components';
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props extends HTMLAttributes<'a'> {
+  link: Link;
+  icon?: boolean;
+  label?: string;
+  variant?: 'default' | 'button' | 'outline';
+}
+
+const { link, icon, label, variant = 'default', ...attrs } = Astro.props;
+---
+
+<a
+  class:list={[
+    'font-mono text-sm md:text-base rounded-xs group border-[0.05em] transition-transform hover:scale-98 duration-200 px-2 py-1 gap-1 items-center flex w-fit group',
+    variant === 'default' &&
+      'border-highlight-300 hover:bg-highlight-300/90 bg-highlight-300  text-base-500 ',
+    variant === 'outline' &&
+      'border-base-400 text-write-300 hover:text-write-400',
+    attrs.class,
+  ]}
+  href={urlBuilder(link.link, link.type, 'http://localhost:4321/')}
+  {...attrs}
+>
+  {link.label ? link.label : label || 'Find out more'}
+  {icon && <Icon class="translate-x-0.5" name="arrows/right-point" />}
+</a>
