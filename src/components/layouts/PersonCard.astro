@@ -1,18 +1,13 @@
 ---
 import RelativeLink from '@components/utilities/RelativeLink.astro';
-import { Icon } from 'astro-icon/components';
 import { Picture } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
-import Description from './Description.astro';
 import Heading2 from '@components/headings/Heading2.astro';
 import Heading3 from '@components/headings/Heading3.astro';
-import ContentDetails from './ContentDetails.astro';
+import Description from '@components/layouts/Description.astro';
 
 interface Props {
-  item:
-    | CollectionEntry<'work'>
-    | CollectionEntry<'template'>
-    | CollectionEntry<'article'>;
+  item: CollectionEntry<'person'>;
   heading?: boolean;
 }
 
@@ -37,31 +32,20 @@ const { item, heading } = Astro.props;
 
   {
     heading ? (
-      <Heading3 weight="bold" size="large" class="mt-4">
-        {item.data.title}
+      <Heading3 weight="bold" size="small" class="mt-4">
+        {item.data.name}
       </Heading3>
     ) : (
-      <Heading2 weight="bold" class="mt-4">
-        {item.data.title}
+      <Heading2 weight="bold" size="small" class="mt-4">
+        {item.data.name}
       </Heading2>
     )
   }
-
   {
-    item.data.description && (
-      <Description size="small" class="mt-2 mb-4">
-        {item.data.description}
+    item.data.jobTitle && (
+      <Description size="small" class="mb-4">
+        {item.data.jobTitle}
       </Description>
-    )
-  }
-
-  {
-    item.collection !== 'article' && item.data.details && (
-      <ContentDetails
-        class="mb-4"
-        details={item.data.details}
-        title="Tech stack and versions"
-      />
     )
   }
 
@@ -69,7 +53,7 @@ const { item, heading } = Astro.props;
     <RelativeLink
       id={item.id}
       type={item.collection}
-      label="Find out more"
+      label="View profile"
       variant="outline"
       icon={true}
       size="small"

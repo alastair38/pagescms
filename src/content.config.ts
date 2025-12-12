@@ -6,7 +6,16 @@ import { glob } from 'astro/loaders';
 const links = z
   .array(
     z.object({
-      type: z.enum(['page', 'post', 'article', 'archive', 'url', 'work']),
+      type: z.enum([
+        'page',
+        'post',
+        'article',
+        'archive',
+        'url',
+        'work',
+        'person',
+        'template',
+      ]),
       label: z.string().optional(),
       link: z.string(),
     })
@@ -168,6 +177,12 @@ const home = defineCollection({
               })
             ),
           }),
+          z.object({
+            __typename: z.literal('team'),
+            title: z.string().optional(),
+            description: z.string().optional(),
+            links: links,
+          }),
         ])
       ),
       // Reference an array of related content
@@ -246,6 +261,12 @@ const page = defineCollection({
                 links: links,
               })
             ),
+          }),
+          z.object({
+            __typename: z.literal('team'),
+            title: z.string().optional(),
+            description: z.string().optional(),
+            links: links,
           }),
         ])
       ),
@@ -362,6 +383,7 @@ const person = defineCollection({
     z.object({
       name: z.string(),
       bio: z.string(),
+      jobTitle: z.string().optional(),
       featuredImage: z
         .object({
           image: image(),

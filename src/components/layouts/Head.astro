@@ -4,6 +4,7 @@ import type { HTMLAttributes } from 'astro/types';
 import { getImage } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 import { Font } from 'astro:assets';
+import { ClientRouter } from 'astro:transitions';
 
 interface Props extends HTMLAttributes<'head'> {
   seo: SeoType;
@@ -74,4 +75,5 @@ const metaData = {
   <meta name="twitter:image" content={metaData.image} />
   <meta name="twitter:image:alt" content={metaData.imageAlt} />
   <meta name="twitter:domain" content={Astro.url.origin} />
+  <ClientRouter />
 </head>

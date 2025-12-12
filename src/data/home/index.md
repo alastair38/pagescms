@@ -139,6 +139,14 @@ contentBlocks:
             link: /src/pages/about.md
   - __typename: 'latestWork'
     title: Recent projects
+  - __typename: 'team'
+    title: 'Team'
+    description: 'The team'
+    links:
+      - type: person
+        link: alastair-cox
+      - type: person
+        link: john-cope
 ---
 
 In recent years, the relationship between nature and mental health has

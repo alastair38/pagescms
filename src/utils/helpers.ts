@@ -10,6 +10,7 @@ import faqs from '@components/blocks/FAQS.astro';
 import imageGallery from '@components/blocks/ImageGallery.astro';
 import featuredContent from '@components/blocks/FeaturedContent.astro';
 import latestWork from '@components/blocks/LastestWork.astro';
+import team from '@components/blocks/Team.astro';
 
 type Mapping = {
   [name: string]: any;
@@ -26,6 +27,7 @@ export const mapping: Mapping = {
   relatedContent,
   richText,
   tabs,
+  team,
 };
 
 export function getBlockByName(name: string) {

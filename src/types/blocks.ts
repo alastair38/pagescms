@@ -92,3 +92,10 @@ export interface Tabs {
     links?: ReferenceLink[];
   }[];
 }
+
+export interface Team {
+  __typename: string;
+  title?: string;
+  description?: string;
+  links?: ReferenceLink[];
+}

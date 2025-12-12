@@ -9,7 +9,7 @@ import { getCollection } from 'astro:content';
 import GridItem from '@components/layouts/GridItem.astro';
 import GridWrapper from '@components/layouts/GridWrapper.astro';
 import Contacts from '@components/utilities/Contacts.astro';
-import RichText from '@components/RichText.astro';
+import RichText from '@components/blocks/RichText.astro';
 // 1. Generate a new path for every collection entry
 export async function getStaticPaths() {
   const posts = await getCollection('person');
@@ -52,6 +52,7 @@ const seo = {
         {
           post.data.featuredImage && (
             <FeaturedImage
+              transition:name={`${post.id}`}
               image={post.data.featuredImage.image}
               altText={post.data.featuredImage?.alt || ''}
               width={post.data.featuredImage.image.width}
@@ -63,12 +64,14 @@ const seo = {
       </ArticleAside>
     </ContentWrapper>
 
-    <GridWrapper heading="Articles">
-      {
-        articles.length > 0
-          ? articles.map(item => <GridItem item={item} heading={true} />)
-          : '<p>No content yet</p>'
-      }
-    </GridWrapper>
+    {
+      articles && articles.length > 0 && (
+        <GridWrapper heading="Articles">
+          {articles.map(item => (
+            <GridItem item={item} heading={true} />
+          ))}
+        </GridWrapper>
+      )
+    }
   </ArticleWrapper>
 </Layout>

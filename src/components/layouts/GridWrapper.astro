@@ -3,12 +3,13 @@ import Heading2 from '@components/headings/Heading2.astro';
 
 interface Props {
   heading?: string;
+  outline?: boolean;
 }
 
-const { heading } = Astro.props;
+const { heading, outline = true } = Astro.props;
 ---
 
-<div class="grid grid-auto-fill-md block-outline">
+<div class:list={['grid grid-auto-fill-md', outline && 'block-outline']}>
   {
     heading && (
       <div class="px-6 pt-6 pb-4 striped-background text-base-400 col-span-full border-b-narrow bloc-outline">

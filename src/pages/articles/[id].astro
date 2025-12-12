@@ -114,6 +114,7 @@ const seo = {
         {
           post.data.featuredImage && (
             <FeaturedImage
+              transition:name={`${post.id}`}
               image={post.data.featuredImage.image}
               altText={post.data.featuredImage?.alt || ''}
               width={post.data.featuredImage.image.width}

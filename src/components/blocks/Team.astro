@@ -1,0 +1,71 @@
+---
+import type { RelatedContent, Team } from '@customTypes/blocks';
+import { urlBuilderFromId } from '@utils/formatters';
+import { Icon } from 'astro-icon/components';
+import { getEntries, type ReferenceDataEntry } from 'astro:content';
+import Path from 'path';
+import BlockWrapper from '@components/layouts/BlockWrapper.astro';
+import { Picture } from 'astro:assets';
+import GridWrapper from '@components/layouts/GridWrapper.astro';
+import PersonCard from '@components/layouts/PersonCard.astro';
+
+const {
+  __typename,
+  title = 'You might also be interested in ...',
+  links,
+} = Astro.props as Team;
+
+const members =
+  links &&
+  links.length > 0 &&
+  links!.map(person => ({
+    id: Path.parse(person.link).name,
+    collection: person.type as 'person',
+  }));
+
+const team = await getEntries(
+  members as ReferenceDataEntry<'person', string>[]
+);
+
+console.log(team);
+---
+
+{
+  team && team.length > 0 && (
+    <BlockWrapper tag="aside" data-block={__typename} class=" text-write-300">
+      <GridWrapper outline={false}>
+        <h2 class="col-span-full font-mono text-lg px-6 pt-12 pb-2 border-b-narrow border-base-400">
+          {title}
+        </h2>
+
+        {team.map(item => (
+          <PersonCard item={item} />
+          // <a
+          //   class="font-mono flex p-4 flex-col w-fit group block-outline"
+          //   href={urlBuilderFromId(item.id, item.collection)}
+          // >
+          //   {item.data.featuredImage && (
+          //     <Picture
+          //       transition:name={`${item.id}`}
+          //       src={item.data.featuredImage.image}
+          //       quality={100}
+          //       format="webp"
+          //       loading="eager"
+          //       style="object-fit: cover;"
+          //       class="aspect-square w-full rounded-xs max-h-[300px] md:max-h-[500px] object-cover"
+          //       alt={item.data.featuredImage.alt || ''}
+          //     />
+          //   )}
+          //   <h3 class="font-black flex items-center group-hover:text-write-400 duration-200 transition-colors gap-2">
+          //     {item.data.name && item.data.name}
+          //     <Icon
+          //       class="bg-highlight-300 text-base-500 transition-transform duration-200 group-hover:translate-x-0.5 rounded-full text-xl p-0.5"
+          //       name="arrows/right-point"
+          //     />
+          //   </h3>
+          // </a>
+        ))}
+      </GridWrapper>
+    </BlockWrapper>
+  )
+}

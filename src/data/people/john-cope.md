@@ -1,9 +1,9 @@
 ---
-name: Sally Brown
+name: John Cope
 bio: In recent years, the relationship between nature and mental health has garnered significant attention in the field of psychology and wellness. This academic paper explores the various benefits that exposure to natural environments can have on individuals experiencing mental health challenges. By synthesizing existing research, the paper highlights how interactions with nature can improve psychological well-being, reduce symptoms of anxiety and depression, and enhance overall life satisfaction.
-jobTitle: Director of Corporate Governance
+jobTitle: Production Editor
 featuredImage:
-  image: /src/media/authors/image2.jpg
+  image: /src/media/authors/image5.jpg
   alt: Face
 contact:
   email:

@@ -52,28 +52,13 @@ const seo = {
     />
 
     <ContentWrapper>
-      <!-- {
-        post.data.meta.featuredImage && (
-          <Picture
-            slot="content"
-            src={post.data.meta.featuredImage.image}
-            quality={100}
-            format="webp"
-            loading="eager"
-            style="object-fit: cover;"
-            class="rounded-md w-full max-h-[300px] mb-6  md:max-h-[500px] object-cover"
-            alt={post.data.meta.featuredImage.alt || ''}
-          />
-        )
-      } -->
-
       <Content slot="content" />
 
       <aside slot="aside">
         {
           post.data.featuredImage && (
             <FeaturedImage
-              slot="content"
+              transition:name={`${post.id}`}
               image={post.data.featuredImage.image}
               altText={post.data.featuredImage?.alt || ''}
               width={post.data.featuredImage.image.width}
