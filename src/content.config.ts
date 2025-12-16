@@ -1,5 +1,6 @@
 import { defineCollection, reference, z } from 'astro:content';
 import { glob } from 'astro/loaders';
+import { boolean } from 'astro:schema';
 
 // Utilities
 
@@ -49,11 +50,6 @@ const home = defineCollection({
         .optional(),
       contentBlocks: z.array(
         z.discriminatedUnion('__typename', [
-          z.object({
-            __typename: z.literal('blockOne'),
-            title: z.string(),
-            experience: z.number().optional(),
-          }),
           z.object({
             __typename: z.literal('blockquote'),
             quote: z.string(),
@@ -149,14 +145,6 @@ const home = defineCollection({
             itemsToShow: z.number().optional(),
           }),
           z.object({
-            __typename: z.literal('blockTwo'),
-            name: z.string(),
-            description: z.string().optional(),
-            image: z
-              .object({ image: image().optional(), alt: z.string().optional() })
-              .optional(),
-          }),
-          z.object({
             __typename: z.literal('relatedContent'),
             title: z.string().optional(),
             links: links,
@@ -197,6 +185,7 @@ const page = defineCollection({
       title: z.string(),
       subHeading: z.string().optional(),
       description: z.string(),
+      fullPage: z.boolean().optional(),
       featuredImage: z
         .object({
           image: image(),
@@ -214,6 +203,12 @@ const page = defineCollection({
             author: z.string().optional(),
           }),
           z.object({
+            __typename: z.literal('cta'),
+            title: z.string(),
+            description: z.string().optional(),
+            links: links,
+          }),
+          z.object({
             __typename: z.literal('faqs'),
             title: z.string().optional(),
             description: z.string().optional(),
@@ -224,6 +219,37 @@ const page = defineCollection({
                 links: links,
               })
             ),
+          }),
+          z.object({
+            __typename: z.literal('featuredContent'),
+            title: z.string().optional(),
+            description: z.string().optional(),
+            sections: z.array(
+              z.object({
+                title: z.string(),
+                description: z.string().optional(),
+                image: z
+                  .object({
+                    src: image().optional(),
+                    alt: z.string().optional(),
+                  })
+                  .optional(),
+                links: links,
+              })
+            ),
+          }),
+          z.object({
+            __typename: z.literal('hero'),
+            title: z.string(),
+            subHeading: z.string().optional(),
+            description: z.string().optional(),
+            image: z
+              .object({
+                src: image().optional(),
+                alt: z.string().optional(),
+              })
+              .optional(),
+            links: links,
           }),
           z.object({
             __typename: z.literal('imageGallery'),
@@ -240,6 +266,30 @@ const page = defineCollection({
                   .optional(),
               })
             ),
+          }),
+          z.object({
+            __typename: z.literal('infoBlock'),
+            title: z.string().optional(),
+            description: z.string().optional(),
+            sections: z.array(
+              z.object({
+                title: z.string(),
+                description: z.string().optional(),
+                image: z
+                  .object({
+                    src: image().optional(),
+                    alt: z.string().optional(),
+                  })
+                  .optional(),
+                links: links,
+              })
+            ),
+          }),
+          z.object({
+            __typename: z.literal('latestWork'),
+            title: z.string(),
+            description: z.string().optional(),
+            itemsToShow: z.number().optional(),
           }),
           z.object({
             __typename: z.literal('relatedContent'),
@@ -433,6 +483,9 @@ const template = defineCollection({
         .object({
           framework: z.string().optional(),
           cms: z.string().optional(),
+          mediaHandling: z.boolean().optional(),
+          contentUpdates: z.boolean().optional(),
+          vendorFree: z.boolean().optional(),
           versions: z.number().optional(),
         })
         .optional(),
@@ -468,6 +521,9 @@ const work = defineCollection({
         .object({
           framework: z.string().optional(),
           cms: z.string().optional(),
+          mediaHandling: z.boolean().optional(),
+          contentUpdates: z.boolean().optional(),
+          vendorFree: z.boolean().optional(),
           versions: z.number().optional(),
         })
         .optional(),

@@ -4,6 +4,9 @@ description: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet d
 details:
   framework: Nuxt
   cms: Sanity
+  contentUpdates: true
+  vendorFree: false
+  mediaHandling: true
   versions: 3
 featuredImage:
   image: /src/media/pages/pattern-4.webp

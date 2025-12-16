@@ -274,3 +274,41 @@ a[aria-current='page'] {
 body:has(dialog:open) {
   overflow: clip;
 }
+
+/* GRID ITEMS FILTER */
+
+div:has(input[data-type]:checked) label:has(input[data-type]:not(:checked)) {
+  opacity: 0.5;
+}
+
+div:has(input[data-type='content']:checked) ~ div[data-content='false'] {
+  display: none;
+  opacity: 0;
+  block-size: 0;
+  transition: block-size 150ms, content-visibility 450ms;
+
+  transition-behavior: allow-discrete;
+}
+
+div:has(input[data-type='media']:checked) ~ div[data-media='false'] {
+  display: none;
+  opacity: 0;
+  block-size: 0;
+  transition: block-size 150ms, content-visibility 450ms;
+
+  transition-behavior: allow-discrete;
+}
+
+div:has(input[data-type='vendor']:checked) ~ div[data-vendor='false'] {
+  display: none;
+  opacity: 0;
+  block-size: 0;
+  transition: block-size 150ms, content-visibility 450ms;
+
+  transition-behavior: allow-discrete;
+}
+
+div[data-media] {
+  block-size: auto;
+  opacity: 1;
+}

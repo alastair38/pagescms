@@ -23,7 +23,7 @@ const { link, icon, label, variant = 'default', ...attrs } = Astro.props;
       'border-base-400 text-write-300 hover:text-write-400',
     attrs.class,
   ]}
-  href={urlBuilder(link.link, link.type, 'http://localhost:4321/')}
+  href={urlBuilder(link.link, link.type)}
   {...attrs}
 >
   {link.label ? link.label : label || 'Find out more'}

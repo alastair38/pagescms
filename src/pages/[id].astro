@@ -44,10 +44,10 @@ const test = [
   },
 ];
 
-const result: ReferenceDataEntry<'work' | 'page' | 'authors', string>[] =
+const result: ReferenceDataEntry<'work' | 'page' | 'person', string>[] =
   test.map(person => ({
     id: Path.parse(person.link).name,
-    collection: person.type as 'work' | 'page' | 'authors',
+    collection: person.type as 'work' | 'page' | 'person',
   }));
 
 // const morePages =
@@ -72,17 +72,6 @@ function createRefObj(values: any[]) {
   //const afterLastSlash = value.split('/').pop()?.split('.')!;
 }
 
-//const what = createRefObj(test);
-
-// const authorsArr: ReferenceDataEntry<'authors'>[] | undefined =
-//   post.data.meta.authors?.map(author => {
-//     return {
-//       collection: 'authors',
-//       id: author.id.substring(author.id.lastIndexOf('/') + 1).split('.')[0],
-//     };
-//   });
-
-// const authors = (await getEntries(authorsArr!)) as CollectionEntry<'authors'>[];
 const { Content } = await render(post);
 const seo = {
   title: post?.data.title,
@@ -97,9 +86,10 @@ const seo = {
     <PageHeader
       title={post.data.title}
       byline={post.data.subHeading ? post.data.subHeading : post.collection}
+      archive
     />
 
-    <ContentWrapper>
+    <ContentWrapper fullPage={post.data.fullPage}>
       {
         post.data.contentBlocks && post.data.contentBlocks.length > 0 ? (
           <BlockRenderer slot="content" data={post.data.contentBlocks} />
@@ -110,38 +100,22 @@ const seo = {
         )
       }
 
-      <ArticleAside class="space-y-6" slot="aside">
-        <!-- {
-          relatedPages && relatedPages.length > 0 && (
-            <ul class="text-write-300 space-y-2 font-mono">
-              {relatedPages.length > 0 &&
-                relatedPages.map(page => (
-                  <li>
-                    <a class="flex items-center gap-2" href={`/`}>
-                      {'Link '}
-                      <Icon
-                        class="bg-highlight-300 p-0.5 text-base-500 text-lg rounded-full"
-                        name="arrows/right-point"
-                      />
-                    </a>
-                  </li>
-                ))}
-            </ul>
-          )
-        } -->
-        {
-          post.data.featuredImage && (
-            <FeaturedImage
-              image={post.data.featuredImage.image}
-              altText={post.data.featuredImage?.alt || ''}
-              width={post.data.featuredImage.image.width}
-              height={post.data.featuredImage.image.height}
-              caption={post.data.featuredImage.caption}
-              border={true}
-            />
-          )
-        }
-      </ArticleAside>
+      {
+        !post.data.fullPage && (
+          <ArticleAside class="space-y-6" slot="aside">
+            {post.data.featuredImage && (
+              <FeaturedImage
+                image={post.data.featuredImage.image}
+                altText={post.data.featuredImage?.alt || ''}
+                width={post.data.featuredImage.image.width}
+                height={post.data.featuredImage.image.height}
+                caption={post.data.featuredImage.caption}
+                border={true}
+              />
+            )}
+          </ArticleAside>
+        )
+      }
     </ContentWrapper>
   </ArticleWrapper>
 </Layout>

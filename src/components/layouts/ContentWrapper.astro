@@ -1,17 +1,23 @@
 ---
 import type { HTMLAttributes } from 'astro/types';
 
-interface Props extends HTMLAttributes<'div'> {}
+interface Props extends HTMLAttributes<'div'> {
+  fullPage?: boolean;
+}
 
-const { ...attr } = Astro.props as Props;
+const { fullPage = false, ...attr } = Astro.props as Props;
 ---
 
 <div
-  class="text-base-400 flex flex-col-reverse md:flex-row gap-8 md:gap-16 px-4 py-6 border-t-narrow"
+class:list={['text-base-400 flex flex-col-reverse md:flex-row gap-8 md:gap-16 border-t-narrow', !fullPage ? 'px-4 py-6' : 'p-0']}
   {...attr}
 >
+{!fullPage ? 
   <div class="text-write-300 max-w-content space-y-6">
     <slot name="content" />
   </div>
-  <slot name="aside" />
+  <slot name="aside" /> : <div class="text-write-300">
+    <slot name="content" />
+  </div> }
+
 </div>

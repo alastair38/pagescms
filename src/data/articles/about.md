@@ -10,6 +10,7 @@ relatedPages:
   - northwalk-2.md
 authors:
   - alastair-cox
+  - john-cope
 contentBlocks:
   - __typename: richText
     body: >-

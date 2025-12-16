@@ -1,5 +1,6 @@
 ---
 title: About
+fullPage: false
 description: This is the about page
 subHeading: Our process
 featuredImage:

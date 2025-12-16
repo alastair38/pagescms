@@ -1,15 +1,19 @@
 ---
 import Heading2 from '@components/headings/Heading2.astro';
+import type { HTMLAttributes } from 'astro/types';
 
-interface Props {
+interface Props extends HTMLAttributes<'div'> {
   heading?: string;
   outline?: boolean;
 }
 
-const { heading, outline = true } = Astro.props;
+const { heading, outline = true, ...attr } = Astro.props;
 ---
 
-<div class:list={['grid grid-auto-fill-md', outline && 'block-outline']}>
+<div
+  class:list={['grid grid-auto-fill-md', outline && 'block-outline']}
+  {...attr}
+>
   {
     heading && (
       <div class="px-6 pt-6 pb-4 striped-background text-base-400 col-span-full border-b-narrow bloc-outline">

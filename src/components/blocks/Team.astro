@@ -8,10 +8,12 @@ import BlockWrapper from '@components/layouts/BlockWrapper.astro';
 import { Picture } from 'astro:assets';
 import GridWrapper from '@components/layouts/GridWrapper.astro';
 import PersonCard from '@components/layouts/PersonCard.astro';
+import Description from '@components/layouts/Description.astro';
 
 const {
   __typename,
   title = 'You might also be interested in ...',
+  description,
   links,
 } = Astro.props as Team;
 
@@ -26,18 +28,20 @@ const members =
 const team = await getEntries(
   members as ReferenceDataEntry<'person', string>[]
 );
-
-console.log(team);
 ---
 
 {
   team && team.length > 0 && (
     <BlockWrapper tag="aside" data-block={__typename} class=" text-write-300">
       <GridWrapper outline={false}>
-        <h2 class="col-span-full font-mono text-lg px-6 pt-12 pb-2 border-b-narrow border-base-400">
-          {title}
-        </h2>
-
+        <div class="col-span-full border-b-narrow border-base-400">
+          <h2 class="font-mono text-lg px-6 pt-12 pb-2">{title}</h2>
+          {description && (
+            <Description size="small" class="px-6 pb-4">
+              {description}
+            </Description>
+          )}
+        </div>
         {team.map(item => (
           <PersonCard item={item} />
           // <a

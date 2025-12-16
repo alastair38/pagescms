@@ -7,8 +7,9 @@ import Description from './Description.astro';
 import Heading2 from '@components/headings/Heading2.astro';
 import Heading3 from '@components/headings/Heading3.astro';
 import ContentDetails from './ContentDetails.astro';
+import type { HTMLAttributes } from 'astro/types';
 
-interface Props {
+interface Props extends HTMLAttributes<'div'> {
   item:
     | CollectionEntry<'work'>
     | CollectionEntry<'template'>
@@ -16,10 +17,28 @@ interface Props {
   heading?: boolean;
 }
 
-const { item, heading } = Astro.props;
+const { item, heading, ...attr } = Astro.props;
 ---
 
-<div class="bg-base-500 flex flex-col p-6 text-write-300 block-outline">
+<div
+  class="bg-base-500 flex flex-col p-6 text-write-300 block-outline"
+  data-cms={item.collection !== 'article' &&
+    item.data.details &&
+    item.data.details.cms}
+  data-framework={item.collection !== 'article' &&
+    item.data.details &&
+    item.data.details.framework}
+  data-media={item.collection !== 'article' &&
+    item.data.details &&
+    item.data.details.mediaHandling}
+  data-content={item.collection !== 'article' &&
+    item.data.details &&
+    item.data.details.contentUpdates}
+  data-vendor={item.collection !== 'article' &&
+    item.data.details &&
+    item.data.details.vendorFree}
+  {...attr}
+>
   {
     item.data.featuredImage && (
       <Picture

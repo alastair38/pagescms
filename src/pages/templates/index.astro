@@ -8,6 +8,7 @@ import PageHeader from '@components/layouts/PageHeader.astro';
 import GridWrapper from '@components/layouts/GridWrapper.astro';
 
 import GridItem from '@components/layouts/GridItem.astro';
+import Filter from '@components/utilities/Filter.astro';
 
 const workItems = await getCollection('template');
 const templatePage = await getEntry('archive', 'template');
@@ -24,11 +25,14 @@ const seo = {
     <PageHeader
       title={templatePage?.data.title || 'Our Work'}
       byline={'Templates'}
-      description={templatePage?.data.body}
       archive={true}
     />
 
     <GridWrapper>
+      <Filter
+        title="Filter"
+        description="Our templates can be grouped by specific features, such as an optimised editing experience, advanced media capabilites and those that prioritise no vendor lock-ins."
+      />
       {
         workItems.length > 0
           ? workItems.map(item => <GridItem item={item} />)

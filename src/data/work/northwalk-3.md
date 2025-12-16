@@ -4,6 +4,9 @@ description: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet d
 details:
   framework: Astro
   cms: PagesCMS
+  contentUpdates: false
+  vendorFree: true
+  mediaHandling: false
 featuredImage:
   image: /src/media/pages/pattern-3.webp
   alt: Face

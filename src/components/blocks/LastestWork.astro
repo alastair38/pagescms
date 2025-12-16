@@ -19,7 +19,7 @@ const items = await getCollection('work');
 <BlockWrapper data-block={__typename} class="text-base-400">
   <IconSpacer />
 
-  <GridWrapper>
+  <GridWrapper data-component="grid" data-store={JSON.stringify(items)}>
     <div
       class="bg-base-500 col-span-full font-mono text-lg px-6 pt-12 pb-2 text-write-300 items-center"
     >
@@ -27,9 +27,18 @@ const items = await getCollection('work');
 
       {description && <p class="text-sm mt-2 max-w-content">{description}</p>}
     </div>
+
     {
       items && items.length > 0
-        ? items.map(item => <GridItem item={item} />)
+        ? items.map(item => (
+            <GridItem
+              item={item}
+              data-id={item.id}
+              data-component="grid-item"
+              data-visible="true"
+              class="duration-200 transition-all"
+            />
+          ))
         : '<p>No content yet</p>'
     }
   </GridWrapper>

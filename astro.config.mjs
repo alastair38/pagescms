@@ -1,10 +1,7 @@
 // @ts-check
 import { defineConfig, fontProviders } from 'astro/config';
-
 import tailwindcss from '@tailwindcss/vite';
-
 import icon from 'astro-icon';
-
 import og from 'astro-og';
 
 // https://astro.build/config

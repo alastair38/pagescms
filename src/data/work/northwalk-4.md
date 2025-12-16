@@ -1,15 +1,14 @@
 ---
-title: Northwalk 2
+title: Northwalk 4
 description: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet ducimus non sit excepturi ullam officia dolor reiciendis corporis doloribus? Tempore facere dicta expedita quaerat. Vero animi sed corrupti porro deserunt?
 details:
-  framework: Nuxt
-  cms: Sanity
-  contentUpdates: true
-  vendorFree: false
-  mediaHandling: true
-  versions: 3
+  framework: Astro
+  cms: PagesCMS
+  contentUpdates: false
+  vendorFree: true
+  mediaHandling: false
 featuredImage:
-  image: /src/media/pages/pattern-4.webp
+  image: /src/media/pages/pattern-2.webp
   alt: Face
 ---
 

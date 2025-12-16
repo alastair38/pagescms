@@ -9,6 +9,7 @@ import GridWrapper from '@components/layouts/GridWrapper.astro';
 
 import GridItem from '@components/layouts/GridItem.astro';
 import { getEntry } from 'astro:content';
+import Filter from '@components/utilities/Filter.astro';
 
 const workItems = await getCollection('work');
 
@@ -26,11 +27,15 @@ const seo = {
     <PageHeader
       title={workPage?.data.title || 'Our Work'}
       byline={'Work'}
-      description={workPage?.data.body}
       archive={true}
     />
 
     <GridWrapper>
+      <Filter
+        title="Filter"
+        description="Our templates can be grouped by specific features, such as an optimised editing experience, advanced media capabilites and those that prioritise no vendor lock-ins."
+      />
+
       {
         workItems.length > 0
           ? workItems.map(item => <GridItem item={item} />)
