@@ -2,6 +2,10 @@
 isPublished: false
 meta:
   title: Test
+  description: Description
+  featuredImage:
+    image: /src/media/logoipsum-374.png
+    alt: Meta alt
 contentBlocks:
   - __typename: richText
     content: >-
