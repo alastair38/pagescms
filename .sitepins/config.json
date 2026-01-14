@@ -1,0 +1,14 @@
+{
+  "media": {
+    "root": "src/media",
+    "public": "src/media"
+  },
+  "content": {
+    "root": "src/data"
+  },
+  "code": {
+    "root": ""
+  },
+  "themeConfig": [],
+  "arrangement": []
+}
