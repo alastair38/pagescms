@@ -7,6 +7,10 @@ site:
   featuredImage:
     image: /src/media/pages/bg-5.webp
     alt: Social image
+  theme: neutral-cyan
+  
+  # 'amber','emerald','indigo','neutral-cyan','neutral-indigo','neutral-pink','neutral-purple','neutral-red','neutral-teal','pink','purple','teal','light','dark','auto',
+  duotone: false
 navigation:
   menuLinks:
     - type: archive

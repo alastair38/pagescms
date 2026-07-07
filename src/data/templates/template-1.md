@@ -1,16 +1,38 @@
 ---
-title: Template 1
-description: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet ducimus non sit excepturi ullam officia dolor reiciendis corporis doloribus? Tempore facere dicta expedita quaerat. Vero animi sed corrupti porro deserunt?
-details:
-  framework: Nuxt
-  cms: Sanity
-  contentUpdates: true
-  vendorFree: false
-  mediaHandling: true
-  versions: 2
-featuredImage:
-  image: /src/media/pages/pattern-1.webp
-  alt: Face
+meta:
+  title: Template 1
+  description: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet ducimus non sit excepturi ullam officia dolor reiciendis corporis doloribus? Tempore facere dicta expedita quaerat. Vero animi sed corrupti porro deserunt?
+  details:
+    framework: Nuxt
+    cms: Sanity
+    contentUpdates: true
+    vendorFree: false
+    mediaHandling: true
+    versions: 2
+  pricing:
+    template: 250
+    addons: 40
+    setup: 200
+    support: 50
+  featuredImage:
+    image: /src/media/pages/pattern-1.webp
+    alt: Face
+# title: Template 1
+# description: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet ducimus non sit excepturi ullam officia dolor reiciendis corporis doloribus? Tempore facere dicta expedita quaerat. Vero animi sed corrupti porro deserunt?
+# details:
+#   framework: Nuxt
+#   cms: Sanity
+#   contentUpdates: true
+#   vendorFree: false
+#   mediaHandling: true
+#   versions: 2
+# pricing:
+#   template: 200
+#   setup: 100
+#   support: 50
+# featuredImage:
+#   image: /src/media/pages/pattern-1.webp
+#   alt: Face
 slider:
   - image: /src/media/pages/pattern-1.webp
     alt: 'Something'

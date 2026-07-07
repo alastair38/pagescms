@@ -37,32 +37,32 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 
 const seo = {
-  title: post?.data.title,
-  description: post?.data.description,
-  image: post?.data.featuredImage?.image,
+  title: post?.data.meta?.title,
+  description: post?.data.meta?.description,
+  image: post?.data.meta?.featuredImage?.image,
 };
 ---
 
 <Layout seo={seo}>
   <ArticleWrapper>
     <PageHeader
-      title={post.data.title}
+      title={post.data.meta?.title || ''}
       byline={post.collection}
-      details={post.data.details}
+      details={post.data.meta?.details}
     />
 
     <ContentWrapper>
       <!-- {
-        post.data.meta.featuredImage && (
+        post.data.meta?.meta.featuredImage && (
           <Picture
             slot="content"
-            src={post.data.meta.featuredImage.image}
+            src={post.data.meta?.meta.featuredImage.image}
             quality={100}
             format="webp"
             loading="eager"
             style="object-fit: cover;"
             class="rounded-md w-full max-h-[300px] mb-6  md:max-h-[500px] object-cover"
-            alt={post.data.meta.featuredImage.alt || ''}
+            alt={post.data.meta?.meta.featuredImage.alt || ''}
           />
         )
       } -->
@@ -71,15 +71,15 @@ const seo = {
 
       <aside slot="aside">
         {
-          post.data.featuredImage && (
+          post.data.meta?.featuredImage && (
             <FeaturedImage
               transition:name={`${post.id}`}
-              slot="content"
-              image={post.data.featuredImage.image}
-              altText={post.data.featuredImage?.alt || ''}
-              width={post.data.featuredImage.image.width}
-              height={post.data.featuredImage.image.height}
-              caption={post.data.featuredImage.caption}
+              image={post.data.meta?.featuredImage.image}
+              altText={post.data.meta?.featuredImage?.alt || ''}
+              width={post.data.meta?.featuredImage.image.width}
+              height={post.data.meta?.featuredImage.image.height}
+              caption={post.data.meta?.featuredImage.caption}
+              border={true}
             />
           )
         }
@@ -97,7 +97,7 @@ const seo = {
               />
             ))
         } -->
-        <Slider images={post.data.slider} />
+        {post.data.slider && <Slider images={post.data.slider} />}
       </aside>
     </ContentWrapper>
   </ArticleWrapper>

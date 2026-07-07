@@ -20,6 +20,17 @@ export interface FAQs {
   }[];
 }
 
+export interface Process {
+  __typename: string;
+  title?: string;
+  description?: string;
+  links?: ReferenceLink[];
+  sections: {
+    title: string;
+    description?: string;
+  }[];
+}
+
 export type FeaturedContent = {
   __typename: string;
   title?: string;
@@ -34,6 +45,7 @@ export type FeaturedContent = {
 
 export interface Hero {
   __typename: string;
+  index?: number;
   title: string;
   subHeading?: string;
   description?: string;

@@ -1,14 +1,15 @@
 ---
-title: About
-fullPage: false
-description: This is the about page
-subHeading: Our process
-featuredImage:
-  image: /src/media/pages/pattern-1.webp
-  alt: Face
-relatedPages:
-  - northwalk-1.md
-  - northwalk-2.md
+meta:
+  title: About
+  fullPage: false
+  description: This is the about page
+  subHeading: Our process
+  featuredImage:
+    image: /src/media/pages/pattern-1.webp
+    alt: Face
+  relatedPages:
+    - northwalk-1
+    - northwalk-2
 contentBlocks:
   - __typename: richText
     body: >-
@@ -55,14 +56,12 @@ contentBlocks:
           src: /src/media/pages/pattern-2.webp
           alt: hi
           caption: Pattern 2 caption
-
   - __typename: richText
     body: >-
       Lorem **ipsum dolor sit** amet consectetur, adipisicing elit. Omnis
       voluptate vero error! Architecto perspiciatis quam [fugit sed
       dicta](https://bbc.co.uk) ex consequatur sequi _et,_ culpa totam tenetur
       quidem sunt consectetur minus officia.
-
   - __typename: relatedContent
     links:
       - type: page

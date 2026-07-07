@@ -8,6 +8,9 @@ interface Props extends HTMLAttributes<'div' | 'article'> {
 const { tag: Element = 'div', ...attr } = Astro.props as Props;
 ---
 
-<Element class="max-w-7xl z-10 bg-base-500 border-x-narrow mx-auto" {...attr}>
+<Element
+  class="max-w-7xl z-10 bg-base-default border-border border-x-narrow mx-auto"
+  {...attr}
+>
   <slot />
 </Element>

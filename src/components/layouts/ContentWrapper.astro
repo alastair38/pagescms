@@ -9,14 +9,14 @@ const { fullPage = false, ...attr } = Astro.props as Props;
 ---
 
 <div
-class:list={['text-base-400 flex flex-col-reverse md:flex-row gap-8 md:gap-16 border-t-narrow', !fullPage ? 'px-4 py-6' : 'p-0']}
+class:list={['border-borderborder-t-narrow gap-8 md:gap-16', !fullPage ? 'px-4 py-6 flex flex-col-reverse md:flex-row' : '']}
   {...attr}
 >
 {!fullPage ? 
-  <div class="text-write-300 max-w-content space-y-6">
+  <div class:list={['text-write max-w-content space-y-6']} slot="content">
     <slot name="content" />
   </div>
-  <slot name="aside" /> : <div class="text-write-300">
+  <slot name="aside" /> : <div class="text-write ">
     <slot name="content" />
   </div> }
 

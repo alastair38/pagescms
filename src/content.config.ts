@@ -1,5 +1,5 @@
 import { defineCollection, reference, z } from 'astro:content';
-import { glob } from 'astro/loaders';
+import { glob, file } from 'astro/loaders';
 import { boolean } from 'astro:schema';
 
 // Utilities
@@ -19,7 +19,7 @@ const links = z
       ]),
       label: z.string().optional(),
       link: z.string(),
-    })
+    }),
   )
   .optional();
 
@@ -29,7 +29,7 @@ const relatedPages = z
       reference('page') ||
       reference('article') ||
       reference('template') ||
-      reference('person')
+      reference('person'),
   )
   .optional();
 
@@ -37,15 +37,20 @@ const home = defineCollection({
   loader: glob({ pattern: '**/index.md', base: './src/data/home' }),
   schema: ({ image }) =>
     z.object({
-      title: z.string(),
-      description: z.string(),
-      featuredImage: z
+      meta: z
         .object({
-          image: image(),
-          alt: z.string(),
-          caption: z.string().optional(),
-          variant: z.enum(['rounded', 'plain']).optional(),
-          layout: z.enum(['default', 'grid']).optional(),
+          title: z.string(),
+          subHeading: z.string().optional(),
+          description: z.string(),
+          featuredImage: z
+            .object({
+              image: image(),
+              alt: z.string(),
+              caption: z.string().optional(),
+              variant: z.enum(['rounded', 'plain']).optional(),
+              layout: z.enum(['default', 'grid']).optional(),
+            })
+            .optional(),
         })
         .optional(),
       contentBlocks: z.array(
@@ -70,7 +75,7 @@ const home = defineCollection({
                 title: z.string(),
                 description: z.string().optional(),
                 links: links,
-              })
+              }),
             ),
           }),
           z.object({
@@ -88,7 +93,7 @@ const home = defineCollection({
                   })
                   .optional(),
                 links: links,
-              })
+              }),
             ),
           }),
           z.object({
@@ -117,7 +122,7 @@ const home = defineCollection({
                     caption: z.string().optional(),
                   })
                   .optional(),
-              })
+              }),
             ),
           }),
           z.object({
@@ -135,7 +140,7 @@ const home = defineCollection({
                   })
                   .optional(),
                 links: links,
-              })
+              }),
             ),
           }),
           z.object({
@@ -143,6 +148,18 @@ const home = defineCollection({
             title: z.string(),
             description: z.string().optional(),
             itemsToShow: z.number().optional(),
+          }),
+          z.object({
+            __typename: z.literal('process'),
+            title: z.string().optional(),
+            description: z.string().optional(),
+            links: links,
+            sections: z.array(
+              z.object({
+                title: z.string(),
+                description: z.string().optional(),
+              }),
+            ),
           }),
           z.object({
             __typename: z.literal('relatedContent'),
@@ -162,7 +179,7 @@ const home = defineCollection({
                 title: z.string(),
                 description: z.string().optional(),
                 links: links,
-              })
+              }),
             ),
           }),
           z.object({
@@ -171,10 +188,9 @@ const home = defineCollection({
             description: z.string().optional(),
             links: links,
           }),
-        ])
+        ]),
       ),
       // Reference an array of related content
-      relatedPages: relatedPages,
     }),
 });
 
@@ -182,17 +198,22 @@ const page = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/data/pages' }),
   schema: ({ image }) =>
     z.object({
-      title: z.string(),
-      subHeading: z.string().optional(),
-      description: z.string(),
-      fullPage: z.boolean().optional(),
-      featuredImage: z
+      meta: z
         .object({
-          image: image(),
-          alt: z.string(),
-          caption: z.string().optional(),
-          variant: z.enum(['rounded', 'plain']).optional(),
-          layout: z.enum(['default', 'grid']).optional(),
+          title: z.string(),
+          subHeading: z.string().optional(),
+          description: z.string(),
+          fullPage: z.boolean().optional(),
+          featuredImage: z
+            .object({
+              image: image(),
+              alt: z.string(),
+              caption: z.string().optional(),
+              variant: z.enum(['rounded', 'plain']).optional(),
+              layout: z.enum(['default', 'grid']).optional(),
+            })
+            .optional(),
+          relatedPages: relatedPages,
         })
         .optional(),
       contentBlocks: z.array(
@@ -217,7 +238,7 @@ const page = defineCollection({
                 title: z.string(),
                 description: z.string().optional(),
                 links: links,
-              })
+              }),
             ),
           }),
           z.object({
@@ -235,7 +256,7 @@ const page = defineCollection({
                   })
                   .optional(),
                 links: links,
-              })
+              }),
             ),
           }),
           z.object({
@@ -264,7 +285,7 @@ const page = defineCollection({
                     caption: z.string().optional(),
                   })
                   .optional(),
-              })
+              }),
             ),
           }),
           z.object({
@@ -282,7 +303,7 @@ const page = defineCollection({
                   })
                   .optional(),
                 links: links,
-              })
+              }),
             ),
           }),
           z.object({
@@ -290,6 +311,18 @@ const page = defineCollection({
             title: z.string(),
             description: z.string().optional(),
             itemsToShow: z.number().optional(),
+          }),
+          z.object({
+            __typename: z.literal('process'),
+            title: z.string().optional(),
+            description: z.string().optional(),
+            links: links,
+            sections: z.array(
+              z.object({
+                title: z.string(),
+                description: z.string().optional(),
+              }),
+            ),
           }),
           z.object({
             __typename: z.literal('relatedContent'),
@@ -309,7 +342,7 @@ const page = defineCollection({
                 title: z.string(),
                 description: z.string().optional(),
                 links: links,
-              })
+              }),
             ),
           }),
           z.object({
@@ -318,12 +351,8 @@ const page = defineCollection({
             description: z.string().optional(),
             links: links,
           }),
-        ])
+        ]),
       ),
-      // Reference a  single author from the `authors` collection by `id`
-      authors: z.array(reference('person')).optional(),
-      // Reference an array of related content
-      relatedPages: relatedPages,
     }),
 });
 
@@ -331,17 +360,24 @@ const article = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/data/articles' }),
   schema: ({ image }) =>
     z.object({
-      pubDate: z.coerce.date().optional(),
-      title: z.string(),
-      subHeading: z.string().optional(),
-      description: z.string(),
-      featuredImage: z
+      meta: z
         .object({
-          image: image(),
-          alt: z.string(),
-          caption: z.string().optional(),
-          variant: z.enum(['rounded', 'plain']).optional(),
-          layout: z.enum(['default', 'grid']).optional(),
+          pubDate: z.date().optional(),
+          title: z.string(),
+          subHeading: z.string().optional(),
+          description: z.string(),
+          featuredImage: z
+            .object({
+              image: image(),
+              alt: z.string(),
+              caption: z.string().optional(),
+              variant: z.enum(['rounded', 'plain']).optional(),
+              layout: z.enum(['default', 'grid']).optional(),
+            })
+            .optional(),
+          showFeaturedImage: z.boolean().optional().default(false),
+          authors: z.array(reference('person')).optional(),
+          relatedPages: relatedPages,
         })
         .optional(),
       contentBlocks: z.array(
@@ -360,7 +396,7 @@ const article = defineCollection({
                 title: z.string(),
                 description: z.string().optional(),
                 links: links,
-              })
+              }),
             ),
           }),
           z.object({
@@ -376,7 +412,7 @@ const article = defineCollection({
                     caption: z.string().optional(),
                   })
                   .optional(),
-              })
+              }),
             ),
           }),
           z.object({
@@ -397,15 +433,11 @@ const article = defineCollection({
                 title: z.string(),
                 description: z.string().optional(),
                 links: links,
-              })
+              }),
             ),
           }),
-        ])
+        ]),
       ),
-      // Reference a  single author from the `authors` collection by `id`
-      authors: z.array(reference('person')).optional(),
-      // Reference an array of related content
-      relatedPages: relatedPages,
     }),
 });
 
@@ -432,7 +464,6 @@ const person = defineCollection({
   schema: ({ image }) =>
     z.object({
       name: z.string(),
-      bio: z.string(),
       jobTitle: z.string().optional(),
       featuredImage: z
         .object({
@@ -470,6 +501,7 @@ const person = defineCollection({
             .optional(),
         })
         .optional(),
+      bio: z.string(),
     }),
 });
 
@@ -477,25 +509,39 @@ const template = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/data/templates' }),
   schema: ({ image }) =>
     z.object({
-      title: z.string(),
-      description: z.string(),
-      details: z
+      meta: z
         .object({
-          framework: z.string().optional(),
-          cms: z.string().optional(),
-          mediaHandling: z.boolean().optional(),
-          contentUpdates: z.boolean().optional(),
-          vendorFree: z.boolean().optional(),
-          versions: z.number().optional(),
-        })
-        .optional(),
-      featuredImage: z
-        .object({
-          image: image(),
-          alt: z.string(),
-          caption: z.string().optional(),
-          variant: z.enum(['rounded', 'plain']).optional(),
-          layout: z.enum(['default', 'grid']).optional(),
+          title: z.string(),
+          description: z.string(),
+          featuredImage: z
+            .object({
+              image: image(),
+              alt: z.string(),
+              caption: z.string().optional(),
+              variant: z.enum(['rounded', 'plain']).optional(),
+              layout: z.enum(['default', 'grid']).optional(),
+            })
+            .optional(),
+          demo: z.string().url().optional(),
+          details: z
+            .object({
+              framework: z.string().optional(),
+              cms: z.string().optional(),
+              database: z.string().optional(),
+              mediaHandling: z.boolean().optional(),
+              contentUpdates: z.boolean().optional(),
+              vendorFree: z.boolean().optional(),
+              versions: z.number().optional(),
+            })
+            .optional(),
+          pricing: z
+            .object({
+              template: z.number().optional(),
+              setup: z.number().optional(),
+              addons: z.number().optional(),
+              support: z.number().optional(),
+            })
+            .optional(),
         })
         .optional(),
       slider: z
@@ -504,10 +550,9 @@ const template = defineCollection({
             image: image(),
             alt: z.string(),
             caption: z.string().optional(),
-          })
+          }),
         )
         .optional(),
-      demo: z.string().url().optional(),
     }),
 });
 
@@ -515,16 +560,31 @@ const work = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/data/work' }),
   schema: ({ image }) =>
     z.object({
-      title: z.string(),
-      description: z.string(),
-      details: z
+      meta: z
         .object({
-          framework: z.string().optional(),
-          cms: z.string().optional(),
-          mediaHandling: z.boolean().optional(),
-          contentUpdates: z.boolean().optional(),
-          vendorFree: z.boolean().optional(),
-          versions: z.number().optional(),
+          title: z.string(),
+          description: z.string(),
+          featuredImage: z
+            .object({
+              image: image(),
+              alt: z.string(),
+              caption: z.string().optional(),
+              variant: z.enum(['rounded', 'plain']).optional(),
+              layout: z.enum(['default', 'grid']).optional(),
+            })
+            .optional(),
+          demo: z.string().url().optional(),
+          details: z
+            .object({
+              framework: z.string().optional(),
+              cms: z.string().optional(),
+              database: z.string().optional(),
+              mediaHandling: z.boolean().optional(),
+              contentUpdates: z.boolean().optional(),
+              vendorFree: z.boolean().optional(),
+              versions: z.number().optional(),
+            })
+            .optional(),
         })
         .optional(),
       featuredImage: z
@@ -542,15 +602,38 @@ const work = defineCollection({
             image: image(),
             alt: z.string(),
             caption: z.string().optional(),
-          })
+          }),
         )
         .optional(),
       demo: z.string().url().optional(),
     }),
 });
 
+const pricing = defineCollection({
+  loader: glob({ pattern: '**/pricing.md', base: './src/data/settings' }),
+  schema: ({ image }) =>
+    z.object({
+      template: z.object({
+        heading: z.string(),
+        description: z.string().optional(),
+      }),
+      setup: z.object({
+        heading: z.string(),
+        description: z.string().optional(),
+      }),
+      addons: z.object({
+        heading: z.string(),
+        description: z.string().optional(),
+      }),
+      support: z.object({
+        heading: z.string(),
+        description: z.string().optional(),
+      }),
+    }),
+});
+
 const settings = defineCollection({
-  loader: glob({ pattern: '**/index.md', base: './src/data/settings' }),
+  loader: glob({ pattern: '**/main.md', base: './src/data/settings' }),
   schema: ({ image }) =>
     z.object({
       site: z.object({
@@ -562,6 +645,26 @@ const settings = defineCollection({
           image: image(),
           alt: z.string(),
         }),
+        theme: z
+          .enum([
+            'amber',
+            'emerald',
+            'indigo',
+            'neutral-cyan',
+            'neutral-indigo',
+            'neutral-pink',
+            'neutral-purple',
+            'neutral-red',
+            'neutral-teal',
+            'pink',
+            'purple',
+            'teal',
+            'light',
+            'dark',
+            'auto',
+          ])
+          .default('emerald'),
+        duotone: z.boolean().default(true),
       }),
       navigation: z
         .object({
@@ -578,7 +681,26 @@ const settings = defineCollection({
               ]),
               label: z.string(),
               link: z.string(),
-            })
+            }),
+          ),
+        })
+        .optional(),
+      footerNavigation: z
+        .object({
+          menuLinks: z.array(
+            z.object({
+              type: z.enum([
+                'page',
+                'post',
+                'article',
+                'archive',
+                'template',
+                'url',
+                'work',
+              ]),
+              label: z.string(),
+              link: z.string(),
+            }),
           ),
         })
         .optional(),
@@ -594,4 +716,5 @@ export const collections = {
   page,
   home,
   template,
+  pricing,
 };

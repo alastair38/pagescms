@@ -5,18 +5,24 @@ import type { HTMLAttributes } from 'astro/types';
 interface Props extends HTMLAttributes<'div'> {
   heading?: string;
   outline?: boolean;
+  gridSize?: number;
 }
 
-const { heading, outline = true, ...attr } = Astro.props;
+const { heading, outline = true, gridSize = 3, ...attr } = Astro.props;
 ---
 
 <div
-  class:list={['grid grid-auto-fill-md', outline && 'block-outline']}
+  class:list={[
+    'grid',
+    gridSize === 2
+      ? 'grid-auto-fill-sm sm:grid-auto-fill-md md:grid-auto-fit-lg'
+      : 'grid-auto-fill-sm md:grid-auto-fill-md',
+  ]}
   {...attr}
 >
   {
     heading && (
-      <div class="px-6 pt-6 pb-4 striped-background text-base-400 col-span-full border-b-narrow bloc-outline">
+      <div class="px-6 pt-6 pb-4 striped-background border-border col-span-full border-y-narrow bloc-outline">
         <Heading2 size="large" class="tracking-wide writing-mode-vertical">
           {heading}
         </Heading2>

@@ -9,7 +9,7 @@ interface Props extends HTMLAttributes<'a'> {
   type: string;
   icon?: boolean;
   label?: string;
-  variant?: 'default' | 'button' | 'outline';
+  variant?: 'default' | 'button' | 'outline' | 'striped' | 'animate';
   size?: 'small' | 'default';
 }
 
@@ -22,21 +22,34 @@ const {
   size = 'default',
   ...attrs
 } = Astro.props;
+
+// {urlBuilderFromId(id, type, 'http://localhost:4321')}
 ---
 
 <a
   class:list={[
-    'font-mono rounded-xs group border-[0.05em] transition-transform hover:scale-98 duration-200 px-2 py-1 gap-1 items-center   flex w-fit group',
+    'font-mono rounded-xs group peer border-[0.05em] transition-colors duration-300 px-2 py-1 gap-1 items-center flex w-fit group',
     variant === 'default' &&
-      'border-highlight-300 hover:bg-highlight-300/90 bg-highlight-300  text-base-500 ',
+      'border-highlight hover:bg-highlight/90 bg-highlight  text-base-default ',
     variant === 'outline' &&
-      'border-base-400 text-write-300 hover:text-write-400',
+      'border-border text-write hover:border-write focus-visible:border-write',
+    variant === 'striped' &&
+      'border-border text-write hover:border-write focus-visible:border-write',
     size === 'small' && 'text-sm',
     attrs.class,
   ]}
-  href={urlBuilderFromId(id, type, 'http://localhost:4321')}
+  href={urlBuilderFromId(id, type)}
   {...attrs}
 >
   {label ? label : 'Find out more'}
   {icon && <Icon class="translate-x-0.5" name="arrows/right-point" />}
 </a>
+
+{
+  variant === 'striped' && (
+    <div
+      aria-hidden={true}
+      class="striped-background transition-colors duration-300 peer-hover:text-highlight flex-1"
+    />
+  )
+}

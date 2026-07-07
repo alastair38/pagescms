@@ -14,19 +14,25 @@ interface Props extends HTMLAttributes<'html'> {
 const { seo, ...attr } = Astro.props as Props;
 
 // fetch site settings for SEO and SiteHeader data
-const settings = await getEntry('settings', 'index')!;
+const settings = await getEntry('settings', 'main')!;
 ---
 
-<html lang="en" {...attr}>
+<html
+  data-theme={settings.data.site.theme}
+  data-duotone={settings.data.site.duotone}
+  class="scroll-smooth"
+  lang="en"
+  {...attr}
+>
   <Head seo={seo} settings={settings} />
 
-  <body class="bg-base-500 text-write-300">
+  <body class="bg-base-default text-write">
     <SiteHeader settings={settings} />
-    <main class="striped-background border-y-narrow text-base-400">
+    <main class="striped-background border-y-narrow border-border">
       <slot />
     </main>
     <footer
-      class="font-mono text-sm gap-2 p-4 flex flex-col items-center justify-center"
+      class="font-mono text-sm gap-2 px-6 py-12 flex flex-col items-center justify-center"
     >
       <span>2025</span>
       <span>a northwalk website</span>

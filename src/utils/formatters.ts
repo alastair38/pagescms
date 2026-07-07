@@ -34,7 +34,7 @@ export const urlBuilder = (value: string, type: string, siteUrl?: string) => {
 export const urlBuilderFromId = (
   id: string,
   type: string,
-  siteUrl?: string
+  siteUrl?: string,
 ) => {
   // const afterLastSlash = value.split('/').pop()?.split('.')!;
 
@@ -54,6 +54,5 @@ export const urlBuilderFromId = (
 export const currentPage = (path: string, link: string) => {
   const linkPath = link.split('/').pop()?.split('.')[0];
   const currentPath = path.split('/').pop();
-  //console.log(currentPath, linkPath);
   return linkPath === currentPath ? 'page' : false;
 };

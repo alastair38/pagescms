@@ -74,9 +74,9 @@ function createRefObj(values: any[]) {
 
 const { Content } = await render(post);
 const seo = {
-  title: post?.data.title,
-  description: post?.data.description,
-  image: post?.data.featuredImage?.image,
+  title: post?.data.meta?.title,
+  description: post?.data.meta?.description,
+  image: post?.data.meta?.featuredImage?.image,
 };
 // console.log(post.data.contentBlocks[4].sections[0]);
 ---
@@ -84,12 +84,14 @@ const seo = {
 <Layout {seo}>
   <ArticleWrapper tag="article">
     <PageHeader
-      title={post.data.title}
-      byline={post.data.subHeading ? post.data.subHeading : post.collection}
+      title={post.data.meta?.title || ''}
+      byline={post.data.meta?.subHeading
+        ? post.data.meta?.subHeading
+        : post.collection}
       archive
     />
 
-    <ContentWrapper fullPage={post.data.fullPage}>
+    <ContentWrapper fullPage={post.data.meta?.fullPage}>
       {
         post.data.contentBlocks && post.data.contentBlocks.length > 0 ? (
           <BlockRenderer slot="content" data={post.data.contentBlocks} />
@@ -101,15 +103,15 @@ const seo = {
       }
 
       {
-        !post.data.fullPage && (
+        !post.data.meta?.fullPage && (
           <ArticleAside class="space-y-6" slot="aside">
-            {post.data.featuredImage && (
+            {post.data.meta?.featuredImage && (
               <FeaturedImage
-                image={post.data.featuredImage.image}
-                altText={post.data.featuredImage?.alt || ''}
-                width={post.data.featuredImage.image.width}
-                height={post.data.featuredImage.image.height}
-                caption={post.data.featuredImage.caption}
+                image={post.data.meta.featuredImage.image}
+                altText={post.data.meta.featuredImage?.alt || ''}
+                width={post.data.meta.featuredImage.image.width}
+                height={post.data.meta.featuredImage.image.height}
+                caption={post.data.meta.featuredImage.caption}
                 border={true}
               />
             )}

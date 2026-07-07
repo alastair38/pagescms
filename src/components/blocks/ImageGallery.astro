@@ -20,7 +20,7 @@ const {
       images.map((item, i) => (
         <figure
           class:list={[
-            'rounded-xs p-1 relative border-base-300 border w-full overflow-clip',
+            'rounded-xs p-1 relative border-border border w-full overflow-clip',
             spanLast && i === images.length - 1 && 'col-span-full',
           ]}
         >
@@ -36,7 +36,7 @@ const {
           />
 
           {item.image.caption && (
-            <figcaption class="p-2 font-mono text-sm bg-base-500/80 absolute bottom-2 right-2 left-2">
+            <figcaption class="p-2 font-mono text-sm bg-base-default/80 absolute bottom-2 right-2 left-2">
               {item.image.caption}
             </figcaption>
           )}

@@ -1,16 +1,33 @@
 ---
-title: Template 2
-description: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet ducimus non sit excepturi ullam officia dolor reiciendis corporis doloribus? Tempore facere dicta expedita quaerat. Vero animi sed corrupti porro deserunt?
-details:
-  framework: Nuxt
-  cms: Sanity
-  contentUpdates: true
-  vendorFree: false
-  mediaHandling: true
-  versions: 3
-featuredImage:
-  image: /src/media/pages/pattern-4.webp
-  alt: Face
+meta:
+  title: Template 2
+  description: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet ducimus non sit excepturi ullam officia dolor reiciendis corporis doloribus? Tempore facere dicta expedita quaerat. Vero animi sed corrupti porro deserunt?
+  details:
+    framework: Nuxt
+    cms: Sanity
+    contentUpdates: true
+    vendorFree: false
+    mediaHandling: true
+    versions: 2
+  pricing:
+    template: 200
+    setup: 100
+    support: 50
+  featuredImage:
+    image: /src/media/pages/pattern-4.webp
+    alt: Face
+# title: Template 2
+# description: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet ducimus non sit excepturi ullam officia dolor reiciendis corporis doloribus? Tempore facere dicta expedita quaerat. Vero animi sed corrupti porro deserunt?
+# details:
+#   framework: Nuxt
+#   cms: Sanity
+#   contentUpdates: true
+#   vendorFree: false
+#   mediaHandling: true
+#   versions: 3
+# featuredImage:
+#   image: /src/media/pages/pattern-4.webp
+#   alt: Face
 ---
 
 In recent years, the relationship between nature and mental health has

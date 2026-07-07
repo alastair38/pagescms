@@ -5,24 +5,18 @@ import ArticleWrapper from '@components/layouts/ArticleWrapper.astro';
 import ContentWrapper from '@components/layouts/ContentWrapper.astro';
 import PageHeader from '@components/layouts/PageHeader.astro';
 import Layout from '@layouts/Layout.astro';
-import Slider from '@components/Slider.astro';
-import { Picture, Image } from 'astro:assets';
-import Path from 'path';
-import {
-  getCollection,
-  getEntries,
-  getEntry,
-  render,
-  type CollectionEntry,
-  type ReferenceContentEntry,
-  type ReferenceDataEntry,
-} from 'astro:content';
-import { Icon } from 'astro-icon/components';
-import { string } from 'astro:schema';
+import Date from '@components/utilities/Date.astro';
+
+import { getCollection, getEntries, type CollectionEntry } from 'astro:content';
+
 import BlockRenderer from '@components/BlockRenderer.astro';
+import RelatedLinks from '@components/utilities/RelatedLinks.astro';
+
 // 1. Generate a new path for every collection entry
+
 export async function getStaticPaths() {
   const posts = await getCollection('article');
+
   return posts.map(post => ({
     params: { id: post.id },
     props: { post },
@@ -31,71 +25,29 @@ export async function getStaticPaths() {
 // 2. For your template, you can get the entry directly from the prop
 const { post } = Astro.props;
 
-const test = [
-  {
-    type: 'work',
-    label: 'A link',
-    link: 'src/data/work/northwalk-1.md',
-  },
-  {
-    type: 'page',
-    label: 'A link',
-    link: 'src/data/pages/about.md',
-  },
-];
+const authors = await getEntries(post?.data.meta?.authors!);
 
-const result: ReferenceDataEntry<'work' | 'page' | 'article', string>[] =
-  test.map(person => ({
-    id: Path.parse(person.link).name,
-    collection: person.type as 'work' | 'page' | 'article',
-  }));
+const relatedContent = await getEntries(
+  post?.data.meta?.relatedPages as CollectionEntry<'work' | 'article'>[],
+);
 
-// const morePages =
-//   post.data.relatedPages && (await getEntries(post.data.relatedPages));
+// Render markdown body is not using blocks
+// const { Content } = await render(post);
 
-const authors = await getEntries(post?.data?.authors!);
-
-function createRefObj(values: any[]) {
-  values.map(
-    (value: any) => {
-      return {
-        id: Path.parse(value.link).name,
-        collection: value.type,
-      };
-    }
-    //value.link.split('/').pop()?.split('.')
-  );
-
-  // console.log(refObj);
-
-  //return refObj;
-  //const afterLastSlash = value.split('/').pop()?.split('.')!;
-}
-
-//const what = createRefObj(test);
-
-// const authorsArr: ReferenceDataEntry<'authors'>[] | undefined =
-//   post.data.meta.authors?.map(author => {
-//     return {
-//       collection: 'authors',
-//       id: author.id.substring(author.id.lastIndexOf('/') + 1).split('.')[0],
-//     };
-//   });
-
-// const authors = (await getEntries(authorsArr!)) as CollectionEntry<'authors'>[];
-const { Content } = await render(post);
 const seo = {
-  title: post?.data.title,
-  description: post?.data.description,
-  image: post?.data.featuredImage?.image,
+  title: post?.data.meta?.title,
+  description: post?.data.meta?.description,
+  image: post?.data.meta?.featuredImage?.image,
 };
 ---
 
 <Layout {seo}>
   <ArticleWrapper tag="article">
     <PageHeader
-      title={post.data.title}
-      byline={post.data.subHeading ? post.data.subHeading : post.collection}
+      title={post.data.meta?.title || ''}
+      byline={post.data.meta?.subHeading
+        ? post.data.meta?.subHeading
+        : post.collection}
       authors={authors}
     />
 
@@ -110,19 +62,31 @@ const seo = {
         )
       }
 
-      <ArticleAside class="space-y-6" slot="aside" pubDate={post.data.pubDate}>
+      <ArticleAside class="space-y-12" slot="aside">
+        {post.data.meta?.pubDate && <Date date={post.data.meta.pubDate} />}
+
         {
-          post.data.featuredImage && (
-            <FeaturedImage
-              transition:name={`${post.id}`}
-              image={post.data.featuredImage.image}
-              altText={post.data.featuredImage?.alt || ''}
-              width={post.data.featuredImage.image.width}
-              height={post.data.featuredImage.image.height}
-              caption={post.data.featuredImage.caption}
-              border={true}
+          relatedContent && relatedContent.length > 0 && (
+            <RelatedLinks
+              heading="Related Content"
+              relatedContent={relatedContent}
             />
           )
+        }
+
+        {
+          post.data.meta?.showFeaturedImage &&
+            post.data.meta?.featuredImage && (
+              <FeaturedImage
+                transition:name={`${post.id}`}
+                image={post.data.meta?.featuredImage.image}
+                altText={post.data.meta?.featuredImage?.alt || ''}
+                width={post.data.meta?.featuredImage.image.width}
+                height={post.data.meta?.featuredImage.image.height}
+                caption={post.data.meta?.featuredImage.caption}
+                border={true}
+              />
+            )
         }
       </ArticleAside>
     </ContentWrapper>

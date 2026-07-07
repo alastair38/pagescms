@@ -21,11 +21,11 @@ const { __typename, title, description, sections } = Astro.props as FAQs;
 
 <div data-block={__typename}>
   <div
-    class="max-w-content mx-auto text-write-300 prose-headings:text-write-300 px-3 py-8 md:py-12"
+    class="max-w-content mx-auto text-write prose-headings:text-write px-3 py-8 md:py-12"
   >
     {
       title && (
-        <Heading2 size="default" weight="bold" class="text-center mb-4">
+        <Heading2 size="default" weight="bold" class="mb-2">
           {title}
         </Heading2>
       )
@@ -33,27 +33,27 @@ const { __typename, title, description, sections } = Astro.props as FAQs;
 
     {
       description && (
-        <Description class="text-center text-pretty">{description}</Description>
+        <Description class="text-pretty">{description}</Description>
       )
     }
 
-    <div class="overflow-clip max-w-content prose mt-8 text-write-300">
+    <div class="overflow-clip max-w-content prose mt-4 text-write">
       {
         sections &&
           sections.map((faq, i) => (
             <details
               id={`detail-${i}`}
-              class="mt-3 rounded-md border border-base-400 overflow-hidden group"
+              class="mt-3 rounded-md border border-border overflow-hidden group"
               open={i === 0 ? true : false}
               data-visible={i === 0 ? true : false}
             >
               <summary
                 data-id={`detail-${i}`}
-                class="flex ml-3 my-3 marker:hidden leading-normal cursor-pointer font-bold items-center gap-2 group"
+                class="flex ml-3 my-3 p-2 marker:hidden leading-normal cursor-pointer font-bold items-center gap-2 group"
               >
                 <svg
                   aria-hidden="true"
-                  class="-mr-1 h-5 w-5 fill-current opacity-75 transition-transform duration-300 group-open:fill-highlight-300 group-open:rotate-90"
+                  class="-mr-1 h-5 w-5 fill-current opacity-75 transition-transform ease-in-out duration-200 group-open:fill-highlight group-open:rotate-90"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
                 >
@@ -74,18 +74,56 @@ const { __typename, title, description, sections } = Astro.props as FAQs;
     interpolate-size: allow-keywords;
   }
 
+  details {
+    overflow: hidden;
+  }
+
+  details,
+  summary {
+    margin-block-end: 0;
+  }
+
+  details * {
+    margin: 0;
+  }
+
+  /* don't add margin/padding to this, add it to the actual
+   stuff inside the details content */
   details::details-content {
     block-size: 0;
     transition:
-      block-size 150ms,
-      content-visibility 150ms;
+      block-size 200ms,
+      content-visibility 200ms;
+    transition-behavior: allow-discrete;
+    transition-timing-function: ease-in-out;
+  }
+
+  details:open::details-content {
+    block-size: auto;
+  }
+  /* :root {
+    interpolate-size: allow-keywords;
+  }
+
+  details::details-content {
+    max-height: 0;
+    transition:
+      
+      height 100ms,
+      
 
     transition-behavior: allow-discrete;
   }
 
   details[open]::details-content {
-    block-size: auto;
-  }
+    max-height: 1000px;
+    transition:
+     
+      max-height 300ms,
+      
+
+    transition-behavior: allow-discrete;
+  } */
 </style>
 
 <script is:inline>

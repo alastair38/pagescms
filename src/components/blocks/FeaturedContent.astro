@@ -6,37 +6,26 @@ import Heading2 from '@components/headings/Heading2.astro';
 import Heading3 from '@components/headings/Heading3.astro';
 import Description from '@components/layouts/Description.astro';
 import BlockWrapper from '@components/layouts/BlockWrapper.astro';
+import BlockHeader from '@components/layouts/BlockHeader.astro';
 
 const { __typename, title, description, sections } =
   Astro.props as FeaturedContent;
 ---
 
-<BlockWrapper
-  data-block={__typename}
-  class="text-base-400 bordert[0.05em] borderb-[0.05em]gap-[0.05em] grid mx-auto"
->
-  <div class="bg-base-500 border-b-narrow col-span-full px-6 pt-12">
-    {
-      title && (
-        <Heading2 style="mono" size="small" class="mb-2">
-          {title}
-        </Heading2>
-      )
-    }
+<BlockWrapper data-block={__typename} class="text-base-muted grid mx-auto">
+  <BlockHeader>
+    <Heading2 style="mono" size="small" class="mb-2">
+      {title}
+    </Heading2>
 
-    {
-      description && (
-        <p class="font-mono mb-4 text-sm text-write-300 max-w-content">
-          {description}
-        </p>
-      )
-    }
-  </div>
+    {description && <Description>{description}</Description>}
+  </BlockHeader>
+
   {
     sections && sections.length > 0 && (
-      <div class="divide-base-400 divide-y-[0.05em]">
+      <div class="divide-border divide-y-[0.05em]">
         {sections.map((section, i) => (
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 p-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 p-3 md:p-6">
             {section.image && (
               <Picture
                 src={section.image.src}
@@ -45,7 +34,7 @@ const { __typename, title, description, sections } =
                 loading="eager"
                 style="object-fit: cover;"
                 class:list={[
-                  'aspect-square w-full rounded-xs max-h[300px] md:max-h[500px] object-cover',
+                  'aspect-square w-full rounded-xs max-h[300px] opacity-75 duration-500 animate-slight-fade  md:max-h[500px] object-cover',
                   i % 2 === 0 ? 'order-first' : 'order-last',
                 ]}
                 alt={section.image.alt || ''}
@@ -54,7 +43,7 @@ const { __typename, title, description, sections } =
 
             <div
               class:list={[
-                'flex flex-col md:px-8 text-write-300 gap-4 justify-center',
+                'flex flex-col md:px-8 text-write gap-4 justify-center',
                 i % 2 === 0 ? 'md:order-last' : 'md:order-first',
               ]}
             >

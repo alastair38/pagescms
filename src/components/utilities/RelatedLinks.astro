@@ -1,0 +1,29 @@
+---
+import Heading3 from '@components/headings/Heading3.astro';
+import Link from '@components/utilities/Link.astro';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  heading: string;
+  relatedContent: CollectionEntry<'work' | 'article'>[];
+}
+
+const { heading = 'Related Content', relatedContent } = Astro.props as Props;
+---
+
+<div class="space-y-2">
+  <Heading3 size="small" class="mb-4 uppercase">
+    {heading}
+  </Heading3>
+  {
+    relatedContent.map(item => (
+      <Link
+        id={item.id}
+        type={item.collection}
+        label={item.data.meta?.title}
+        variant="plain"
+        class="border-b-narrow w-full border-border"
+      />
+    ))
+  }
+</div>

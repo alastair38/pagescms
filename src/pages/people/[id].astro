@@ -22,8 +22,8 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 
 const articles = await getCollection('article', ({ data }) => {
-  return data.authors?.some(
-    author => author.collection === 'person' && author.id === post.id
+  return data.meta?.authors?.some(
+    author => author.collection === 'person' && author.id === post.id,
   );
 });
 
@@ -39,7 +39,7 @@ const seo = {
     <PageHeader title={post.data.name} byline={'Team'} archive={true} />
 
     <ContentWrapper>
-      <div class="max-w-content w-content space-y-3" slot="content">
+      <div class="max-w-content w-content space-y-4" slot="content">
         <Contacts contact={post.data.contact} />
         {
           post.data.bio && (
@@ -48,7 +48,7 @@ const seo = {
         }
       </div>
 
-      <ArticleAside class="space-y-6" slot="aside">
+      <ArticleAside slot="aside">
         {
           post.data.featuredImage && (
             <FeaturedImage

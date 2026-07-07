@@ -11,22 +11,24 @@ const { __typename, title, description, links } = Astro.props as CTA;
 
 <BlockWrapper
   data-block={__typename}
-  class="text-base-400 relative dotted-background px-10 py-18 md:py-32 md:px-20"
+  class="text-base-muted relative dotted-background px-8 py-16 md:py-32 md:px-20"
 >
-  <div class="w-fit relative mx-auto flex">
+  <div
+    class="w-fit relative opacity-50 animate-fade transition-opacity mx-auto flex"
+  >
     <Icon
       class:list={[
-        'mx-auto z-10 h-16 w-16 text-3xl drop-shadow-purple-200 drop-shadow text-base-400',
+        'mx-auto z-10 h-16 w-16 text-3xl  drop-shadow-highlight-muted/40 drop-shadow text-base-muted',
       ]}
       name="items/exclude-square"
     />
     <div
-      class="w-24 h-24 z-0 bg-purple-200/30 blur-2xl absolute -inset-4 rounded-full"
+      class="w-24 h-24 z-0 bg-highlight-muted/20 blur-2xl absolute -inset-4 rounded-full"
     >
     </div>
   </div>
 
-  <div class="text-center text-write-300 mt-3">
+  <div class="text-center text-write mt-3">
     <Heading2 size="xl" weight="light"> {title}</Heading2>
     {
       description && (

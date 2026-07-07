@@ -1,4 +1,4 @@
----
+<!-- ---
 site:
   name: My website
   description: GAGAG
@@ -13,4 +13,4 @@ navigation:
     - type: urlLink
       label: External
       link: https://bbc.co.uk
----
+--- -->

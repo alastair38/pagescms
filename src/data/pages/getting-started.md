@@ -1,14 +1,15 @@
 ---
-title: Getting Started
-fullPage: true
-description: This is the getting started page
-subHeading: Our process
-featuredImage:
-  image: /src/media/pages/pattern-1.webp
-  alt: Face
-relatedPages:
-  - northwalk-1.md
-  - northwalk-2.md
+meta:
+  title: Getting Started
+  fullPage: true
+  description: This is the getting started page
+  subHeading: Our process
+  featuredImage:
+    image: /src/media/pages/pattern-1.webp
+    alt: Face
+  relatedPages:
+    - northwalk-1.md
+    - northwalk-2.md
 contentBlocks:
   - __typename: cta
     title: Precision built websites

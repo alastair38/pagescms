@@ -21,7 +21,7 @@ const result =
   }));
 
 const related = await getEntries(
-  result as ReferenceDataEntry<'work' | 'page', string>[]
+  result as ReferenceDataEntry<'work' | 'page', string>[],
 );
 ---
 
@@ -30,9 +30,9 @@ const related = await getEntries(
     <BlockWrapper
       tag="aside"
       data-block={__typename}
-      class="p-4 md:p-6 space-y-2 bg-base-400/80"
+      class="p-4 md:p-6 space-y-2 bg-base-muted"
     >
-      <h2 class="col-span-full mb-4 border-b border-b-base-300 font-black text-lg md:text-xl">
+      <h2 class="col-span-full mb-4 border-b border-b-base-default font-black text-lg md:text-xl">
         {title}
       </h2>
 
@@ -41,10 +41,10 @@ const related = await getEntries(
           class="font-mono flex w-fit group"
           href={urlBuilderFromId(item.id, item.collection)}
         >
-          <h3 class="font-black flex items-center group-hover:text-write-400 duration-200 transition-colors gap-2">
-            {item.data.title && item.data.title}
+          <h3 class="font-black flex items-center group-hover:text-write-strong duration-200 transition-colors gap-2">
+            {item.data.meta?.title && item.data.meta.title}
             <Icon
-              class="bg-highlight-300 text-base-500 transition-transform duration-200 group-hover:translate-x-0.5 rounded-full text-xl p-0.5"
+              class="bg-highlight text-base-default transition-transform duration-200 group-hover:translate-x-0.5 rounded-full text-xl p-0.5"
               name="arrows/right-point"
             />
           </h3>

@@ -8,6 +8,7 @@ import Heading2 from '@components/headings/Heading2.astro';
 import Heading3 from '@components/headings/Heading3.astro';
 import ContentDetails from './ContentDetails.astro';
 import type { HTMLAttributes } from 'astro/types';
+import Link from '@components/utilities/Link.astro';
 
 interface Props extends HTMLAttributes<'div'> {
   item:
@@ -15,41 +16,44 @@ interface Props extends HTMLAttributes<'div'> {
     | CollectionEntry<'template'>
     | CollectionEntry<'article'>;
   heading?: boolean;
+  singleItem?: boolean;
 }
 
-const { item, heading, ...attr } = Astro.props;
+const { item, heading, singleItem = false, ...attr } = Astro.props;
 ---
 
 <div
-  class="bg-base-500 flex flex-col p-6 text-write-300 block-outline"
+  class:list={[
+    'bg-base-default flex flex-col p-3 md:p-6 text-write outline outline-[0.05em] outline-border',
+  ]}
   data-cms={item.collection !== 'article' &&
-    item.data.details &&
-    item.data.details.cms}
+    item.data.meta?.details &&
+    item.data.meta?.details.cms}
   data-framework={item.collection !== 'article' &&
-    item.data.details &&
-    item.data.details.framework}
+    item.data.meta?.details &&
+    item.data.meta?.details.framework}
   data-media={item.collection !== 'article' &&
-    item.data.details &&
-    item.data.details.mediaHandling}
+    item.data.meta?.details &&
+    item.data.meta?.details.mediaHandling}
   data-content={item.collection !== 'article' &&
-    item.data.details &&
-    item.data.details.contentUpdates}
+    item.data.meta?.details &&
+    item.data.meta?.details.contentUpdates}
   data-vendor={item.collection !== 'article' &&
-    item.data.details &&
-    item.data.details.vendorFree}
+    item.data.meta?.details &&
+    item.data.meta?.details.vendorFree}
   {...attr}
 >
   {
-    item.data.featuredImage && (
+    item.data.meta?.featuredImage && (
       <Picture
         transition:name={`${item.id}`}
-        src={item.data.featuredImage.image}
+        src={item.data.meta.featuredImage.image}
         quality={100}
         format="webp"
         loading="eager"
         style="object-fit: cover;"
         class="aspect-square w-full rounded-xs max-h-[300px] md:max-h-[500px] object-cover"
-        alt={item.data.featuredImage.alt || ''}
+        alt={item.data.meta.featuredImage.alt || ''}
       />
     )
   }
@@ -57,44 +61,41 @@ const { item, heading, ...attr } = Astro.props;
   {
     heading ? (
       <Heading3 weight="bold" size="large" class="mt-4">
-        {item.data.title}
+        {item.data.meta?.title}
       </Heading3>
     ) : (
       <Heading2 weight="bold" class="mt-4">
-        {item.data.title}
+        {item.data.meta?.title}
       </Heading2>
     )
   }
 
   {
-    item.data.description && (
+    item.data.meta?.description && (
       <Description size="small" class="mt-2 mb-4">
-        {item.data.description}
+        {item.data.meta?.description}
       </Description>
     )
   }
 
   {
-    item.collection !== 'article' && item.data.details && (
+    item.collection !== 'article' && item.data.meta?.details && (
       <ContentDetails
-        class="mb-4"
-        details={item.data.details}
+        class="mb-6"
+        details={item.data.meta?.details}
         title="Tech stack and versions"
       />
     )
   }
 
-  <div class="flex font-mono gap-3 mt-2">
-    <RelativeLink
+  <div class="flex font-mono gap-3 mt-auto">
+    <Link
       id={item.id}
       type={item.collection}
       label="Find out more"
-      variant="outline"
+      variant="striped"
       icon={true}
       size="small"
     />
-
-    <div aria-hidden="true" class="striped-background flex-1 text-base-400">
-    </div>
   </div>
 </div>

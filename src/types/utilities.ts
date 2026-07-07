@@ -25,3 +25,10 @@ export type SeoType = {
     image: ImageMetadata;
   };
 };
+
+export type Details = {
+  framework?: string;
+  cms?: string;
+  database?: string;
+  versions?: number;
+};

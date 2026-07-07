@@ -14,7 +14,7 @@ const { quote, __typename, author } = Astro.props;
 <BlockWrapper
   tag="div"
   data-block={__typename}
-  class="prose prose-a:text-current max-w-content prose-a:decoration-highlight-300 prose-strong:text-current mx-auto text-current"
+  class="prose prose-a:text-current max-w-content prose-a:decoration-highlight prose-strong:text-current mx-auto text-current"
 >
   <Markdown content={quote} />
   {author && <p>{author}</p>}

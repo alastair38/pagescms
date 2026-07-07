@@ -1,31 +1,62 @@
 ---
 import type { Link } from '@customTypes/utilities';
-import { urlBuilder } from '@utils/formatters';
+import { urlBuilder, urlBuilderFromId } from '@utils/formatters';
 import { Icon } from 'astro-icon/components';
 import type { HTMLAttributes } from 'astro/types';
 
+// To avoid repetition this component has been extended to handle both relative and absolute links. If a link object is passed, it will use the link's properties to build the URL. If an id and type are passed, it will use those to build the URL.
+
 interface Props extends HTMLAttributes<'a'> {
-  link: Link;
+  link?: Link;
+  id?: string;
+  type?: string;
   icon?: boolean;
   label?: string;
-  variant?: 'default' | 'button' | 'outline';
+  variant?: 'default' | 'button' | 'outline' | 'striped' | 'animate' | 'plain';
+  size?: 'small' | 'default';
 }
 
-const { link, icon, label, variant = 'default', ...attrs } = Astro.props;
+const {
+  link,
+  id,
+  type,
+  icon,
+  label,
+  variant = 'default',
+  size = 'default',
+  ...attrs
+} = Astro.props;
 ---
 
 <a
   class:list={[
-    'font-mono text-sm md:text-base rounded-xs group border-[0.05em] transition-transform hover:scale-98 duration-200 px-2 py-1 gap-1 items-center flex w-fit group',
+    'font-mono group peer transition-colors duration-300 items-center flex w-fit',
     variant === 'default' &&
-      'border-highlight-300 hover:bg-highlight-300/90 bg-highlight-300  text-base-500 ',
+      'border-highlight hover:bg-highlight/90 bg-highlight  text-base-default ',
     variant === 'outline' &&
-      'border-base-400 text-write-300 hover:text-write-400',
+      'border-border text-write hover:border-write focus-visible:border-write',
+    variant === 'striped' &&
+      'border-border text-write hover:border-write-muted/40 focus-visible:border-write',
+    variant === 'animate' && 'animate-highlight text-write',
+    variant === 'plain' &&
+      'text-write hover:text-highlight focus-visible:text-highlight',
+    variant !== 'plain' && ' rounded-xs px-2 py-1 gap-1 w-fit border-narrow',
+    size === 'small' && 'text-sm',
     attrs.class,
   ]}
-  href={urlBuilder(link.link, link.type)}
+  href={link
+    ? urlBuilder(link.link, link.type)
+    : id && type && urlBuilderFromId(id, type)}
   {...attrs}
 >
-  {link.label ? link.label : label || 'Find out more'}
+  {link && link.label ? link.label : label || 'Find out more'}
   {icon && <Icon class="translate-x-0.5" name="arrows/right-point" />}
 </a>
+{
+  variant === 'striped' && (
+    <div
+      aria-hidden={true}
+      class="striped-background transition-colors duration-300 peer-hover:text-write-muted/40 flex-1"
+    />
+  )
+}

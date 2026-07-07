@@ -18,10 +18,11 @@ const siteUrl = settings?.data.site?.url!;
 
 <header class="p-4 flex items-center" {...attr}>
   <nav
-    class="max-w-7xl flex items-center justify-between lg:px-4 mx-auto w-full text-write-300"
+    class="max-w-7xl flex items-center justify-between lg:px-4 mx-auto w-full text-write"
   >
-    <a class="font-black lowercase text-2xl" href="/"
-      >{
+    <a class="font-black flex items-center gap-1 lowercase text-2xl" href="/">
+      <Icon name="brand/logo" />
+      {
         settings.data.site.displayName
           ? settings.data.site.displayName
           : settings.data.site.name
@@ -29,7 +30,7 @@ const siteUrl = settings?.data.site?.url!;
     >
 
     <button
-      class="h-8 w-8 z-50 group lg:hidden items-center cursor-pointer aria-[expanded=true]:rotate-90 transition-transform duration-200 rounded-full bg-brand-400 text-white"
+      class="h-8 w-8 z-50 group lg:hidden items-center cursor-pointer aria-[expanded=true]:rotate-90 transition-transform duration-200 rounded-full textwhite"
       data-type="nav-btn"
       aria-expanded="false"
       aria-controls="main-nav"
@@ -53,7 +54,7 @@ const siteUrl = settings?.data.site?.url!;
         settings &&
           settings.data.navigation?.menuLinks.map(item => (
             <a
-              class="underline flex items-center w-fit gap-1 underline-offset-2 focus-visible:underline-offset-4 hover:underline-offset-4 transition-all duration-200"
+              class="underline flex items-center w-fit gap-1 underline-offset-2 decoration-border focus-visible:underline-offset-4 hover:underline-offset-4 transition-all duration-200"
               aria-current={currentPage(Astro.url.pathname, item.link)}
               href={urlBuilder(item.link, item.type, siteUrl)}
               target={item.type === 'url' ? '_blank' : '_self'}

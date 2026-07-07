@@ -1,26 +1,32 @@
 ---
 meta:
-  title: Northwalk 3
+  title: Template 6
   description: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet ducimus non sit excepturi ullam officia dolor reiciendis corporis doloribus? Tempore facere dicta expedita quaerat. Vero animi sed corrupti porro deserunt?
   details:
-    framework: Astro
-    cms: PagesCMS
-    contentUpdates: false
-    vendorFree: true
-    mediaHandling: false
+    framework: Nuxt
+    cms: Sanity
+    contentUpdates: true
+    vendorFree: false
+    mediaHandling: true
+    versions: 2
+  pricing:
+    template: 200
+    setup: 100
+    support: 50
   featuredImage:
-    image: /src/media/pages/pattern-3.webp
+    image: /src/media/pages/pattern-4.webp
     alt: Face
-# title: Northwalk 3
+# title: Template 2
 # description: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet ducimus non sit excepturi ullam officia dolor reiciendis corporis doloribus? Tempore facere dicta expedita quaerat. Vero animi sed corrupti porro deserunt?
 # details:
-#   framework: Astro
-#   cms: PagesCMS
-#   contentUpdates: false
-#   vendorFree: true
-#   mediaHandling: false
+#   framework: Nuxt
+#   cms: Sanity
+#   contentUpdates: true
+#   vendorFree: false
+#   mediaHandling: true
+#   versions: 3
 # featuredImage:
-#   image: /src/media/pages/pattern-3.webp
+#   image: /src/media/pages/pattern-4.webp
 #   alt: Face
 ---
 

@@ -1,16 +1,17 @@
 ---
-pubDate: 2025-08-04
-title: In praise of stasis
-description: This is the about page
-featuredImage:
-  image: /src/media/pages/pattern-1.webp
-  alt: Face
-relatedPages:
-  - northwalk-1.md
-  - northwalk-2.md
-authors:
-  - alastair-cox
-  - john-cope
+meta:
+  pubDate: 2025-08-04
+  title: In praise of stasis
+  description: This is the about page
+  featuredImage:
+    image: /src/media/pages/pattern-1.webp
+    alt: Face
+  relatedPages:
+    - northwalk-1
+    - northwalk-2
+  authors:
+    - alastair-cox
+    - john-cope
 contentBlocks:
   - __typename: richText
     body: >-
@@ -39,14 +40,12 @@ contentBlocks:
           src: /src/media/pages/pattern-2.webp
           alt: hi
           caption: Pattern 2 caption
-
   - __typename: richText
     body: >-
       Lorem **ipsum dolor sit** amet consectetur, adipisicing elit. Omnis
       voluptate vero error! Architecto perspiciatis quam [fugit sed
       dicta](https://bbc.co.uk) ex consequatur sequi _et,_ culpa totam tenetur
       quidem sunt consectetur minus officia.
-
   - __typename: relatedContent
     links:
       - type: page

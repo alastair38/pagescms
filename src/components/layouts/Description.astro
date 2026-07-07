@@ -19,14 +19,14 @@ const {
 
 <p
   class:list={[
-    'text-pretty prose max-w-content',
+    'text-pretty prose max-w-content pb-2',
     size === 'default' && 'text-sm md:text-base',
     size === 'small' && 'text-xs sm:text-sm',
-    size === 'large' && 'text-lg',
+    size === 'large' && 'text-base md:text-lg',
     weight === 'default' && 'font-regular',
     weight === 'light' && 'font-light',
     weight === 'bold' && 'font-black',
-    color === 'default' && 'text-write-300',
+    color === 'default' && 'text-write',
     color === 'lighter' && 'text-write-100',
     color === 'darker' && 'text-write-500',
     style === 'mono' && 'font-mono',

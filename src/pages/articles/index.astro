@@ -17,8 +17,6 @@ const seo = {
   description: articlePage?.data.description,
   image: articlePage?.data.featuredImage?.image,
 };
-
-console.log(workItems);
 ---
 
 <Layout seo={seo}>
@@ -32,8 +30,13 @@ console.log(workItems);
 
     <GridWrapper>
       {
-        workItems.length > 0
-          ? workItems.map(item => <GridItem item={item} />)
+        workItems && workItems.length > 0
+          ? workItems.map(item => (
+              <GridItem
+                singleItem={workItems.length === 1 && true}
+                item={item}
+              />
+            ))
           : '<p>No content yet</p>'
       }
     </GridWrapper>

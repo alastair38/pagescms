@@ -4,20 +4,23 @@ import type { Hero } from '@customTypes/blocks';
 import Link from '@components/utilities/Link.astro';
 import IconSpacer from '@components/utilities/IconSpacer.astro';
 import BlockWrapper from '@components/layouts/BlockWrapper.astro';
+import { Picture } from 'astro:assets';
 
 const { __typename, title, subHeading, description, image, links } =
   Astro.props as Hero;
 ---
 
-<BlockWrapper data-block={__typename}>
-  <div class="text-base-400">
-    <div class="px-4 py-1 flex items-end min-h-16 md:min-h-20 border-b-narrow">
-      <p class="font-mono capitalize text-write-400">
+<BlockWrapper data-block={__typename} id={__typename}>
+  <div>
+    <div
+      class="px-2 md:px-4 py-1 flex items-end min-h-16 md:min-h-20 border-border border-b-narrow"
+    >
+      <p class="font-mono capitalize text-write-strong">
         {subHeading && subHeading}
       </p>
     </div>
     <h1
-      class="px-4 py-1 mb-6 md:mb-10 text-pretty text-4xl md:text-8xl leading-none text-write-300 font-light"
+      class="px-2 md:px-4 py-2 mb-6 md:mb-10 text-pretty text-4xl md:text-8xl leading-none text-write font-light"
     >
       {title}
     </h1>
@@ -25,7 +28,7 @@ const { __typename, title, subHeading, description, image, links } =
 
   {
     links && links.length > 0 && (
-      <div class="flex gap-3 px-4 py-3">
+      <div class="flex gap-3 px-2 md:px-4 py-3">
         {links.map(link => (
           <Link link={link} icon={true} />
         ))}

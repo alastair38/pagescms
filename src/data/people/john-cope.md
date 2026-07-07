@@ -1,6 +1,11 @@
 ---
 name: John Cope
-bio: In recent years, the relationship between nature and mental health has garnered significant attention in the field of psychology and wellness. This academic paper explores the various benefits that exposure to natural environments can have on individuals experiencing mental health challenges. By synthesizing existing research, the paper highlights how interactions with nature can improve psychological well-being, reduce symptoms of anxiety and depression, and enhance overall life satisfaction.
+bio: >-
+  Weapons at my feet Some kind of living Weapons at my fee Some kind of living Beggar sits to plea Some kind of givin Beggar sits to plead
+
+
+  In recent years, the relationship between nature and mental health has garnered significant attention in the field of psychology and wellness. This academic paper explores the various benefits that exposure to natural environments can have on individuals experiencing mental health challenges. By synthesizing existing research, the paper highlights how interactions with nature can improve psychological well-being, reduce symptoms of anxiety and depression, and enhance overall life satisfaction.
+
 jobTitle: Production Editor
 featuredImage:
   image: /src/media/authors/image5.jpg

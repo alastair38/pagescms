@@ -1,15 +1,27 @@
 ---
-title: Northwalk 4
-description: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet ducimus non sit excepturi ullam officia dolor reiciendis corporis doloribus? Tempore facere dicta expedita quaerat. Vero animi sed corrupti porro deserunt?
-details:
-  framework: Astro
-  cms: PagesCMS
-  contentUpdates: false
-  vendorFree: true
-  mediaHandling: false
-featuredImage:
-  image: /src/media/pages/pattern-2.webp
-  alt: Face
+meta:
+  title: Northwalk 4
+  description: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet ducimus non sit excepturi ullam officia dolor reiciendis corporis doloribus? Tempore facere dicta expedita quaerat. Vero animi sed corrupti porro deserunt?
+  details:
+    framework: Astro
+    cms: PagesCMS
+    contentUpdates: false
+    vendorFree: true
+    mediaHandling: false
+  featuredImage:
+    image: /src/media/pages/pattern-2.webp
+    alt: Face
+# title: Northwalk 4
+# description: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet ducimus non sit excepturi ullam officia dolor reiciendis corporis doloribus? Tempore facere dicta expedita quaerat. Vero animi sed corrupti porro deserunt?
+# details:
+#   framework: Astro
+#   cms: PagesCMS
+#   contentUpdates: false
+#   vendorFree: true
+#   mediaHandling: false
+# featuredImage:
+#   image: /src/media/pages/pattern-2.webp
+#   alt: Face
 ---
 
 In recent years, the relationship between nature and mental health has

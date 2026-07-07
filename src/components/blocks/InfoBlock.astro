@@ -5,33 +5,28 @@ import Heading2 from '@components/headings/Heading2.astro';
 import Heading3 from '@components/headings/Heading3.astro';
 import Description from '@components/layouts/Description.astro';
 import BlockWrapper from '@components/layouts/BlockWrapper.astro';
+import BlockHeader from '@components/layouts/BlockHeader.astro';
 
 const { __typename, title, description, sections } = Astro.props as InfoBlock;
 ---
 
 <BlockWrapper
   data-block={__typename}
-  class="bg-base-500 text-base-400 grid mx-auto"
+  class="bg-base-default text-base-muted grid mx-auto"
 >
-  <div class="col-span-full border-b-narrow px-6 pt-12">
+  <BlockHeader>
     <Heading2 style="mono" size="small" class="mb-2">
       {title}
     </Heading2>
 
-    {
-      description && (
-        <p class="font-mono mb-4 text-sm text-write-300 max-w-content">
-          {description}
-        </p>
-      )
-    }
-  </div>
+    {description && <Description>{description}</Description>}
+  </BlockHeader>
 
   {
     sections && sections.length > 0 && (
-      <div class="grid grid-auto-fill-md grid-flow-row divide-y-[0.05em] divide-x-[0.05em] divide-base-400">
+      <div class="grid grid-auto-fill-sm border-border md:grid-auto-fill-md grid-flow-row  divide-x-[0.05em] divide-border">
         {sections.map(section => (
-          <div class=" flex flex-col gap-4 p-6 text-write-300">
+          <div class=" flex flex-col gap-4 p-3 md:p-6 text-write">
             <Heading3 weight="bold">{section.title}</Heading3>
 
             {section.description && (
@@ -44,8 +39,9 @@ const { __typename, title, description, sections } = Astro.props as InfoBlock;
                   <Link
                     link={link}
                     icon={true}
-                    variant="outline"
+                    variant="striped"
                     label="Find out more"
+                    size="small"
                   />
                 ))}
               </div>

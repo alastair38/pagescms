@@ -1,0 +1,80 @@
+---
+import type { Process } from '@customTypes/blocks';
+import Heading2 from '@components/headings/Heading2.astro';
+import Description from '@components/layouts/Description.astro';
+import Link from '@components/utilities/Link.astro';
+import BlockWrapper from '@components/layouts/BlockWrapper.astro';
+import BlockHeader from '@components/layouts/BlockHeader.astro';
+
+// interface Props {
+//   __typename: string;
+//   id: string;
+//   description: string;
+
+//   faqContent: {
+//     title: string;
+//     content: {
+//       html: string;
+//     };
+//   }[];
+// }
+
+const { __typename, title, description, links, sections } =
+  Astro.props as Process;
+---
+
+<BlockWrapper
+  data-block={__typename}
+  id={__typename}
+  class="text-base-muted border-b-narrow border-border"
+>
+  <div
+    class="max-w-content mx-auto text-write prose-headings:text-write px-3 py-8 md:py-12"
+  >
+    {
+      title && (
+        <Heading2 size="default" weight="bold" class="text-center mb-2 md:mb-4">
+          {title}
+        </Heading2>
+      )
+    }
+
+    {
+      description && (
+        <Description class="text-center text-pretty">{description}</Description>
+      )
+    }
+
+    <div class="max-w-content prose my-4 md:my-8 text-write">
+      <ul class="list-none p-0 m-0 flex flex-col">
+        {
+          sections &&
+            sections.map((faq, i) => (
+              <li id={`detail-${i}`} class="relative group  ">
+                <span class="animate-highlight flex w-9 h-9 text-sm items-center justify-center rounded-full">{`0${i + 1}`}</span>
+                <h3 class="mt-4">{faq.title}</h3>
+
+                <Description>{faq.description} </Description>
+
+                {sections.length !== i + 1 && (
+                  <div
+                    aria-hidden="true"
+                    class="w-[.5px] h-16 ml-4 animate-highlight"
+                  />
+                )}
+              </li>
+            ))
+        }
+      </ul>
+    </div>
+
+    <div class="flex justify-center gap-3">
+      {
+        links &&
+          links.map(link => (
+            <Link link={link} label="Get started" icon={true} />
+          ))
+      }
+    </div>
+  </div>
+</BlockWrapper>

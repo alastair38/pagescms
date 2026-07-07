@@ -9,23 +9,21 @@ const { __typename, title, description, sections } = Astro.props as Tabs;
 
 <BlockWrapper data-block={__typename}>
   <div
-    class="max-w-content mx-auto text-write-300 prose-headings:text-write-300 px-3 py-8 md:py-12"
+    class="max-w-content mx-auto text-write textcenter prose-headings:text-write px-3 py-8 md:py-12"
   >
     {
       title && (
-        <Heading2 size="default" weight="bold" class="text-center mb-4">
+        <Heading2 size="default" weight="bold" class="mb-2">
           {title}
         </Heading2>
       )
     }
     {
       description && (
-        <Description class="text-center text-pretty">{description}</Description>
+        <Description class="text-pretty">{description}</Description>
       )
     }
-    <div
-      class="mx-auto max-w-content mt-8 overflow-clip rounded-md border border-base-400"
-    >
+    <div class="mt-4 overflow-clip rounded-md border border-border">
       <ul
         class="p-3 md:p-6 flex items-center flex-wrap gap-2 md:gap-3 justify-between md:justify-start"
         aria-labelledby="tabs-title"
@@ -34,10 +32,10 @@ const { __typename, title, description, sections } = Astro.props as Tabs;
         {
           sections &&
             sections.map((tab, i) => (
-              <li class="list-none  border py-1 rounded-md text-base-400">
+              <li class="list-none border border-border py-1 rounded-md text-base-muted">
                 <a
                   id={`tab-${i}`}
-                  class="px-3 py-1 rounded-md text-write-300 text-sm md:text-base outline-2 outline-transparent duration-200 transition-colors  aria-selected:outline-highlight-300/70"
+                  class="px-3 py-1 rounded-md text-write text-sm md:text-base outline-2 outline-transparent duration-200 transition-colors  aria-selected:outline-highlight/70"
                   role="tab"
                   tabindex={i === 0 ? null : -1}
                   aria-selected={i === 0 ? true : false}
@@ -49,7 +47,7 @@ const { __typename, title, description, sections } = Astro.props as Tabs;
             ))
         }
       </ul>
-      <hr class="border-base-400" />
+      <hr class="border-border" />
       <div class="grid grid-cols-1 grid-rows-1">
         {
           sections &&

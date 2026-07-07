@@ -1,23 +1,36 @@
 ---
-title: Northwalk 1
-description: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet ducimus non sit excepturi ullam officia dolor reiciendis corporis doloribus? Tempore facere dicta expedita quaerat. Vero animi sed corrupti porro deserunt?
-details:
-  framework: Nuxt
-  cms: Sanity
-  contentUpdates: true
-  vendorFree: false
-  mediaHandling: true
-  versions: 2
-featuredImage:
-  image: /src/media/pages/pattern-1.webp
-  alt: Face
+meta:
+  title: Wheresat
+  description: A platform for collaborative community mapping. Identify your community assets and audit their accessibility for stakeholders.
+  details:
+    framework: TanStack Start
+    database: LibSQL
+    contentUpdates: true
+    vendorFree: false
+    mediaHandling: true
+    versions: 2
+  featuredImage:
+    image: /src/media/pages/pattern-1.webp
+    alt: Face
+# title: Northwalk 1
+# description: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet ducimus non sit excepturi ullam officia dolor reiciendis corporis doloribus? Tempore facere dicta expedita quaerat. Vero animi sed corrupti porro deserunt?
+# details:
+#   framework: Nuxt
+#   cms: Sanity
+#   contentUpdates: true
+#   vendorFree: false
+#   mediaHandling: true
+#   versions: 2
+# featuredImage:
+#   image: /src/media/pages/pattern-1.webp
+#   alt: Face
 slider:
-  - image: /src/media/pages/pattern-1.webp
+  - image: /src/media/pages/work-1.png
     alt: 'Something'
-    caption: 'or another'
-  - image: /src/media/pages/pattern-2.webp
-    alt: 'Something 2'
-    caption: 'or another 2'
+    caption: 'Work page split layout'
+  - image: /src/media/pages/work-2.png
+    alt: 'Home page layout'
+    caption: 'Home page Hero component layout'
   - image: /src/media/pages/pattern-3.webp
     alt: 'Something 3'
     caption: 'or another 3'

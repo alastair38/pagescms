@@ -9,19 +9,14 @@ interface Props extends HTMLAttributes<'div'> {
 const { title, description, ...attr } = Astro.props;
 ---
 
-<div
-  class:list={[
-    'col-span-full max-w-content flex flex-col py-2 px-6',
-    attr.class,
-  ]}
->
+<div class:list={['col-span-full flex flex-col py-2 px-6', attr.class]}>
   <details class="group">
     <summary
-      class="flex font-mono bg-base-400 w-fit pl-2 pr-3 py-1 rounded-full text-write-300 my-3 marker:hidden leading-normal cursor-pointer items-center gap-2 group"
+      class="flex font-mono bg-base-muted w-fit pl-2 pr-3 py-1 rounded-full text-write my-3 marker:hidden leading-normal cursor-pointer items-center gap-2 group"
     >
       <svg
         aria-hidden="true"
-        class="-mr-1 h-5 w-5 fill-current opacity-75 transition-transform duration-300 group-open:fill-highlight-300 group-open:rotate-90"
+        class="-mr-1 h-5 w-5 fill-current opacity-75 transition-transform duration-300 group-open:fill-highlight group-open:rotate-90"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 20 20"
       >
@@ -33,15 +28,15 @@ const { title, description, ...attr } = Astro.props;
     <div class="px-2 pb-2">
       {
         description && (
-          <p class="text-write-300 mt-3 mb-4 flex divide-x font-mono text-sm">
+          <p class="text-write mt-3 mb-4 flex divide-x font-mono text-sm">
             {description}
           </p>
         )
       }
-      <ul class="flex gap-3 items-center">
+      <ul class="flex gap-3 items-center text-sm">
         <li>
           <label
-            class="flex cursor-pointer w-fit px-3 has-checked:outline-base-400 has-checked:bg-base-300 transition-colors duration-200 outline outline-offset-2 outline-transparent py-1 rounded-sm bg-base-400 text-write-300 col-span-full items-center"
+            class="flex cursor-pointer w-fit px-3 has-checked:outline-base-muted has-checked:bg-base-muted transition-colors duration-200 outline outline-offset-2 outline-transparent py-1 rounded-sm bg-base-muted text-write col-span-full items-center"
           >
             Content
             <input
@@ -55,7 +50,7 @@ const { title, description, ...attr } = Astro.props;
 
         <li>
           <label
-            class="flex cursor-pointer w-fit px-3 has-checked:outline-base-400 has-checked:bg-base-300 transition-colors duration-200 outline outline-offset-2 outline-transparent py-1 rounded-sm bg-base-400 text-write-300 col-span-full items-center"
+            class="flex cursor-pointer w-fit px-3 has-checked:outline-base-muted has-checked:bg-base-muted transition-colors duration-200 outline outline-offset-2 outline-transparent py-1 rounded-sm bg-base-muted text-write col-span-full items-center"
           >
             Media
             <input
@@ -69,7 +64,7 @@ const { title, description, ...attr } = Astro.props;
 
         <li>
           <label
-            class="flex cursor-pointer w-fit px-3 has-checked:outline-base-400 has-checked:bg-base-300 transition-colors duration-200 outline outline-offset-2 outline-transparent py-1 rounded-sm bg-base-400 text-write-300 col-span-full items-center"
+            class="flex cursor-pointer w-fit px-3 has-checked:outline-base-muted has-checked:bg-base-muted transition-colors duration-200 outline outline-offset-2 outline-transparent py-1 rounded-sm bg-base-muted text-write col-span-full items-center"
           >
             Vendor free
             <input

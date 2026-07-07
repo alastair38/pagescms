@@ -3,6 +3,7 @@ import hero from '@components/blocks/Hero.astro';
 import NoBlock from '@components/NoBlock.astro';
 import richText from '@components/blocks/RichText.astro';
 import infoBlock from '@components/blocks/InfoBlock.astro';
+import process from '@components/blocks/Process.astro';
 import relatedContent from '@components/blocks/RelatedContent.astro';
 
 import tabs from '@components/blocks/Tabs.astro';
@@ -24,6 +25,7 @@ export const mapping: Mapping = {
   imageGallery,
   infoBlock,
   latestWork,
+  process,
   relatedContent,
   richText,
   tabs,

@@ -9,9 +9,9 @@ import ArticleWrapper from '@components/layouts/ArticleWrapper.astro';
 
 const home = await getEntry('home', 'index');
 const seo = {
-  title: home?.data.title,
-  description: home?.data.description,
-  image: home?.data.featuredImage?.image,
+  title: home?.data.meta?.title,
+  description: home?.data.meta?.description,
+  image: home?.data.meta?.featuredImage?.image,
 };
 ---
 

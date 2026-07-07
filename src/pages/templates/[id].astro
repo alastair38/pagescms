@@ -14,6 +14,9 @@ import {
   type CollectionEntry,
   type ReferenceDataEntry,
 } from 'astro:content';
+import Heading2 from '@components/headings/Heading2.astro';
+import { Icon } from 'astro-icon/components';
+import Pricing from '@components/utilities/Pricing.astro';
 // 1. Generate a new path for every collection entry
 export async function getStaticPaths() {
   const posts = await getCollection('template');
@@ -26,7 +29,7 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 
 // const authorsArr: ReferenceDataEntry<'authors'>[] | undefined =
-//   post.data.meta.authors?.map(author => {
+//   post.data.meta?.meta.authors?.map(author => {
 //     return {
 //       collection: 'authors',
 //       id: author.id.substring(author.id.lastIndexOf('/') + 1).split('.')[0],
@@ -37,39 +40,46 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 
 const seo = {
-  title: post?.data.title,
-  description: post?.data.description,
-  image: post?.data.featuredImage?.image,
+  title: post?.data.meta?.title,
+  description: post?.data.meta?.description,
+  image: post?.data.meta?.featuredImage?.image,
 };
 ---
 
 <Layout seo={seo}>
   <ArticleWrapper>
     <PageHeader
-      title={post.data.title}
+      title={post.data.meta?.title || ''}
       byline={post.collection}
-      details={post.data.details}
+      details={post.data.meta?.details}
     />
 
     <ContentWrapper>
       <Content slot="content" />
 
-      <aside slot="aside">
+      {
+        post.data.meta?.pricing && (
+          <Pricing pricing={post.data.meta?.pricing} slot="content" />
+        )
+      }
+
+      <ArticleAside slot="aside">
         {
-          post.data.featuredImage && (
+          post.data.meta?.featuredImage && (
             <FeaturedImage
               transition:name={`${post.id}`}
-              image={post.data.featuredImage.image}
-              altText={post.data.featuredImage?.alt || ''}
-              width={post.data.featuredImage.image.width}
-              height={post.data.featuredImage.image.height}
-              caption={post.data.featuredImage.caption}
+              image={post.data.meta?.featuredImage.image}
+              altText={post.data.meta?.featuredImage?.alt || ''}
+              width={post.data.meta?.featuredImage.image.width}
+              height={post.data.meta?.featuredImage.image.height}
+              caption={post.data.meta?.featuredImage.caption}
+              border={true}
             />
           )
         }
 
-        <Slider images={post.data.slider} />
-      </aside>
+        {post.data.slider && <Slider images={post.data.slider} />}
+      </ArticleAside>
     </ContentWrapper>
   </ArticleWrapper>
 </Layout>

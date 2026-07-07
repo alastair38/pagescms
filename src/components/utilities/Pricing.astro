@@ -1,0 +1,90 @@
+---
+import Heading2 from '@components/headings/Heading2.astro';
+import type { HTMLAttributes } from 'astro/types';
+import { getEntry } from 'astro:content';
+
+interface Props extends HTMLAttributes<'div'> {
+  pricing: {
+    template?: number;
+    setup?: number;
+    addons?: number;
+    support?: number;
+  };
+}
+
+const { pricing, ...attr } = Astro.props;
+
+const entry = await getEntry('pricing', 'pricing');
+const data = entry?.data;
+---
+
+<div class:list={['space-y-6', attr.class]} {...attr}>
+  <div
+    class="pb-4 text-base-muted col-span-full border-b-narrow border-border bloc-outline"
+  >
+    <Heading2 size="large" class="tracking-wide writing-mode-vertical">
+      Pricing
+    </Heading2>
+  </div>
+  <ul class="flex flex-col divide-y divide-border font-mono jcenter gap-4">
+    {
+      pricing.template && data?.template && (
+        <li class="flex flex-col pb-4">
+          <span class="text-write">{data.template.heading}</span>
+          {data.template.description && (
+            <p class="text-sm mt-3 mb-4">{data.template.description}</p>
+          )}
+
+          <span class="flex px-2 w-fit rounded-full bg-highlight-strong items-center gap-2 text-base-default">
+            {`£${pricing.template}`}
+          </span>
+        </li>
+      )
+    }
+
+    {
+      pricing.setup && data?.setup && (
+        <li class="flex flex-col pb-4">
+          <span class="text-write">{data.setup.heading}</span>
+          {data.setup.description && (
+            <p class="text-sm mt-3 mb-4">{data.setup.description}</p>
+          )}
+
+          <span class="flex px-2 w-fit rounded-full bg-highlight-strong items-center gap-2 text-base-default">
+            {`£${pricing.setup}`}
+          </span>
+        </li>
+      )
+    }
+
+    {
+      pricing.addons && data?.addons && (
+        <li class="flex flex-col pb-4">
+          <span class="text-write">{data.addons.heading}</span>
+          {data.addons.description && (
+            <p class="text-sm mt-3 mb-4">{data.addons.description}</p>
+          )}
+
+          <span class="flex px-2 w-fit rounded-full bg-highlight-strong items-center gap-2 text-base-default">
+            {`£${pricing.addons}`}
+          </span>
+        </li>
+      )
+    }
+
+    {
+      pricing.support && data?.support && (
+        <li class="flex flex-col pb-4">
+          <span class="text-write">{data.support.heading}</span>
+          {data.support.description && (
+            <p class="text-sm mt-3 mb-4">{data.support.description}</p>
+          )}
+
+          <span class="flex px-2 w-fit rounded-full bg-highlight-strong items-center gap-2 text-base-default">
+            {`£${pricing.support}`}
+          </span>
+        </li>
+      )
+    }
+  </ul>
+</div>

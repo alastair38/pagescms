@@ -5,6 +5,9 @@ import GridItem from '@components/layouts/GridItem.astro';
 import { getCollection } from 'astro:content';
 import IconSpacer from '@components/utilities/IconSpacer.astro';
 import BlockWrapper from '@components/layouts/BlockWrapper.astro';
+import Heading2 from '@components/headings/Heading2.astro';
+import BlockHeader from '@components/layouts/BlockHeader.astro';
+import Description from '@components/layouts/Description.astro';
 
 const {
   __typename,
@@ -14,29 +17,32 @@ const {
 } = Astro.props as LatestContent;
 
 const items = await getCollection('work');
+
+const contentItems = items.slice(0, itemsToShow);
 ---
 
-<BlockWrapper data-block={__typename} class="text-base-400">
-  <IconSpacer />
+<BlockWrapper data-block={__typename}>
+  <IconSpacer border="bottom" />
 
   <GridWrapper data-component="grid" data-store={JSON.stringify(items)}>
-    <div
-      class="bg-base-500 col-span-full font-mono text-lg px-6 pt-12 pb-2 text-write-300 items-center"
-    >
-      <h2>{title}</h2>
+    <BlockHeader>
+      <Heading2 style="mono" size="small" class="mb-2">
+        {title}
+      </Heading2>
 
-      {description && <p class="text-sm mt-2 max-w-content">{description}</p>}
-    </div>
+      {description && <Description>{description}</Description>}
+    </BlockHeader>
 
     {
-      items && items.length > 0
-        ? items.map(item => (
+      contentItems && contentItems.length > 0
+        ? contentItems.map(item => (
             <GridItem
               item={item}
               data-id={item.id}
               data-component="grid-item"
               data-visible="true"
               class="duration-200 transition-all"
+              heading={title ? true : false}
             />
           ))
         : '<p>No content yet</p>'

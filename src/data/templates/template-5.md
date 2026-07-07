@@ -1,6 +1,6 @@
 ---
 meta:
-  title: Northwalk 3
+  title: Template 5
   description: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet ducimus non sit excepturi ullam officia dolor reiciendis corporis doloribus? Tempore facere dicta expedita quaerat. Vero animi sed corrupti porro deserunt?
   details:
     framework: Astro
@@ -8,10 +8,15 @@ meta:
     contentUpdates: false
     vendorFree: true
     mediaHandling: false
+    versions: 2
+  pricing:
+    template: 200
+    setup: 100
+    support: 50
   featuredImage:
-    image: /src/media/pages/pattern-3.webp
+    image: /src/media/pages/pattern-1.webp
     alt: Face
-# title: Northwalk 3
+# title: Template 4
 # description: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet ducimus non sit excepturi ullam officia dolor reiciendis corporis doloribus? Tempore facere dicta expedita quaerat. Vero animi sed corrupti porro deserunt?
 # details:
 #   framework: Astro
@@ -20,7 +25,7 @@ meta:
 #   vendorFree: true
 #   mediaHandling: false
 # featuredImage:
-#   image: /src/media/pages/pattern-3.webp
+#   image: /src/media/pages/pattern-1.webp
 #   alt: Face
 ---
 

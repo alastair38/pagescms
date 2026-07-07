@@ -5,16 +5,23 @@ import type { CollectionEntry } from 'astro:content';
 import Heading2 from '@components/headings/Heading2.astro';
 import Heading3 from '@components/headings/Heading3.astro';
 import Description from '@components/layouts/Description.astro';
+import Link from '@components/utilities/Link.astro';
 
 interface Props {
   item: CollectionEntry<'person'>;
   heading?: boolean;
+  singleItem?: boolean;
 }
 
-const { item, heading } = Astro.props;
+const { item, heading, singleItem = false } = Astro.props;
 ---
 
-<div class="bg-base-500 flex flex-col p-6 text-write-300 block-outline">
+<div
+  class:list={[
+    'bg-base-default flex flex-col p-6 text-write outline-[0.05em] outline-border',
+    singleItem && 'border-r-narrow border-border',
+  ]}
+>
   {
     item.data.featuredImage && (
       <Picture
@@ -50,16 +57,13 @@ const { item, heading } = Astro.props;
   }
 
   <div class="flex font-mono gap-3 mt-2">
-    <RelativeLink
+    <Link
       id={item.id}
       type={item.collection}
       label="View profile"
-      variant="outline"
+      variant="striped"
       icon={true}
       size="small"
     />
-
-    <div aria-hidden="true" class="striped-background flex-1 text-base-400">
-    </div>
   </div>
 </div>
