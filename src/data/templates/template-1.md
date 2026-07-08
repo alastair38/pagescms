@@ -10,9 +10,9 @@ meta:
     mediaHandling: true
     versions: 2
   pricing:
-    template: 250
+    template: 500
     addons: 40
-    setup: 200
+    setup: 300
     support: 50
   featuredImage:
     image: /src/media/pages/pattern-1.webp

@@ -3,8 +3,8 @@ import { currentPage, urlBuilder } from '@utils/formatters';
 import { Icon } from 'astro-icon/components';
 import type { HTMLAttributes } from 'astro/types';
 import type { CollectionEntry } from 'astro:content';
-import { getEntry } from 'astro:content';
-
+import PagefindConfig from 'astro-pagefind/components/PagefindConfig.astro';
+import Search from 'astro-pagefind/components/Search.astro';
 interface Props extends HTMLAttributes<'header'> {
   settings: CollectionEntry<'settings'>;
 }
@@ -16,10 +16,11 @@ const { settings, ...attr } = Astro.props as Props;
 const siteUrl = settings?.data.site?.url!;
 ---
 
-<header class="p-4 flex items-center" {...attr}>
-  <nav
-    class="max-w-7xl flex items-center justify-between lg:px-4 mx-auto w-full text-write"
-  >
+<header
+  class="p-4 max-w-7xl mx-auto flex gap-4 md:gap-10 items-center"
+  {...attr}
+>
+  <nav class="flex items-center justify-between mx-auto w-full text-write">
     <a class="font-black flex items-center gap-1 lowercase text-2xl" href="/">
       <Icon name="brand/logo" />
       {
@@ -28,6 +29,12 @@ const siteUrl = settings?.data.site?.url!;
           : settings.data.site.name
       }</a
     >
+
+    <!-- <Search
+      instance="search"
+      className="pagefind-ui"
+      searchboxOptions={{ placeholder: 'search' }}
+    /> -->
 
     <button
       class="h-8 w-8 z-50 group lg:hidden items-center cursor-pointer aria-[expanded=true]:rotate-90 transition-transform duration-200 rounded-full textwhite"
@@ -66,23 +73,31 @@ const siteUrl = settings?.data.site?.url!;
       }
     </div>
   </nav>
+  <PagefindConfig />
+
+  <pagefind-searchbox></pagefind-searchbox>
+  <!-- <pagefind-modal-trigger></pagefind-modal-trigger>
+  <pagefind-modal></pagefind-modal> -->
 </header>
 
 <script is:inline>
-  const navBtn = document.querySelector('[data-type="nav-btn"]');
-  const mainNav = document.querySelector('[data-type="main-nav"]');
+  document.addEventListener('astro:page-load', () => {
+    // This runs on first page load and after every navigation.
+    const navBtn = document.querySelector('[data-type="nav-btn"]');
+    const mainNav = document.querySelector('[data-type="main-nav"]');
 
-  const initialExpanded = false;
+    const initialExpanded = false;
 
-  navBtn?.addEventListener('click', e => {
-    const isExpanded = navBtn.getAttribute('aria-expanded');
+    navBtn?.addEventListener('click', e => {
+      const isExpanded = navBtn.getAttribute('aria-expanded');
 
-    if (isExpanded === 'false') {
-      navBtn.setAttribute('aria-expanded', true);
-      mainNav.classList.remove('hidden');
-    } else {
-      navBtn.setAttribute('aria-expanded', false);
-      mainNav.classList.add('hidden');
-    }
+      if (isExpanded === 'false') {
+        navBtn.setAttribute('aria-expanded', true);
+        mainNav.classList.remove('hidden');
+      } else {
+        navBtn.setAttribute('aria-expanded', false);
+        mainNav.classList.add('hidden');
+      }
+    });
   });
 </script>

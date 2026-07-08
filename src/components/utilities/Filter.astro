@@ -12,11 +12,11 @@ const { title, description, ...attr } = Astro.props;
 <div class:list={['col-span-full flex flex-col py-2 px-6', attr.class]}>
   <details class="group">
     <summary
-      class="flex font-mono bg-base-muted w-fit pl-2 pr-3 py-1 rounded-full text-write my-3 marker:hidden leading-normal cursor-pointer items-center gap-2 group"
+      class="flex font-mono bg-base-muted w-fit pl-2 pr-3 py-1 rounded-full text-write my-3 marker:hidden leading-normal cursor-pointer items-center gap-1 group"
     >
       <svg
         aria-hidden="true"
-        class="-mr-1 h-5 w-5 fill-current opacity-75 transition-transform duration-300 group-open:fill-highlight group-open:rotate-90"
+        class="h-5 w-5 transition-transform duration-300 fill-highlight group-open:rotate-90"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 20 20"
       >
@@ -25,7 +25,7 @@ const { title, description, ...attr } = Astro.props;
         ></path>
       </svg>{title}</summary
     >
-    <div class="px-2 pb-2">
+    <div class="px-2 pt-4 pb-2 flex flex-col gap-4">
       {
         description && (
           <p class="text-write mt-3 mb-4 flex divide-x font-mono text-sm">
@@ -33,10 +33,10 @@ const { title, description, ...attr } = Astro.props;
           </p>
         )
       }
-      <ul class="flex gap-3 items-center text-sm">
+      <ul class="flex gap-3 mt-4 items-center text-sm">
         <li>
           <label
-            class="flex cursor-pointer w-fit px-3 has-checked:outline-base-muted has-checked:bg-base-muted transition-colors duration-200 outline outline-offset-2 outline-transparent py-1 rounded-sm bg-base-muted text-write col-span-full items-center"
+            class="flex cursor-pointer w-fit px-3 has-checked:outline-write-muted has-checked:bg-base-muted transition-colors duration-200 outline outline-transparent outline-offset-2 py-1 rounded-sm bg-base-muted text-write col-span-full items-center"
           >
             Content
             <input
@@ -50,7 +50,7 @@ const { title, description, ...attr } = Astro.props;
 
         <li>
           <label
-            class="flex cursor-pointer w-fit px-3 has-checked:outline-base-muted has-checked:bg-base-muted transition-colors duration-200 outline outline-offset-2 outline-transparent py-1 rounded-sm bg-base-muted text-write col-span-full items-center"
+            class="flex cursor-pointer w-fit px-3 has-checked:outline-write-muted has-checked:bg-base-muted transition-colors duration-200 outline outline-offset-2 outline-transparent py-1 rounded-sm bg-base-muted text-write col-span-full items-center"
           >
             Media
             <input
@@ -64,7 +64,7 @@ const { title, description, ...attr } = Astro.props;
 
         <li>
           <label
-            class="flex cursor-pointer w-fit px-3 has-checked:outline-base-muted has-checked:bg-base-muted transition-colors duration-200 outline outline-offset-2 outline-transparent py-1 rounded-sm bg-base-muted text-write col-span-full items-center"
+            class="flex cursor-pointer w-fit px-3 has-checked:outline-write-muted has-checked:bg-base-muted transition-colors duration-200 outline outline-offset-2 outline-transparent py-1 rounded-sm bg-base-muted text-write col-span-full items-center"
           >
             Vendor free
             <input
@@ -79,3 +79,37 @@ const { title, description, ...attr } = Astro.props;
     </div>
   </details>
 </div>
+
+<style>
+  :root {
+    interpolate-size: allow-keywords;
+  }
+
+  details {
+    overflow: hidden;
+  }
+
+  details,
+  summary {
+    margin-block-end: 0;
+  }
+
+  details * {
+    margin: 0;
+  }
+
+  /* don't add margin/padding to this, add it to the actual
+   stuff inside the details content */
+  details::details-content {
+    block-size: 0;
+    transition:
+      block-size 200ms,
+      content-visibility 200ms;
+    transition-behavior: allow-discrete;
+    transition-timing-function: ease-in-out;
+  }
+
+  details:open::details-content {
+    block-size: auto;
+  }
+</style>

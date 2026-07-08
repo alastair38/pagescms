@@ -11,6 +11,7 @@ site:
   
   # 'amber','emerald','indigo','neutral-cyan','neutral-indigo','neutral-pink','neutral-purple','neutral-red','neutral-teal','pink','purple','teal','light','dark','auto',
   duotone: false
+  transitions: true
 navigation:
   menuLinks:
     - type: archive

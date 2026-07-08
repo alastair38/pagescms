@@ -2,8 +2,7 @@
 import { defineConfig, fontProviders } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import icon from 'astro-icon';
-import og from 'astro-og';
-
+import pagefind from 'astro-pagefind';
 // https://astro.build/config
 export default defineConfig({
   vite: {
@@ -40,5 +39,5 @@ export default defineConfig({
     remotePatterns: [{ pathname: 'http://localhost:4321/src/media/blog/*' }],
   },
 
-  integrations: [icon(), og()],
+  integrations: [icon(), pagefind()],
 });

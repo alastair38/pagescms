@@ -1,10 +1,11 @@
 ---
 meta:
-  title: Northwalk 2
-  description: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet ducimus non sit excepturi ullam officia dolor reiciendis corporis doloribus? Tempore facere dicta expedita quaerat. Vero animi sed corrupti porro deserunt?
+  title: Rent-l
+  description: Equipment rental with built-in payment gateway, inventory and order management
   details:
-    framework: Astro
-    cms: GitHub
+    framework: Nuxt
+    cms: Nuxt Content
+    database: PostgreSQL
     contentUpdates: true
     vendorFree: true
     mediaHandling: true
@@ -12,18 +13,6 @@ meta:
   featuredImage:
     image: /src/media/pages/pattern-4.webp
     alt: Face
-# title: Northwalk 2
-# description: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet ducimus non sit excepturi ullam officia dolor reiciendis corporis doloribus? Tempore facere dicta expedita quaerat. Vero animi sed corrupti porro deserunt?
-# details:
-#   framework: Nuxt
-#   cms: Sanity
-#   contentUpdates: true
-#   vendorFree: false
-#   mediaHandling: true
-#   versions: 3
-# featuredImage:
-#   image: /src/media/pages/pattern-4.webp
-#   alt: Face
 ---
 
 This is the simplest, most elegant tech 'stack' we provide for building perfomant, future-proof websites. With the Astro framework taking care of the optimisations, content lives in markdown text files which are versioned and live as part of the website's GitHub repository.

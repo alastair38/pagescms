@@ -41,6 +41,8 @@ const metaData = {
   ogType: 'website',
   url: Astro.url,
 };
+
+console.log('Head', settings.data.site.transitions);
 ---
 
 <head {...attr}>
@@ -75,5 +77,5 @@ const metaData = {
   <meta name="twitter:image" content={metaData.image} />
   <meta name="twitter:image:alt" content={metaData.imageAlt} />
   <meta name="twitter:domain" content={Astro.url.origin} />
-  <ClientRouter />
+  {settings.data.site.transitions && <ClientRouter />}
 </head>

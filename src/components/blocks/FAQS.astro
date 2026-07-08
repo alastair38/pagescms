@@ -101,96 +101,75 @@ const { __typename, title, description, sections } = Astro.props as FAQs;
   details:open::details-content {
     block-size: auto;
   }
-  /* :root {
-    interpolate-size: allow-keywords;
-  }
-
-  details::details-content {
-    max-height: 0;
-    transition:
-      
-      height 100ms,
-      
-
-    transition-behavior: allow-discrete;
-  }
-
-  details[open]::details-content {
-    max-height: 1000px;
-    transition:
-     
-      max-height 300ms,
-      
-
-    transition-behavior: allow-discrete;
-  } */
 </style>
 
 <script is:inline>
-  let activedetailValue = 0;
+  document.addEventListener('astro:page-load', () => {
+    let activedetailValue = 0;
 
-  const details = document.querySelectorAll('details');
-  const detailsLength = details.length;
-  // const panels = document.querySelectorAll('[role="detailpanel"]');
+    const details = document.querySelectorAll('details');
+    const detailsLength = details.length;
+    // const panels = document.querySelectorAll('[role="detailpanel"]');
 
-  function setDetailsState(detailNo, e) {
-    details.forEach(detail => {
-      if (detail.id === e.target.id) {
-        details[detailNo].setAttribute('open', false);
-      } else {
-        e.target.setAttribute('open', true);
-      }
-      details[detailNo].focus();
-    });
-  }
-
-  function keyboardNav(e) {
-    const detailId = e.target.id.split('-');
-    let detailNo = Number(detailId[1]);
-
-    switch (e.keyCode) {
-      case 37:
-        if (detailNo === 0) {
-          detailNo = detailsLength - 1;
-        } else {
-          detailNo = detailNo - 1;
-        }
-
-        setDetailsState(detailNo, e);
-
-        break;
-      case 39:
-        if (detailNo + 1 === detailsLength) {
-          detailNo = 0;
-        } else {
-          detailNo = detailNo + 1;
-        }
-
-        setDetailsState(detailNo, e);
-
-        break;
-    }
-  }
-
-  details.forEach(detail => {
-    detail.addEventListener('keydown', e => {
-      keyboardNav(e);
-    });
-    detail.addEventListener('click', e => {
+    function setDetailsState(detailNo, e) {
       details.forEach(detail => {
-        if (detail.id !== e.target.getAttribute('data-id')) {
-          detail.open = false;
+        if (detail.id === e.target.id) {
+          details[detailNo].setAttribute('open', false);
+        } else {
+          e.target.setAttribute('open', true);
         }
+        details[detailNo].focus();
       });
+    }
 
-      // panels.forEach(panel => {
-      //   const labelledBy = panel.getAttribute('aria-labelledby');
-      //   if (labelledBy === detail.id) {
-      //     panel.dataset.active = true;
-      //   } else {
-      //     panel.dataset.active = false;
-      //   }
-      // });
+    function keyboardNav(e) {
+      const detailId = e.target.id.split('-');
+      let detailNo = Number(detailId[1]);
+
+      switch (e.keyCode) {
+        case 37:
+          if (detailNo === 0) {
+            detailNo = detailsLength - 1;
+          } else {
+            detailNo = detailNo - 1;
+          }
+
+          setDetailsState(detailNo, e);
+
+          break;
+        case 39:
+          if (detailNo + 1 === detailsLength) {
+            detailNo = 0;
+          } else {
+            detailNo = detailNo + 1;
+          }
+
+          setDetailsState(detailNo, e);
+
+          break;
+      }
+    }
+
+    details.forEach(detail => {
+      detail.addEventListener('keydown', e => {
+        keyboardNav(e);
+      });
+      detail.addEventListener('click', e => {
+        details.forEach(detail => {
+          if (detail.id !== e.target.getAttribute('data-id')) {
+            detail.open = false;
+          }
+        });
+
+        // panels.forEach(panel => {
+        //   const labelledBy = panel.getAttribute('aria-labelledby');
+        //   if (labelledBy === detail.id) {
+        //     panel.dataset.active = true;
+        //   } else {
+        //     panel.dataset.active = false;
+        //   }
+        // });
+      });
     });
   });
 </script>

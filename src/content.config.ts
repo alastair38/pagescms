@@ -665,6 +665,7 @@ const settings = defineCollection({
           ])
           .default('emerald'),
         duotone: z.boolean().default(true),
+        transitions: z.boolean().default(true),
       }),
       navigation: z
         .object({

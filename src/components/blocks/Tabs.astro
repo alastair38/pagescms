@@ -32,10 +32,10 @@ const { __typename, title, description, sections } = Astro.props as Tabs;
         {
           sections &&
             sections.map((tab, i) => (
-              <li class="list-none border border-border py-1 rounded-md text-base-muted">
+              <li class="list-none ">
                 <a
                   id={`tab-${i}`}
-                  class="px-3 py-1 rounded-md text-write text-sm md:text-base outline-2 outline-transparent duration-200 transition-colors  aria-selected:outline-highlight/70"
+                  class="px-3 py-1 border border-border py-1 rounded-md text-base-muted rounded-sm text-write text-sm md:text-base outline-2 outline-transparent duration-200 transition-colors aria-selected:outline-highlight/70"
                   role="tab"
                   tabindex={i === 0 ? null : -1}
                   aria-selected={i === 0 ? true : false}
@@ -74,76 +74,78 @@ const { __typename, title, description, sections } = Astro.props as Tabs;
 </style>
 
 <script is:inline>
-  let activeTabValue = 0;
+  document.addEventListener('astro:page-load', () => {
+    let activeTabValue = 0;
 
-  const tabs = document.querySelectorAll('a[role="tab"]');
-  const tabsLength = tabs.length;
-  const panels = document.querySelectorAll('[role="tabpanel"]');
+    const tabs = document.querySelectorAll('a[role="tab"]');
+    const tabsLength = tabs.length;
+    const panels = document.querySelectorAll('[role="tabpanel"]');
 
-  function setTabIndex(tabNo, e) {
+    function setTabIndex(tabNo, e) {
+      tabs.forEach(tab => {
+        if (tab.id === `tab-${tabNo}`) {
+          tabs[tabNo].setAttribute('tabindex', null);
+          tabs[tabNo].setAttribute('aria-selected', true);
+          panels[tabNo].dataset.active = 'true';
+        } else {
+          e.target.setAttribute('tabindex', -1);
+          e.target.setAttribute('aria-selected', false);
+          panels.forEach(panel => {
+            if (panel.getAttribute('aria-labelledby') === e.target.id) {
+              panel.dataset.active = 'false';
+            }
+          });
+        }
+        tabs[tabNo].focus();
+      });
+    }
+
+    function keyboardNav(e) {
+      const tabId = e.target.id.split('-');
+      let tabNo = Number(tabId[1]);
+
+      switch (e.keyCode) {
+        case 37:
+          if (tabNo === 0) {
+            tabNo = tabsLength - 1;
+          } else {
+            tabNo = tabNo - 1;
+          }
+
+          setTabIndex(tabNo, e);
+
+          break;
+        case 39:
+          if (tabNo + 1 === tabsLength) {
+            tabNo = 0;
+          } else {
+            tabNo = tabNo + 1;
+          }
+
+          setTabIndex(tabNo, e);
+
+          break;
+      }
+    }
+
     tabs.forEach(tab => {
-      if (tab.id === `tab-${tabNo}`) {
-        tabs[tabNo].setAttribute('tabindex', null);
-        tabs[tabNo].setAttribute('aria-selected', true);
-        panels[tabNo].dataset.active = 'true';
-      } else {
-        e.target.setAttribute('tabindex', -1);
-        e.target.setAttribute('aria-selected', false);
+      tab.addEventListener('keydown', e => {
+        keyboardNav(e);
+      });
+      tab.addEventListener('click', e => {
+        tabs.forEach(tab => {
+          e.preventDefault();
+          tab.ariaSelected = false;
+        });
+        e.target.ariaSelected = true;
         panels.forEach(panel => {
-          if (panel.getAttribute('aria-labelledby') === e.target.id) {
-            panel.dataset.active = 'false';
+          const labelledBy = panel.getAttribute('aria-labelledby');
+          if (labelledBy === tab.id) {
+            panel.dataset.active = true;
+          } else {
+            panel.dataset.active = false;
           }
         });
-      }
-      tabs[tabNo].focus();
-    });
-  }
-
-  function keyboardNav(e) {
-    const tabId = e.target.id.split('-');
-    let tabNo = Number(tabId[1]);
-
-    switch (e.keyCode) {
-      case 37:
-        if (tabNo === 0) {
-          tabNo = tabsLength - 1;
-        } else {
-          tabNo = tabNo - 1;
-        }
-
-        setTabIndex(tabNo, e);
-
-        break;
-      case 39:
-        if (tabNo + 1 === tabsLength) {
-          tabNo = 0;
-        } else {
-          tabNo = tabNo + 1;
-        }
-
-        setTabIndex(tabNo, e);
-
-        break;
-    }
-  }
-
-  tabs.forEach(tab => {
-    tab.addEventListener('keydown', e => {
-      keyboardNav(e);
-    });
-    tab.addEventListener('click', e => {
-      tabs.forEach(tab => {
-        e.preventDefault();
-        tab.ariaSelected = false;
-      });
-      e.target.ariaSelected = true;
-      panels.forEach(panel => {
-        const labelledBy = panel.getAttribute('aria-labelledby');
-        if (labelledBy === tab.id) {
-          panel.dataset.active = true;
-        } else {
-          panel.dataset.active = false;
-        }
       });
     });
   });
