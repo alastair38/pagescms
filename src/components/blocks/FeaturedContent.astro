@@ -7,6 +7,8 @@ import Heading3 from '@components/headings/Heading3.astro';
 import Description from '@components/layouts/Description.astro';
 import BlockWrapper from '@components/layouts/BlockWrapper.astro';
 import BlockHeader from '@components/layouts/BlockHeader.astro';
+import FeaturedImage from '@components/FeaturedImage.astro';
+import { getContentId } from '@utils/formatters';
 
 const { __typename, title, description, sections } =
   Astro.props as FeaturedContent;
@@ -27,18 +29,29 @@ const { __typename, title, description, sections } =
         {sections.map((section, i) => (
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 p-3 md:p-6">
             {section.image && (
-              <Picture
-                src={section.image.src}
-                quality={100}
-                format="webp"
-                loading="eager"
-                style="object-fit: cover;"
-                class:list={[
-                  'aspect-square w-full rounded-xs max-h[300px] opacity-75 duration-500 animate-slight-fade  md:max-h[500px] object-cover',
-                  i % 2 === 0 ? 'order-first' : 'order-last',
-                ]}
-                alt={section.image.alt || ''}
+              <FeaturedImage
+                transition:name={
+                  section.links && getContentId(section.links[0].link)
+                }
+                image={section.image.src}
+                altText={section.image.alt || ''}
+                width={section.image.src.width}
+                height={section.image.src.height}
+                border={true}
               />
+              // <Picture
+              //   transition:name="bert"
+              //   src={section.image.src}
+              //   quality={100}
+              //   format="webp"
+              //   loading="eager"
+              //   style="object-fit: cover;"
+              //   class:list={[
+              //     'aspect-square w-full rounded-xs max-h[300px] opacity-75 duration-500 animate-slight-fade  md:max-h[500px] object-cover',
+              //     i % 2 === 0 ? 'order-first' : 'order-last',
+              //   ]}
+              //   alt={section.image.alt || ''}
+              // />
             )}
 
             <div

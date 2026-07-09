@@ -51,6 +51,10 @@ export const urlBuilderFromId = (
   }
 };
 
+export const getContentId = (value: string) => {
+  return value.split('/').pop()?.split('.')[0];
+};
+
 export const currentPage = (path: string, link: string) => {
   const linkPath = link.split('/').pop()?.split('.')[0];
   const currentPath = path.split('/').pop();

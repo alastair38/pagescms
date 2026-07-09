@@ -11,7 +11,7 @@ export default defineConfig({
   experimental: {
     fonts: [
       {
-        name: 'Inter',
+        name: 'Geist Sans',
         cssVariable: '--font-inter',
         provider: fontProviders.fontsource(),
         // Specify weights that are actually used

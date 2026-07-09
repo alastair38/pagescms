@@ -62,7 +62,7 @@ function createRefObj(values: any[]) {
         id: Path.parse(value.link).name,
         collection: value.type,
       };
-    }
+    },
     //value.link.split('/').pop()?.split('.')
   );
 
@@ -107,6 +107,7 @@ const seo = {
           <ArticleAside class="space-y-6" slot="aside">
             {post.data.meta?.featuredImage && (
               <FeaturedImage
+                transition:name={`${post.id}`}
                 image={post.data.meta.featuredImage.image}
                 altText={post.data.meta.featuredImage?.alt || ''}
                 width={post.data.meta.featuredImage.image.width}

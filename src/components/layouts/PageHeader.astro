@@ -73,12 +73,14 @@ const {
             class="flex group text-sm items-center text-write-strong font-mono gap-2"
           >
             {author.data.featuredImage && (
-              <Picture
-                src={author.data.featuredImage?.image!}
-                alt={author.data.featuredImage?.alt || author.data.name}
-                width="45"
-                height="45"
-                class="w-7 outline-2 outline-transparent group-hover:grayscale-100 group-hover:outline-base-muted outline-offset-2 h-7 rounded-full object-top object-cover"
+              <FeaturedImage
+                transition:name={`${author.id}`}
+                image={author.data.featuredImage?.image}
+                altText={author.data.featuredImage?.alt || author.data.name}
+                width="100"
+                height="100"
+                variant="avatar"
+                class="outline-2 outline-transparent group-hover:grayscale-100 group-hover:outline-base-muted outline-offset-2 object-top object-cover"
               />
             )}
             <span>{author.data.name}</span>

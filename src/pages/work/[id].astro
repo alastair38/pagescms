@@ -41,6 +41,8 @@ const seo = {
   description: post?.data.meta?.description,
   image: post?.data.meta?.featuredImage?.image,
 };
+
+console.log(post.id);
 ---
 
 <Layout seo={seo}>
@@ -84,19 +86,6 @@ const seo = {
           )
         }
 
-        <!-- {
-          post.data.slider &&
-            post.data.slider.map(slide => (
-              <FeaturedImage
-                slot="content"
-                image={slide.image}
-                altText={slide.alt || ''}
-                width={slide.image.width}
-                height={slide.image.height}
-                caption={slide.caption}
-              />
-            ))
-        } -->
         {post.data.slider && <Slider images={post.data.slider} />}
       </aside>
     </ContentWrapper>

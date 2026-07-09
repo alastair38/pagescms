@@ -39,27 +39,27 @@ contentBlocks:
       - title: Astro + GitHub
         description: Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque ut repellat consectetur os nemo suscipit dolores quae delectus est, doloribus saepe quos quaera.
         image:
-          src: /src/media/pages/pattern-1.webp
-          alt: hi
-        links:
-          - type: work
-            link: /src/work/northwalk-2.md
-      - title: Astro + PagesCMS
-        description: Cumque ut repellat consectetur blanditiis non reprehenderit culpa dignissimos nemo suscipit dolores quae delectus est, doloribus saepe quos quaerat quisquam distinctio ex.
-        image:
           src: /src/media/pages/pattern-4.webp
           alt: hi
         links:
-          - type: page
-            link: /src/pages/about.md
+          - type: template
+            link: /src/templates/template-1.md
+      - title: Astro + PagesCMS
+        description: Cumque ut repellat consectetur blanditiis non reprehenderit culpa dignissimos nemo suscipit dolores quae delectus est, doloribus saepe quos quaerat quisquam distinctio ex.
+        image:
+          src: /src/media/pages/pattern-1.webp
+          alt: hi
+        links:
+          - type: template
+            link: /src/templates/template-2.md
       - title: Astro + Sanity
         description: Consectetur adipisicing elit cumque ut repellat consectetur blanditiis non reprehenderit culpa dignissimos nemo suscipit dolores quae delectus est.
         image:
           src: /src/media/pages/pattern-2.webp
           alt: hi
         links:
-          - type: page
-            link: /src/pages/about.md
+          - type: template
+            link: /src/templates/template-3.md
   - __typename: process
     title: Getting started
     description: This is the Progess section

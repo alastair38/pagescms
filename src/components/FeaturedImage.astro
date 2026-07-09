@@ -29,11 +29,12 @@ const {
 
 <figure
   class:list={[
-    'w-fit overflow-clip rounded-xs ml-auto  object-cover',
+    'w-fit overflow-clip  ml-auto  object-cover',
     variant === 'rounded' && 'rounded-md shadow-2xl',
-    layout === 'grid' && 'grid grid-cols-2',
-    variant === 'avatar' && 'w-8 h-8 aspect-square rounded-full',
+    layout === 'grid' && 'grid grid-cols-2 rounded-xs',
+    variant === 'avatar' && 'w-8 h-8 aspect-square rounded-full overflow-clip',
     border && 'border border-border p-1',
+    attrs.class,
   ]}
   {...attrs}
 >
@@ -44,7 +45,10 @@ const {
     height={Number(height)}
     width={Number(width)}
     formats={['avif', 'webp']}
-    class="object-cover h-full max-h-[300px] md:max-h-[500px] rounded-xs"
+    class:list={[
+      'object-cover h-full',
+      variant !== 'avatar' && 'max-h-[300px] md:max-h-[500px] rounded-xs',
+    ]}
     alt={altText}
   />
   {
