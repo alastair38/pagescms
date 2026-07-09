@@ -42,22 +42,24 @@ const lastOf = images && images.length - 1;
                   <a
                     class="slide__prev absolute left-2"
                     href={`#slides__${i === 0 ? images.length : i}`}
-                    title="Next"
+                    aria-label="Previous image"
                   >
                     <Icon
                       class="text-3xl text-base-default p-0.5 outline outline-2 transition-colors duration-200 outline-transparent hover:outline-highlight/95 outline-offset-1 focus-visible:outline-highlight/95 bg-highlight/95 rounded-full"
                       name="arrows/left"
+                      aria-hidden="true"
                     />
                   </a>
                   <a
                     class="slide__next absolute right-2"
                     href={`#slides__${lastOf === i ? 1 : i + 2}`}
-                    title="Next"
+                    aria-label="Next image"
                   >
                     {images.length === i && 'True'}
                     <Icon
                       class="text-3xl text-base-default p-0.5 outline outline-2 transition-colors duration-200 outline-transparent hover:outline-highlight/95 outline-offset-1 focus-visible:outline-highlight/95 text-base-default bg-highlight/95 rounded-full"
                       name="arrows/right"
+                      aria-hidden="true"
                     />
                   </a>
                 </div>

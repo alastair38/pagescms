@@ -12,6 +12,7 @@ interface Props extends HTMLAttributes<'figure'> {
   variant?: 'rounded' | 'plain' | 'avatar';
   layout?: 'default' | 'grid';
   border?: boolean;
+  loading?: 'eager' | 'lazy';
 }
 
 const {
@@ -23,6 +24,7 @@ const {
   variant = 'plain',
   layout = 'default',
   border = false,
+  loading = 'eager',
   ...attrs
 } = Astro.props;
 ---
@@ -41,7 +43,7 @@ const {
   <Picture
     src={image}
     quality={100}
-    loading="eager"
+    loading={loading}
     height={Number(height)}
     width={Number(width)}
     formats={['avif', 'webp']}

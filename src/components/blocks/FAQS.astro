@@ -3,19 +3,6 @@ import type { FAQs } from '@customTypes/blocks';
 import Heading2 from '@components/headings/Heading2.astro';
 import Description from '@components/layouts/Description.astro';
 
-// interface Props {
-//   __typename: string;
-//   id: string;
-//   description: string;
-
-//   faqContent: {
-//     title: string;
-//     content: {
-//       html: string;
-//     };
-//   }[];
-// }
-
 const { __typename, title, description, sections } = Astro.props as FAQs;
 ---
 

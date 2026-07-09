@@ -22,7 +22,7 @@ const siteUrl = settings?.data.site?.url!;
 >
   <nav class="flex items-center justify-between mx-auto w-full text-write">
     <a class="font-black flex items-center gap-1 lowercase text-2xl" href="/">
-      <Icon name="brand/logo" />
+      <Icon name="brand/logo" aria-hidden="true" />
       {
         settings.data.site.displayName
           ? settings.data.site.displayName
@@ -43,11 +43,11 @@ const siteUrl = settings?.data.site?.url!;
       aria-controls="main-nav"
     >
       <span class="group-aria-expanded:hidden">
-        <Icon name="actions/menu" class="mx-auto" />
+        <Icon name="actions/menu" class="mx-auto" aria-hidden="true" />
         <span class="sr-only">Menu</span>
       </span>
       <span class="hidden group-aria-[expanded=true]:block">
-        <Icon name="actions/close" class="mx-auto" />
+        <Icon name="actions/close" class="mx-auto" aria-hidden="true" />
         <span class="sr-only">Close</span>
       </span>
     </button>

@@ -50,7 +50,15 @@ const {
   {...attrs}
 >
   {link && link.label ? link.label : label || 'Find out more'}
-  {icon && <Icon class="translate-x-0.5" name="arrows/right-point" />}
+  {
+    icon && (
+      <Icon
+        class="translate-x-0.5"
+        name="arrows/right-point"
+        aria-hidden="true"
+      />
+    )
+  }
 </a>
 {
   variant === 'striped' && (

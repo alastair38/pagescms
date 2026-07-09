@@ -1,18 +1,14 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, getEntry } from 'astro:content';
+
 import Layout from '@layouts/Layout.astro';
-
 import ArticleWrapper from '@components/layouts/ArticleWrapper.astro';
-
 import PageHeader from '@components/layouts/PageHeader.astro';
 import GridWrapper from '@components/layouts/GridWrapper.astro';
-
 import GridItem from '@components/layouts/GridItem.astro';
-import { getEntry } from 'astro:content';
 import Filter from '@components/utilities/Filter.astro';
 
 const workItems = await getCollection('work');
-
 const workPage = await getEntry('archive', 'work');
 
 const seo = {

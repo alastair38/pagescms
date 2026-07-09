@@ -1,11 +1,9 @@
 ---
-import RelativeLink from '@components/utilities/RelativeLink.astro';
-import { Icon } from 'astro-icon/components';
-import { Picture } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 import Description from './Description.astro';
 import Heading2 from '@components/headings/Heading2.astro';
 import Heading3 from '@components/headings/Heading3.astro';
+import FeaturedImage from '@components/FeaturedImage.astro';
 import ContentDetails from './ContentDetails.astro';
 import type { HTMLAttributes } from 'astro/types';
 import Link from '@components/utilities/Link.astro';
@@ -45,15 +43,13 @@ const { item, heading, singleItem = false, ...attr } = Astro.props;
 >
   {
     item.data.meta?.featuredImage && (
-      <Picture
+      <FeaturedImage
         transition:name={`${item.id}`}
-        src={item.data.meta.featuredImage.image}
-        quality={100}
-        format="webp"
+        image={item.data.meta.featuredImage.image}
+        altText={item.data.meta.featuredImage?.alt || ''}
+        width={item.data.meta.featuredImage.image.width}
+        height={item.data.meta.featuredImage.image.height}
         loading="eager"
-        style="object-fit: cover;"
-        class="aspect-square w-full rounded-xs max-h-[300px] md:max-h-[500px] object-cover"
-        alt={item.data.meta.featuredImage.alt || ''}
       />
     )
   }

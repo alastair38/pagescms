@@ -1,6 +1,7 @@
 ---
 import type { Process } from '@customTypes/blocks';
 import Heading2 from '@components/headings/Heading2.astro';
+import Heading3 from '@components/headings/Heading3.astro';
 import Description from '@components/layouts/Description.astro';
 import Link from '@components/utilities/Link.astro';
 import BlockWrapper from '@components/layouts/BlockWrapper.astro';
@@ -45,16 +46,19 @@ const { __typename, title, description, links, sections } =
       )
     }
 
-    <div class="max-w-content prose my-4 md:my-8 text-write">
+    <div class="prose my-4 md:my-8 text-write">
       <ul class="list-none p-0 m-0 flex flex-col">
         {
           sections &&
-            sections.map((faq, i) => (
-              <li id={`detail-${i}`} class="relative group  ">
+            sections.map((process, i) => (
+              <li id={`detail-${i}`} class="relative group">
                 <span class="animate-highlight flex w-9 h-9 text-sm items-center justify-center rounded-full">{`0${i + 1}`}</span>
-                <h3 class="mt-4">{faq.title}</h3>
 
-                <Description>{faq.description} </Description>
+                <Heading3 size="small" class="mt-4">
+                  {process.title}
+                </Heading3>
+
+                <Description>{process.description} </Description>
 
                 {sections.length !== i + 1 && (
                   <div

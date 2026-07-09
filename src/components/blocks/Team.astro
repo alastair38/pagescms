@@ -1,11 +1,9 @@
 ---
-import type { RelatedContent, Team } from '@customTypes/blocks';
-import { urlBuilderFromId } from '@utils/formatters';
-import { Icon } from 'astro-icon/components';
+import type { Team } from '@customTypes/blocks';
+
 import { getEntries, type ReferenceDataEntry } from 'astro:content';
 import Path from 'path';
 import BlockWrapper from '@components/layouts/BlockWrapper.astro';
-import { Picture } from 'astro:assets';
 import GridWrapper from '@components/layouts/GridWrapper.astro';
 import PersonCard from '@components/layouts/PersonCard.astro';
 import Description from '@components/layouts/Description.astro';

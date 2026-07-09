@@ -5,6 +5,7 @@ import { Icon } from 'astro-icon/components';
 import { getEntries, type ReferenceDataEntry } from 'astro:content';
 import Path from 'path';
 import BlockWrapper from '@components/layouts/BlockWrapper.astro';
+import Heading2 from '@components/headings/Heading2.astro';
 
 const {
   __typename,
@@ -30,24 +31,23 @@ const related = await getEntries(
     <BlockWrapper
       tag="aside"
       data-block={__typename}
-      class="p-4 md:p-6 space-y-2 bg-base-muted"
+      class="p-4 md:p-6 space-y-1 bg-base-muted font-mono"
     >
-      <h2 class="col-span-full mb-4 border-b border-b-base-default font-black text-lg md:text-xl">
+      <Heading2 size="small" class="mb-4 border-b border-b-base-default">
         {title}
-      </h2>
+      </Heading2>
 
       {related.map(item => (
         <a
-          class="font-mono flex w-fit group"
+          class="flex items-center group hover:text-write-strong duration-200 transition-colors gap-2"
           href={urlBuilderFromId(item.id, item.collection)}
         >
-          <h3 class="font-black flex items-center group-hover:text-write-strong duration-200 transition-colors gap-2">
-            {item.data.meta?.title && item.data.meta.title}
-            <Icon
-              class="bg-highlight text-base-default transition-transform duration-200 group-hover:translate-x-0.5 rounded-full text-xl p-0.5"
-              name="arrows/right-point"
-            />
-          </h3>
+          {item.data.meta?.title && item.data.meta.title}
+          <Icon
+            class="bg-highlight text-base-default transition-transform duration-200 group-hover:translate-x-0.5 rounded-full text-xl p-0.5"
+            name="arrows/right-point"
+            aria-hidden="true"
+          />
         </a>
       ))}
     </BlockWrapper>
