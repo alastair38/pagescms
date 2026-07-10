@@ -7,6 +7,7 @@ import Layout from '@layouts/Layout.astro';
 import Slider from '@components/Slider.astro';
 
 import { getCollection, render } from 'astro:content';
+import ArticleAside from '@components/layouts/ArticleAside.astro';
 // 1. Generate a new path for every collection entry
 export async function getStaticPaths() {
   const posts = await getCollection('work');
@@ -49,7 +50,7 @@ console.log(post.id);
     <ContentWrapper>
       <Content slot="content" />
 
-      <aside slot="aside">
+      <ArticleAside slot="aside">
         {
           post.data.meta?.featuredImage && (
             <FeaturedImage
@@ -66,7 +67,7 @@ console.log(post.id);
         }
 
         {post.data.slider && <Slider images={post.data.slider} />}
-      </aside>
+      </ArticleAside>
     </ContentWrapper>
   </ArticleWrapper>
 </Layout>

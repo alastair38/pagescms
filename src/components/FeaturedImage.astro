@@ -9,6 +9,7 @@ interface Props extends HTMLAttributes<'figure'> {
   caption?: string;
   height?: string | number;
   width?: string | number;
+  aspect?: 'auto' | 'video' | 'square';
   variant?: 'rounded' | 'plain' | 'avatar';
   layout?: 'default' | 'grid';
   border?: boolean;
@@ -21,6 +22,7 @@ const {
   caption,
   height,
   width,
+  aspect = 'auto',
   variant = 'plain',
   layout = 'default',
   border = false,
@@ -36,6 +38,7 @@ const {
     layout === 'grid' && 'grid grid-cols-2 rounded-xs',
     variant === 'avatar' && 'w-8 h-8 aspect-square rounded-full overflow-clip',
     border && 'border border-border p-1',
+    aspect === 'square' && 'aspect-square',
     attrs.class,
   ]}
   {...attrs}
@@ -49,7 +52,10 @@ const {
     formats={['avif', 'webp']}
     class:list={[
       'object-cover h-full',
-      variant !== 'avatar' && 'max-h-[300px] md:max-h-[500px] rounded-xs',
+      variant !== 'avatar' &&
+        aspect !== 'square' &&
+        'max-h-[300px] md:max-h-[500px]',
+      variant !== 'avatar' && 'rounded-xs',
     ]}
     alt={altText}
   />
